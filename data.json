@@ -1,0 +1,389 @@
+{
+  "siteTitle": "Moamen Soliman — BI Analyst & Data Storyteller",
+  "siteDescription": "Portfolio of Moamen Soliman — BI Analyst at Green Delta Home, Computer Science student at Cairo University.",
+  "profile": {
+    "firstName": "MOAMEN",
+    "lastName": "Soliman",
+    "greeting": "Hi, I'm",
+    "titlesHtml": "<strong>Data Analyst</strong> @ Green Delta Home <span class=\"pipe\">/</span> Computer Science Student @ Cairo University <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL",
+    "photo": "assets/profile.png",
+    "logo": "assets/logo.png",
+    "resumeUrl": "https://drive.google.com/file/d/1EhawEJEflpy9yOZlkDSkga6LI3gFTuAH/view?usp=sharing",
+    "email": "moamensoliman1304@gmail.com",
+    "social": {
+      "github": "https://github.com/MomenSoliman",
+      "linkedin": "https://www.linkedin.com/in/moamen-soliman-17826323b/",
+      "facebook": "#"
+    },
+    "floatingCards": [
+      {
+        "id": "fc-1",
+        "value": "SQL",
+        "labelTop": "Cleaning",
+        "labelBottom": "Layoffs ETL",
+        "position": { "top": "7%", "left": "-6%" },
+        "delay": "0.5s"
+      },
+      {
+        "id": "fc-2",
+        "value": "Power BI",
+        "labelTop": "Visualizing",
+        "labelBottom": "Data Sets",
+        "position": { "bottom": "18%", "right": "-10%" },
+        "delay": "1.5s"
+      },
+      {
+        "id": "fc-3",
+        "value": "100%",
+        "labelTop": "ETL Accuracy",
+        "labelBottom": "Make + Claude",
+        "position": { "bottom": "0", "left": "0" },
+        "delay": "1s"
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "About",
+    "headlineHtml": "Bridging <accent>data</accent> and decisions.",
+    "paragraphs": [
+      "I'm a <strong>Computer Science student at Cairo University</strong>, specializing in <hl>Decision Support &amp; Operations Research</hl>. My background in high-pressure roles at Amazon (via Concentrix) gave me a deep understanding of how businesses actually run — and now I combine that operational lens with technical data skills.",
+      "Today, as a <strong>BI Analyst at Green Delta Home</strong>, I build interactive dashboards, design ETL pipelines, and engineer relational databases that turn raw information into decisions the leadership team can actually act on.",
+      "/// passionate about turning complex data into business growth."
+    ],
+    "stats": [
+      {
+        "id": "stat-1",
+        "value": "4",
+        "label": "Hostels Tracked"
+      },
+      {
+        "id": "stat-2",
+        "value": "4K+",
+        "label": "B2B Contacts Managed"
+      },
+      {
+        "id": "stat-3",
+        "value": "$6.1M",
+        "label": "Revenue Analyzed"
+      },
+      {
+        "id": "stat-4",
+        "value": "100%",
+        "label": "ETL Accuracy"
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "headlineHtml": "Where I've made <accent>impact</accent>.",
+    "subtitle": "From handling 4,000+ B2B accounts at Amazon Business to architecting BI systems for an executive team — every role added a new layer to how I think about data.",
+    "items": [
+      {
+        "id": "exp-1",
+        "title": "Business Intelligence Analyst",
+        "company": "Green Delta Home",
+        "period": "Oct 2025 — Present",
+        "location": "Cairo, Egypt",
+        "current": true,
+        "bullets": [
+          "<strong>BI &amp; Dashboards:</strong> Built interactive dashboards tracking room occupancy and revenue KPIs across 4 hostels — enabling data-driven decisions directly for the CEO.",
+          "<strong>AI Automation:</strong> Engineered an automated ETL pipeline using Make.com and Gemini AI to extract structured data from PDF invoices with 100% accuracy.",
+          "<strong>Revenue Management:</strong> Oversee the full accounts receivable cycle, reconciling payments from Booking.com and local councils to optimize cash flow.",
+          "<strong>Operational Sync:</strong> Established a real-time cloud-to-desktop data bridge for instant dashboard refreshes via Power Query — no manual intervention.",
+          "<strong>Stakeholder Reporting:</strong> Provide daily summarized intelligence reports on high-priority contracts and occupancy trends to streamline executive communication.",
+          "<strong>Database Architecture:</strong> Designed a centralized relational database to replace flat-file systems — improving data integrity and analysis speed."
+        ]
+      },
+      {
+        "id": "exp-2",
+        "title": "B2B Sales Advisor — Amazon Business Account",
+        "company": "Concentrix",
+        "period": "Dec 2024 — Oct 2025 · 11 mo",
+        "location": "New Cairo, Egypt",
+        "current": false,
+        "bullets": [
+          "Managed a high-volume portfolio of <strong>over 4,000 B2B company contacts</strong> for Amazon Business.",
+          "Developed personal Excel trackers using <strong>VLOOKUPs, filters, and advanced functions</strong> to monitor daily KPIs.",
+          "Tracked customer behavior and performed <strong>customer segmentation</strong> to tailor sales pitches per account profile."
+        ]
+      }
+    ],
+    "education": {
+      "school": "Cairo University",
+      "degreeShort": "Bachelor's Degree",
+      "field": "Computer Science · Decision Support & Operations Research",
+      "year": "expected 2028"
+    }
+  },
+  "volunteering": {
+    "eyebrow": "Volunteering",
+    "headlineHtml": "Leading and <accent>building</accent> with people.",
+    "subtitle": "Roles where I've grown leadership, organized teams, and shipped events alongside motivated communities.",
+    "items": [
+      {
+        "id": "vol-1",
+        "title": "President",
+        "organization": "Star Union",
+        "period": "2024 — Present · 2 yrs 5 mos",
+        "category": "Science and Technology",
+        "current": true,
+        "bullets": [
+          "Leading the executive board to set the strategic direction for an organization of <strong>180+ members</strong>, focusing on operational efficiency and measurable impact.",
+          "Implementing <strong>data-driven tracking</strong> for member engagement and event success metrics to ensure all organizational KPIs are met.",
+          "Overseeing internal resource allocation and budgeting based on statistical analysis of previous event performance.",
+          "Facilitating decision-making processes across multiple committees by applying Decision Support logic to solve organizational challenges."
+        ],
+        "activity": "Interviews Day",
+        "logo": "assets/volunteering/star-union/logo.ico",
+        "media": ["assets/volunteering/star-union/interview-day-01.jpg"]
+      },
+      {
+        "id": "vol-2",
+        "title": "Head of Public Relations",
+        "organization": "Minders",
+        "period": "2022 — 2024 · 2 yrs",
+        "category": "Science and Technology",
+        "current": false,
+        "bullets": [
+          "Managed a high-performing PR team to secure <strong>strategic partnerships</strong> and top-tier speakers for major campus events.",
+          "Analyzed market and sponsor data to identify the most effective partnership opportunities, resulting in increased sponsorship value.",
+          "Tracked and reported on engagement metrics and reach to provide sponsors with detailed post-event data analysis.",
+          "Utilized <strong>Excel</strong> to organize and manage large databases of speakers and potential partners, improving outreach efficiency."
+        ],
+        "activity": "First Step Event",
+        "logo": "assets/volunteering/minders/logo.png",
+        "media": ["assets/volunteering/minders/first-step-01.jpg"]
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "headlineHtml": "Selected <accent>case studies</accent>.",
+    "subtitle": "End-to-end projects across Excel, SQL, and Python — each one solving a real business question, from regional sales intelligence to dataset preparation for analysis.",
+    "items": [
+      {
+        "id": "proj-1",
+        "number": "01",
+        "tech": "Excel",
+        "title": "Sales Data Analysis by Excel",
+        "descriptionHtml": "B2B Sales Intelligence Dashboard built with Excel Power Pivot &amp; DAX — analyzing $6.1M+ in revenue to drive regional and profitability insights across U.S. states.",
+        "techPills": [
+          "Excel",
+          "Power Pivot",
+          "DAX",
+          "Power Query",
+          "Pivot Tables"
+        ],
+        "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Sales-Dashboard_Excel",
+        "visualMode": "single-landscape",
+        "media": ["assets/projects/sales/sales-full.png"]
+      },
+      {
+        "id": "proj-2",
+        "number": "02",
+        "tech": "SQL",
+        "title": "SQL Data Cleaning — Layoffs",
+        "descriptionHtml": "Data cleaning project using MySQL to standardize, deduplicate, and prepare a raw global layoffs dataset for Exploratory Data Analysis (EDA). Walks through every step — from handling the missing primary key with <code>ROW_NUMBER()</code> to formatting dates and self-joining to fill nulls.",
+        "techPills": [
+          "MySQL",
+          "Window Functions",
+          "Self Join",
+          "Data Cleaning",
+          "ETL"
+        ],
+        "githubUrl": "https://github.com/MomenSoliman/SQL-Data-Cleaning-Layoffs",
+        "visualMode": "carousel-portrait",
+        "media": [
+          "assets/projects/sql-cleaning/slide-1.png",
+          "assets/projects/sql-cleaning/slide-2.png",
+          "assets/projects/sql-cleaning/slide-3.png",
+          "assets/projects/sql-cleaning/slide-4.png",
+          "assets/projects/sql-cleaning/slide-5.png",
+          "assets/projects/sql-cleaning/slide-6.png",
+          "assets/projects/sql-cleaning/slide-7.png",
+          "assets/projects/sql-cleaning/slide-8.png"
+        ]
+      },
+      {
+        "id": "proj-3",
+        "number": "03",
+        "tech": "Excel + Python",
+        "title": "Mexico Toys Shop Sales",
+        "descriptionHtml": "Excel + Python data analysis project exploring sales, profit margins, inventory health, and regional performance across <strong>50 toy stores in Mexico</strong>. Includes dashboard, pivot tables, and a full business report. Built on the Maven Analytics dataset.",
+        "techPills": ["Excel", "Power Query", "Inventory Analysis"],
+        "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Mexico-Toyes-Shop-Sales-Dashboard",
+        "visualMode": "carousel-landscape",
+        "media": [
+          "assets/projects/mexico-report/slide-01.png",
+          "assets/projects/mexico-report/slide-02.png",
+          "assets/projects/mexico-report/slide-03.png",
+          "assets/projects/mexico-report/slide-04.png",
+          "assets/projects/mexico-report/slide-05.png",
+          "assets/projects/mexico-report/slide-06.png",
+          "assets/projects/mexico-report/slide-07.png",
+          "assets/projects/mexico-report/slide-08.png",
+          "assets/projects/mexico-report/slide-09.png",
+          "assets/projects/mexico-report/slide-10.png",
+          "assets/projects/mexico-report/slide-11.png"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "headlineHtml": "My <accent>toolkit</accent>.",
+    "subtitle": "The tools, languages, and concepts I use day-to-day for cleaning data, building models, and shipping decisions.",
+    "categories": [
+      {
+        "id": "cat-1",
+        "name": "Data & Analytics",
+        "items": [
+          {
+            "id": "sk-excel",
+            "name": "Power BI",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/simple-icons:powerbi.svg?color=%2300d4ff"
+          },
+          {
+            "id": "sk-dax",
+            "name": "DAX",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/mdi:function-variant.svg?color=%2300d4ff"
+          },
+          {
+            "id": "sk-pq",
+            "name": "Power Query",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff"
+          },
+          {
+            "id": "sk-pp",
+            "name": "Power Pivot",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/mdi:graph-outline.svg?color=%2300d4ff"
+          },
+          {
+            "id": "sk-python",
+            "name": "Python",
+            "iconType": "url",
+            "iconValue": "https://cdn.simpleicons.org/python/00d4ff"
+          }
+        ]
+      },
+      {
+        "id": "cat-2",
+        "name": "BI & Automation",
+        "items": [
+          {
+            "id": "sk-gemini",
+            "name": "Gemini AI",
+            "iconType": "url",
+            "iconValue": "https://cdn.simpleicons.org/googlegemini/00d4ff"
+          },
+          {
+            "id": "sk-db",
+            "name": "Claude AI",
+            "iconType": "url",
+            "iconValue": "https://cdn.simpleicons.org/claude/00d4ff"
+          },
+          {
+            "id": "sk-make",
+            "name": "Make.com",
+            "iconType": "url",
+            "iconValue": "https://cdn.simpleicons.org/Make/00d4ff"
+          },
+          {
+            "id": "sk-etl",
+            "name": "ETL Pipelines",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/mdi:transit-connection-variant.svg?color=%2300d4ff"
+          }
+        ]
+      },
+      {
+        "id": "cat-3",
+        "name": "Programming Languages",
+        "items": [
+          {
+            "id": "sk-python",
+            "name": "Python",
+            "iconType": "url",
+            "iconValue": "https://cdn.simpleicons.org/python/00d4ff"
+          },
+          {
+            "id": "sk-mysql",
+            "name": "MySQL",
+            "iconType": "url",
+            "iconValue": "https://cdn.simpleicons.org/mysql/00d4ff"
+          },
+          {
+            "id": "sk-cpp",
+            "name": "C++",
+            "iconType": "url",
+            "iconValue": "https://cdn.simpleicons.org/cplusplus/00d4ff"
+          }
+        ]
+      },
+      {
+        "id": "cat-4",
+        "name": "Microsoft Office Suite",
+        "items": [
+          {
+            "id": "sk-excel",
+            "name": "Excel",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%2300d4ff"
+          },
+          {
+            "id": "sk-word",
+            "name": "Word",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftword.svg?color=%2300d4ff"
+          },
+          {
+            "id": "sk-ppt",
+            "name": "PowerPoint",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftpowerpoint.svg?color=%2300d4ff"
+          },
+          {
+            "id": "sk-access",
+            "name": "Access",
+            "iconType": "url",
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftaccess.svg?color=%2300d4ff"
+          }
+        ]
+      }
+    ],
+    "certifications": [
+      {
+        "id": "cert-1",
+        "type": "MOS Expert",
+        "title": "Microsoft Office Word 2016"
+      },
+      {
+        "id": "cert-2",
+        "type": "MOS",
+        "title": "Microsoft Office Access 2016"
+      },
+      {
+        "id": "cert-3",
+        "type": "MTA",
+        "title": "Database Administration Fundamentals"
+      },
+      {
+        "id": "cert-4",
+        "type": "MOS",
+        "title": "Microsoft Office PowerPoint 2016"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "headlineHtml": "Let's turn data into <accent>decisions</accent>.",
+    "description": "Open to BI Analyst roles, freelance dashboard work, and data-cleaning collaborations. If you have a dataset that needs answers — let's talk."
+  },
+  "footer": {
+    "tagline": "Built with care."
+  }
+}
