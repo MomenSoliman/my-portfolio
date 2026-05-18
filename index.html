@@ -1077,33 +1077,53 @@
         .vol-card {
           border-radius: 18px;
         }
+        /* logo badge still floats over the photo, just smaller */
         .vol-logo-badge {
-          width: 52px;
-          height: 52px;
-          top: 1rem;
-          left: 1rem;
+          width: 46px;
+          height: 46px;
+          top: 0.85rem;
+          left: 0.85rem;
         }
         .vol-logo-badge img {
-          width: 38px;
-          height: 38px;
+          width: 32px;
+          height: 32px;
+        }
+        /* pull meta block out of the photo overlay — no more cramped overlap */
+        .vol-hero-overlay {
+          display: none;
         }
         .vol-hero-meta {
-          padding: 1.4rem 1.4rem 1.3rem;
+          position: static;
+          padding: 1.4rem 1.5rem 0;
+        }
+        .vol-hero-meta h3 {
+          color: var(--text);
+          font-size: clamp(1.4rem, 5vw, 1.7rem);
+        }
+        .vol-org {
+          color: var(--text-2);
+        }
+        .vol-org .badge-now {
+          background: rgba(0, 212, 255, 0.14);
+          border-color: rgba(0, 212, 255, 0.32);
+        }
+        .vol-meta-row {
+          color: var(--text-3);
         }
         .vol-activity-chip {
-          margin-bottom: 0.6rem;
+          margin-bottom: 0.7rem;
           font-size: 0.66rem;
           padding: 0.3rem 0.65rem;
         }
         .vol-body {
-          padding: 1.6rem 1.5rem 1.7rem;
+          padding: 1.3rem 1.5rem 1.7rem;
         }
         .vol-bullets li {
           font-size: 0.92rem;
         }
         .vol-hero .carousel-controls {
-          top: 1rem;
-          right: 1rem;
+          top: 0.85rem;
+          right: 0.85rem;
         }
       }
       .edu-card {
@@ -1637,6 +1657,11 @@
         text-transform: uppercase;
       }
 
+      /* ============ FLOATING MOBILE NAV (hidden on desktop) ============ */
+      .mobile-nav {
+        display: none;
+      }
+
       @media (max-width: 980px) {
         .hero {
           padding: 7rem 1.5rem 4rem;
@@ -1665,7 +1690,9 @@
           gap: 2.5rem;
         }
         .project,
-        .project.reverse {
+        .project.reverse,
+        .project:has(.project-visual.portrait),
+        .project.reverse:has(.project-visual.portrait) {
           grid-template-columns: 1fr;
           gap: 1.6rem;
         }
@@ -1675,28 +1702,75 @@
         .project.reverse .project-info {
           order: 2;
         }
-        .nav-links {
-          display: none;
+
+        /* hide top-bar navigation links, hamburger, and resume CTA — replaced by floating nav */
+        .nav-links,
+        .nav-links.open,
+        .nav-toggle,
+        .nav-cta {
+          display: none !important;
         }
-        .nav-toggle {
+
+        /* floating bottom nav */
+        .mobile-nav {
+          display: flex;
+          position: fixed;
+          left: 50%;
+          bottom: max(1rem, env(safe-area-inset-bottom, 0));
+          transform: translateX(-50%);
+          z-index: 60;
+          align-items: center;
+          gap: 0.25rem;
+          padding: 0.45rem;
+          background: rgba(8, 13, 36, 0.78);
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          border: 1px solid var(--line-strong);
+          border-radius: 99px;
+          box-shadow:
+            0 18px 50px -16px rgba(0, 0, 0, 0.8),
+            0 0 0 1px rgba(0, 212, 255, 0.05);
+          max-width: calc(100% - 1.5rem);
+        }
+        .mobile-nav-item {
+          width: 44px;
+          height: 44px;
+          flex-shrink: 0;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 99px;
+          color: var(--text-2);
+          text-decoration: none;
+          transition:
+            background 0.25s ease,
+            color 0.25s ease,
+            transform 0.2s ease,
+            box-shadow 0.25s ease;
+          -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-nav-item svg {
+          width: 21px;
+          height: 21px;
           display: block;
         }
-        .nav-links.open {
-          display: flex;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          flex-direction: column;
-          background: rgba(8, 13, 36, 0.95);
-          backdrop-filter: blur(14px);
-          padding: 1rem;
-          border-top: 1px solid var(--line);
-          border-bottom: 1px solid var(--line);
-          gap: 0.2rem;
+        .mobile-nav-item:hover,
+        .mobile-nav-item:focus-visible {
+          color: var(--text);
+          background: rgba(255, 255, 255, 0.05);
         }
-        .nav-cta {
-          display: none;
+        .mobile-nav-item.active {
+          background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+          color: var(--navy-950);
+          box-shadow: 0 8px 22px -8px rgba(0, 212, 255, 0.65);
+        }
+        .mobile-nav-item.active:hover {
+          color: var(--navy-950);
+        }
+
+        /* leave room above the page-bottom so floating nav never covers content */
+        body {
+          padding-bottom: 96px;
         }
         section {
           padding: 5rem 1.5rem;
@@ -1762,6 +1836,13 @@
       <div class="nav-inner" id="navInner"></div>
     </nav>
 
+    <!-- Floating bottom nav for mobile / tablet only (CSS-hidden on desktop) -->
+    <nav
+      class="mobile-nav"
+      id="mobileNav"
+      aria-label="Section navigation"
+    ></nav>
+
     <main>
       <section id="home" class="hero"></section>
       <section id="about"></section>
@@ -1789,6 +1870,13 @@
         chevronRight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`,
         cap: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 10-10-5L2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
         award: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+        navHome: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>`,
+        navUser: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+        navBriefcase: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+        navCode: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>`,
+        navUsers: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        navCap: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench-icon lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>`,
+        navMail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>`,
       };
     </script>
 
@@ -1861,13 +1949,13 @@
         const inner = document.getElementById("navInner");
         const profile = d.profile || {};
         const sections = [
-          { id: "home", label: "Home" },
-          { id: "about", label: "About" },
-          { id: "experience", label: "Experience" },
-          { id: "projects", label: "Projects" },
-          { id: "volunteering", label: "Volunteering" },
-          { id: "skills", label: "Skills" },
-          { id: "contact", label: "Contact" },
+          { id: "home", label: "Home", icon: ICONS.navHome },
+          { id: "about", label: "About", icon: ICONS.navUser },
+          { id: "experience", label: "Experience", icon: ICONS.navBriefcase },
+          { id: "projects", label: "Projects", icon: ICONS.navCode },
+          { id: "volunteering", label: "Volunteering", icon: ICONS.navUsers },
+          { id: "skills", label: "Skills", icon: ICONS.navCap },
+          { id: "contact", label: "Contact", icon: ICONS.navMail },
         ];
         inner.innerHTML = `
     <a href="#home" class="brand">
@@ -1880,6 +1968,18 @@
     <a href="${esc(profile.resumeUrl || "#")}" target="_blank" rel="noopener" class="nav-cta">Resume ${ICONS.arrowOut}</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">${ICONS.menu}</button>
   `;
+        // Populate the floating mobile nav with icon-only links
+        const mobileNav = document.getElementById("mobileNav");
+        if (mobileNav) {
+          mobileNav.innerHTML = sections
+            .map(
+              (s) => `
+        <a href="#${s.id}" class="mobile-nav-item" data-section="${s.id}" aria-label="${s.label}" title="${s.label}">
+          ${s.icon}
+        </a>`,
+            )
+            .join("");
+        }
         // apply mask-image for logo
         if (profile.logo) {
           const lg = document.getElementById("brandLogo");
@@ -2345,7 +2445,9 @@
           "contact",
         ];
         const sections = sectionIds.map((id) => document.getElementById(id));
-        const navAnchors = document.querySelectorAll(".nav-links a");
+        const navAnchors = document.querySelectorAll(
+          ".nav-links a, .mobile-nav-item",
+        );
         const setActive = () => {
           const y = window.scrollY + 120;
           let current = "home";
