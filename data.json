@@ -261,12 +261,6 @@
             "name": "Power Pivot",
             "iconType": "url",
             "iconValue": "https://api.iconify.design/mdi:graph-outline.svg?color=%2300d4ff"
-          },
-          {
-            "id": "sk-python",
-            "name": "Python",
-            "iconType": "url",
-            "iconValue": "https://cdn.simpleicons.org/python/00d4ff"
           }
         ]
       },
