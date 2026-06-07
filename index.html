@@ -1974,11 +1974,83 @@
       .proj-card-link:hover { gap: 0.7rem; }
       .proj-card-link svg { width: 14px; height: 14px; }
 
+      /* ============ PROJECT PAGES — RESPONSIVE (tablet + mobile only) ============ */
+      /* Inset content once viewport drops below the centered container width
+         (desktop > 1240px keeps its current comfortable margins, untouched) */
+      @media (max-width: 1240px) {
+        .proj-page-inner {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+
+      /* Tablet */
+      @media (max-width: 980px) {
+        .proj-page-inner { padding-top: 5rem; }
+        .proj-back { margin-bottom: 2rem; }
+        .proj-page-header { margin-bottom: 1.8rem; }
+        .proj-page-media { margin-bottom: 2.2rem; }
+        .proj-section { margin-bottom: 3rem; }
+      }
+
+      /* Mobile */
       @media (max-width: 680px) {
-        .proj-tools-grid { grid-template-columns: 1fr; }
-        .proj-process { grid-template-columns: 1fr; }
-        .proj-stat { min-width: 130px; }
+        .proj-page-inner {
+          padding-top: 4.5rem;
+          padding-left: 1.25rem;
+          padding-right: 1.25rem;
+        }
+        .proj-back { margin-bottom: 1.6rem; font-size: 0.74rem; }
+        .proj-page-header { margin-bottom: 1.5rem; }
+        .proj-page-header .project-num { font-size: 0.78rem; margin-bottom: 0.6rem; }
         .proj-page-title { font-size: clamp(1.7rem, 7vw, 2.5rem); }
+
+        .proj-page-media { margin-bottom: 2rem; border-radius: 14px; }
+        .proj-page-img { border-radius: 14px; }
+
+        /* Stats — keep 3-up but shrink to fit small screens */
+        .proj-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.6rem;
+        }
+        .proj-stat {
+          min-width: 0;
+          padding: 0.95rem 0.7rem;
+          border-radius: 13px;
+        }
+        .stat-val { font-size: 1.3rem; }
+        .stat-label { font-size: 0.62rem; letter-spacing: 0.08em; }
+
+        .proj-page-desc { font-size: 0.98rem; line-height: 1.75; margin-bottom: 2.6rem; }
+        .proj-section { margin-bottom: 2.8rem; }
+        .proj-section-title { font-size: 1.1rem; margin-bottom: 1.3rem; }
+
+        /* Tools — single column */
+        .proj-tools-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+        .proj-tool { padding: 1.05rem 1.15rem; }
+
+        /* Process — single column, drop the connector arrows */
+        .proj-process { grid-template-columns: 1fr; }
+        .proc-step::after { display: none; }
+
+        /* Embed — tall usable area instead of a short 16:9 strip */
+        .proj-embed-wrap { aspect-ratio: auto; height: 70vh; min-height: 340px; }
+
+        /* Actions — full-width stacked buttons */
+        .proj-actions { flex-direction: column; gap: 0.7rem; }
+        .proj-action-btn { width: 100%; justify-content: center; }
+      }
+
+      /* Extra-small phones — stack stats as labelled rows */
+      @media (max-width: 400px) {
+        .proj-stats { grid-template-columns: 1fr; }
+        .proj-stat {
+          flex-direction: row;
+          align-items: baseline;
+          justify-content: space-between;
+        }
+        .stat-label { text-align: right; }
       }
 
       /* ============ SQL WALKTHROUGH — MAIN PORTFOLIO CARD PREVIEW ============ */
@@ -2264,13 +2336,32 @@
         margin: 0;
       }
 
+      /* Walkthrough — tablet */
+      @media (max-width: 980px) {
+        .wt-step-content { padding: 1.5rem 1.6rem; }
+      }
+
+      /* Walkthrough + SQL preview — mobile */
       @media (max-width: 680px) {
         .wt-step-content { padding: 1.2rem 1.2rem 1.4rem; }
-        .wt-intro { padding: 1.4rem 1.5rem; }
+        .wt-step-header { gap: 0.7rem; }
+        .wt-step-title { font-size: 1rem; }
+        .wt-step-icon img { width: 34px; height: 34px; }
+        .wt-step-desc { font-size: 0.86rem; }
+        .wt-intro { padding: 1.4rem 1.5rem; gap: 1.1rem; }
+        .wt-intro-flow { gap: 0.7rem; justify-content: center; }
+        .wt-flow-step img { width: 38px; height: 38px; }
+        .wt-intro-sub { font-size: 0.88rem; }
         .wt-code-body { padding: 1rem; }
-        .wt-code { font-size: 0.78rem; }
+        .wt-code { font-size: 0.74rem; line-height: 1.7; }
+        .wt-code-label { font-size: 0.62rem; }
+        .wt-code-copy { font-size: 0.62rem; padding: 0.2rem 0.5rem; }
         .wt-outro { flex-direction: column; gap: 1rem; padding: 1.4rem; }
-        .wt-intro-flow { gap: 0.8rem; }
+
+        /* SQL terminal preview on the main portfolio grid */
+        .sql-preview-body { max-height: 230px; }
+        .sql-preview-body code { font-size: 0.72rem; line-height: 1.7; }
+        .sql-preview-label { font-size: 0.58rem; }
       }
 
       /* ============ WALKTHROUGH (SQL project case-study) ============ */
