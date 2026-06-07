@@ -21,7 +21,10 @@
         "value": "SQL",
         "labelTop": "Cleaning",
         "labelBottom": "Layoffs ETL",
-        "position": { "top": "7%", "left": "-6%" },
+        "position": {
+          "top": "7%",
+          "left": "-6%"
+        },
         "delay": "0.5s"
       },
       {
@@ -29,7 +32,10 @@
         "value": "Power BI",
         "labelTop": "Visualizing",
         "labelBottom": "Data Sets",
-        "position": { "bottom": "18%", "right": "-10%" },
+        "position": {
+          "bottom": "18%",
+          "right": "-10%"
+        },
         "delay": "1.5s"
       },
       {
@@ -37,7 +43,10 @@
         "value": "100%",
         "labelTop": "ETL Accuracy",
         "labelBottom": "Make + Claude",
-        "position": { "bottom": "0", "left": "0" },
+        "position": {
+          "bottom": "0",
+          "left": "0"
+        },
         "delay": "1s"
       }
     ]
@@ -135,7 +144,9 @@
         ],
         "activity": "Interviews Day",
         "logo": "assets/volunteering/star-union/logo.ico",
-        "media": ["assets/volunteering/star-union/interview-day-01.jpg"]
+        "media": [
+          "assets/volunteering/star-union/interview-day-01.jpg"
+        ]
       },
       {
         "id": "vol-2",
@@ -152,7 +163,9 @@
         ],
         "activity": "First Step Event",
         "logo": "assets/volunteering/minders/logo.png",
-        "media": ["assets/volunteering/minders/first-step-01.jpg"]
+        "media": [
+          "assets/volunteering/minders/first-step-01.jpg"
+        ]
       }
     ]
   },
@@ -176,7 +189,74 @@
         ],
         "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Sales-Dashboard_Excel",
         "visualMode": "single-landscape",
-        "media": ["assets/projects/sales/sales-full.png"]
+        "media": [
+          "assets/projects/sales/sales-full.png"
+        ],
+        "stats": [
+          {
+            "value": "$6.1M+",
+            "label": "Revenue Analyzed"
+          },
+          {
+            "value": "50",
+            "label": "U.S. States"
+          },
+          {
+            "value": "5",
+            "label": "Core KPIs"
+          }
+        ],
+        "tools": [
+          {
+            "name": "Excel",
+            "iconUrl": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%2300d4ff",
+            "usage": "Primary environment — built the complete B2B sales dashboard and all visualizations from raw transactional data."
+          },
+          {
+            "name": "Power Query",
+            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff",
+            "usage": "ETL layer — loaded, cleaned, and reshaped the raw CSV files before they reached the analysis layer."
+          },
+          {
+            "name": "Power Pivot",
+            "iconUrl": "https://api.iconify.design/mdi:graph-outline.svg?color=%2300d4ff",
+            "usage": "Underlying engine enabling DAX-based calculations and multi-column analysis within the Excel workbook."
+          },
+          {
+            "name": "DAX",
+            "iconUrl": "https://api.iconify.design/mdi:function-variant.svg?color=%2300d4ff",
+            "usage": "Written custom measures for revenue KPIs, profit margins, YoY growth, and regional ranking logic."
+          },
+          {
+            "name": "Pivot Tables",
+            "iconUrl": "https://api.iconify.design/mdi:table-large.svg?color=%2300d4ff",
+            "usage": "Summarized multi-dimensional sales data into cross-tab reports that feed every chart in the dashboard."
+          }
+        ],
+        "process": [
+          {
+            "step": "Import Data",
+            "description": "Loaded raw B2B sales CSV files into Excel, preserving original structure for audit trail."
+          },
+          {
+            "step": "Power Query (ETL)",
+            "description": "Cleaned, filtered, and reshaped the raw dataset — removed nulls, standardized headers and date formats."
+          },
+          {
+            "step": "DAX Measures",
+            "description": "Wrote calculated measures for Revenue, Profit Margin, YoY Growth, and regional KPI rankings."
+          },
+          {
+            "step": "Pivot Tables",
+            "description": "Built cross-tabulated summaries by state, product category, and sales rep for the dashboard layer."
+          },
+          {
+            "step": "Dashboard",
+            "description": "Assembled interactive visuals into a single-pane Excel dashboard with slicers for dynamic filtering."
+          }
+        ],
+        "sourceUrl": "",
+        "embedUrl": ""
       },
       {
         "id": "proj-2",
@@ -192,17 +272,149 @@
           "ETL"
         ],
         "githubUrl": "https://github.com/MomenSoliman/SQL-Data-Cleaning-Layoffs",
-        "visualMode": "carousel-portrait",
-        "media": [
-          "assets/projects/sql-cleaning/slide-1.png",
-          "assets/projects/sql-cleaning/slide-2.png",
-          "assets/projects/sql-cleaning/slide-3.png",
-          "assets/projects/sql-cleaning/slide-4.png",
-          "assets/projects/sql-cleaning/slide-5.png",
-          "assets/projects/sql-cleaning/slide-6.png",
-          "assets/projects/sql-cleaning/slide-7.png",
-          "assets/projects/sql-cleaning/slide-8.png"
-        ]
+        "visualMode": "walkthrough",
+        "media": [],
+        "stats": [
+          {
+            "value": "2,361",
+            "label": "Records Processed"
+          },
+          {
+            "value": "7",
+            "label": "Cleaning Steps"
+          },
+          {
+            "value": "Global",
+            "label": "Dataset Scope"
+          }
+        ],
+        "tools": [
+          {
+            "name": "MySQL",
+            "iconUrl": "https://cdn.simpleicons.org/mysql/00d4ff",
+            "usage": "Primary database engine — all cleaning, deduplication, and transformation queries written and executed in MySQL Workbench."
+          },
+          {
+            "name": "Window Functions",
+            "iconUrl": "https://api.iconify.design/mdi:layers-triple.svg?color=%2300d4ff",
+            "usage": "Used ROW_NUMBER() with PARTITION BY to detect and rank duplicate rows before removing them systematically."
+          },
+          {
+            "name": "Self Join",
+            "iconUrl": "https://api.iconify.design/mdi:relation-many-to-many.svg?color=%2300d4ff",
+            "usage": "Joined the layoffs table against itself to propagate non-null values into rows where the same company had missing fields."
+          },
+          {
+            "name": "Data Cleaning",
+            "iconUrl": "https://api.iconify.design/mdi:broom.svg?color=%2300d4ff",
+            "usage": "Applied standardization rules — trimmed whitespace, unified country names, and normalized date formats across all records."
+          },
+          {
+            "name": "ETL",
+            "iconUrl": "https://api.iconify.design/mdi:transit-connection-variant.svg?color=%2300d4ff",
+            "usage": "Structured the full pipeline as a repeatable ETL process: staged raw data → transformed → loaded into EDA-ready output table."
+          }
+        ],
+        "process": [
+          {
+            "step": "Raw Dataset",
+            "description": "Loaded the original global layoffs CSV (2020–2023) into a staging table, preserving raw data untouched."
+          },
+          {
+            "step": "Remove Duplicates",
+            "description": "Used ROW_NUMBER() window function to identify and delete exact duplicate records across all columns."
+          },
+          {
+            "step": "Standardize Fields",
+            "description": "Trimmed whitespace, unified country name variants, and normalized inconsistent industry labels."
+          },
+          {
+            "step": "Handle Nulls",
+            "description": "Identified null patterns and populated missing values where possible using business logic and self-joins."
+          },
+          {
+            "step": "Self Join",
+            "description": "Cross-referenced company rows to fill null industry/stage fields from matching non-null sibling rows."
+          },
+          {
+            "step": "Remove Blanks",
+            "description": "Dropped rows where both key metrics (total_laid_off and percentage_laid_off) were null — unusable for EDA."
+          },
+          {
+            "step": "EDA-Ready Output",
+            "description": "Delivered a clean, consistent table ready for exploratory analysis — no duplicates, no critical nulls."
+          }
+        ],
+        "sourceUrl": "",
+        "embedUrl": "",
+        "walkthrough": {
+          "intro": {
+            "mysqlIconUrl": "https://cdn.simpleicons.org/mysql/00d4ff",
+            "dbIconUrl": "https://api.iconify.design/mdi:database.svg?color=%23ffa502",
+            "cleanIconUrl": "https://api.iconify.design/mdi:database-check.svg?color=%2300d4ff",
+            "subtitle": "A step-by-step MySQL project that transforms a raw, messy global layoffs dataset into a clean, analysis-ready table — removing duplicates, standardising values, fixing dates, and handling nulls."
+          },
+          "steps": [
+            {
+              "num": "01",
+              "iconUrl": "https://api.iconify.design/mdi:key-remove.svg?color=%23ff6b6b",
+              "tag": "PROBLEM",
+              "title": "No Primary Key",
+              "desc": "The raw dataset arrived with no unique identifier — rows could not be individually referenced or safely deduplicated. ROW_NUMBER() was used to add a sequential row_num column, and the data was duplicated into a staging table before any destructive operations.",
+              "codeLabel": "Creating Staging Table",
+              "code": "CREATE TABLE `layoffs_staging2` (\n  `company` text,\n  `location` text,\n  `industry` text,\n  `total_laid_off` int DEFAULT NULL,\n  `percentage_laid_off` text,\n  `date` text,\n  `stage` text,\n  `country` text,\n  `funds_raised_millions` int DEFAULT NULL,\n  `row_num` int\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;"
+            },
+            {
+              "num": "02",
+              "iconUrl": "https://api.iconify.design/mdi:content-duplicate.svg?color=%23ffa502",
+              "tag": "STEP 1",
+              "title": "Deleting Duplicates",
+              "desc": "PARTITION BY across every column groups truly identical rows together. Any row assigned row_num > 1 is a confirmed duplicate. A single DELETE WHERE row_num > 1 wipes them all out, leaving a 100% unique dataset.",
+              "codeLabel": "Partition By & Deleting",
+              "code": "INSERT INTO layoffs_staging2\nSELECT *,\n  ROW_NUMBER() OVER(\n    PARTITION BY company, location, industry,\n      total_laid_off, percentage_laid_off,\n      `date`, stage, country, funds_raised_millions\n  ) AS row_num\nFROM layoffs_staging;\n\nDELETE\nFROM layoffs_staging2\nWHERE row_num > 1;"
+            },
+            {
+              "num": "03",
+              "iconUrl": "https://api.iconify.design/mdi:format-letter-case.svg?color=%2300d4ff",
+              "tag": "STEP 2",
+              "title": "Data Standardization",
+              "desc": "Raw data had extra whitespace, inconsistent industry labels, and a country name with a trailing period. TRIM() cleaned company names, a LIKE pattern unified 'Crypto%' variants into 'Crypto', and TRIM(TRAILING) removed the rogue period from 'United States.'.",
+              "codeLabel": "Data Standardization",
+              "code": "UPDATE layoffs_staging2\nSET company = TRIM(company);\n\nUPDATE layoffs_staging2\nSET industry = 'Crypto'\nWHERE industry LIKE 'Crypto%';\n\nUPDATE layoffs_staging2\nSET country = TRIM(TRAILING '.' FROM country)\nWHERE country LIKE 'United States%';"
+            },
+            {
+              "num": "04",
+              "iconUrl": "https://api.iconify.design/mdi:calendar-clock.svg?color=%234d8fff",
+              "tag": "STEP 3",
+              "title": "Date Formatting",
+              "desc": "The date column was stored as TEXT in '%m/%d/%Y' format — completely unusable for any time-series or date-range query. STR_TO_DATE() parsed each string into a real MySQL DATE value, then ALTER TABLE MODIFY COLUMN locked in the correct column type.",
+              "codeLabel": "Date Formatting",
+              "code": "UPDATE layoffs_staging2\nSET `date` = STR_TO_DATE(`date`, '%m/%d/%Y');\n\nALTER TABLE layoffs_staging2\nMODIFY COLUMN `date` DATE;"
+            },
+            {
+              "num": "05",
+              "iconUrl": "https://api.iconify.design/mdi:circle-off-outline.svg?color=%23a29bfe",
+              "tag": "STEP 4",
+              "title": "Treating Nulls & Blanks",
+              "desc": "Blank empty strings were first converted to NULL for consistent handling. A Self-Join then matched each company that had a NULL industry to another row of the same company where the industry was known — SQL fills the gap automatically.",
+              "codeLabel": "Nulls & Blanks",
+              "code": "UPDATE layoffs_staging2\nSET industry = NULL\nWHERE industry = '';\n\nUPDATE layoffs_staging2 t1\nJOIN layoffs_staging2 t2\n  ON t1.company = t2.company\nSET t1.industry = t2.industry\nWHERE t1.industry IS NULL\nAND t2.industry IS NOT NULL;"
+            },
+            {
+              "num": "06",
+              "iconUrl": "https://api.iconify.design/mdi:delete-sweep.svg?color=%23ff7675",
+              "tag": "STEP 5",
+              "title": "Trimming the Fat",
+              "desc": "Rows where both total_laid_off AND percentage_laid_off are NULL carry no analytical value — they cannot contribute to any insight. These rows were deleted entirely. The helper row_num column used during deduplication was then dropped with ALTER TABLE.",
+              "codeLabel": "Trimming the Fat",
+              "code": "DELETE\nFROM layoffs_staging2\nWHERE total_laid_off IS NULL\nAND percentage_laid_off IS NULL;\n\nALTER TABLE layoffs_staging2\nDROP COLUMN row_num;"
+            }
+          ],
+          "outro": {
+            "title": "Dataset is EDA-Ready",
+            "desc": "After 6 cleaning operations the dataset is free of duplicates, has consistent formatting, properly typed columns, and no critically missing values. The next step is Exploratory Data Analysis (EDA) to extract real insights."
+          }
+        }
       },
       {
         "id": "proj-3",
@@ -210,7 +422,11 @@
         "tech": "Excel + Python",
         "title": "Mexico Toys Shop Sales",
         "descriptionHtml": "Excel + Python data analysis project exploring sales, profit margins, inventory health, and regional performance across <strong>50 toy stores in Mexico</strong>. Includes dashboard, pivot tables, and a full business report. Built on the Maven Analytics dataset.",
-        "techPills": ["Excel", "Power Query", "Inventory Analysis"],
+        "techPills": [
+          "Excel",
+          "Power Query",
+          "Inventory Analysis"
+        ],
         "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Mexico-Toyes-Shop-Sales-Dashboard",
         "visualMode": "carousel-landscape",
         "media": [
@@ -225,7 +441,67 @@
           "assets/projects/mexico-report/slide-09.png",
           "assets/projects/mexico-report/slide-10.png",
           "assets/projects/mexico-report/slide-11.png"
-        ]
+        ],
+        "stats": [
+          {
+            "value": "50",
+            "label": "Stores Analyzed"
+          },
+          {
+            "value": "5",
+            "label": "Product Categories"
+          },
+          {
+            "value": "4",
+            "label": "Years of Data"
+          }
+        ],
+        "tools": [
+          {
+            "name": "Excel",
+            "iconUrl": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%2300d4ff",
+            "usage": "Main analysis environment — dashboard, all charts, and pivot-based summaries built and presented here."
+          },
+          {
+            "name": "Power Query",
+            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff",
+            "usage": "Merged multiple CSV source files (sales, products, stores, calendar), standardized date formats and category labels."
+          },
+          {
+            "name": "Pivot Tables",
+            "iconUrl": "https://api.iconify.design/mdi:table-large.svg?color=%2300d4ff",
+            "usage": "Aggregated sales and profit data across stores, regions, and product lines to surface top and bottom performers."
+          },
+          {
+            "name": "Inventory Analysis",
+            "iconUrl": "https://api.iconify.design/mdi:clipboard-list-outline.svg?color=%2300d4ff",
+            "usage": "Modeled stock health metrics — days of supply, over/understocked flags — per product per store to guide reorder decisions."
+          }
+        ],
+        "process": [
+          {
+            "step": "Import CSVs",
+            "description": "Loaded four related CSV files (sales, products, stores, calendar) into Excel via Power Query connections."
+          },
+          {
+            "step": "Power Query",
+            "description": "Merged tables on shared keys, cleaned null values, and standardized date and category fields."
+          },
+          {
+            "step": "Pivot Analysis",
+            "description": "Built pivot tables for revenue, profit margin, and units sold — sliced by store, region, and product category."
+          },
+          {
+            "step": "Inventory Model",
+            "description": "Calculated stock-on-hand vs. avg daily sales to flag over/understocked SKUs and estimate days of supply."
+          },
+          {
+            "step": "Dashboard",
+            "description": "Assembled findings into an interactive Excel dashboard with slicers for store, region, and date range."
+          }
+        ],
+        "sourceUrl": "",
+        "embedUrl": ""
       }
     ]
   },

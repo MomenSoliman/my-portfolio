@@ -1657,6 +1657,849 @@
         text-transform: uppercase;
       }
 
+      /* ============ PROJECT DETAIL PAGE ============ */
+      #projectPage {
+        display: none;
+        min-height: 100vh;
+        padding-bottom: 6rem;
+      }
+      @keyframes proj-fadein {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .proj-page-inner {
+        padding-top: 6rem;
+      }
+      .proj-page-inner > * {
+        animation: proj-fadein 0.5s ease both;
+      }
+      .proj-page-inner > *:nth-child(1) { animation-delay: 0s; }
+      .proj-page-inner > *:nth-child(2) { animation-delay: 0.06s; }
+      .proj-page-inner > *:nth-child(3) { animation-delay: 0.12s; }
+      .proj-page-inner > *:nth-child(4) { animation-delay: 0.18s; }
+      .proj-page-inner > *:nth-child(5) { animation-delay: 0.22s; }
+      .proj-page-inner > *:nth-child(n+6) { animation-delay: 0.26s; }
+
+      .proj-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-3);
+        text-decoration: none;
+        margin-bottom: 2.8rem;
+        transition: color 0.2s;
+      }
+      .proj-back:hover { color: var(--cyan); }
+      .proj-back svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+      .proj-page-header { margin-bottom: 2.2rem; }
+      .proj-page-header .project-num { margin-bottom: 0.85rem; font-size: 0.85rem; }
+      .proj-page-title {
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        margin: 0;
+        color: var(--text);
+      }
+
+      .proj-page-media {
+        margin-bottom: 2.8rem;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .proj-page-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+      }
+      .proj-page-media .project-visual { border-radius: 20px; }
+      .proj-page-media .project-media { margin: 0; }
+
+      /* Stats */
+      .proj-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2.8rem;
+      }
+      .proj-stat {
+        flex: 1;
+        min-width: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        padding: 1.3rem 1.6rem;
+        background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+        border: 1px solid var(--line-strong);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      .proj-stat::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--cyan), var(--blue));
+      }
+      .stat-val {
+        font-family: var(--mono);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--cyan);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--text-3);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-family: var(--mono);
+      }
+
+      /* Description */
+      .proj-page-desc {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--text-2);
+        margin-bottom: 3.5rem;
+        max-width: 800px;
+      }
+
+      /* Section blocks */
+      .proj-section { margin-bottom: 3.8rem; }
+      .proj-section-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 1.6rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .proj-section-title::before {
+        content: '';
+        display: block;
+        width: 26px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--cyan), var(--blue));
+        flex-shrink: 0;
+        border-radius: 2px;
+      }
+
+      /* Tools grid */
+      .proj-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+      }
+      .proj-tool {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.1rem 1.3rem;
+        background: linear-gradient(135deg, rgba(255,255,255,.03), transparent);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        transition: border-color 0.25s, transform 0.2s;
+      }
+      .proj-tool:hover {
+        border-color: rgba(0,212,255,.32);
+        transform: translateY(-2px);
+      }
+      .proj-tool-icon {
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+      }
+      .proj-tool-icon img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+      }
+      .proj-tool-info { display: flex; flex-direction: column; gap: 0.3rem; }
+      .proj-tool-name {
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.2;
+      }
+      .proj-tool-desc {
+        font-size: 0.83rem;
+        color: var(--text-2);
+        line-height: 1.55;
+      }
+
+      /* Process flow — numbered grid */
+      .proj-process {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+        gap: 0.9rem;
+        position: relative;
+      }
+      .proc-step {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        padding: 1.3rem 1.2rem 1.4rem;
+        background: linear-gradient(160deg, rgba(0,212,255,.05) 0%, rgba(255,255,255,.02) 100%);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        position: relative;
+        transition: border-color 0.25s, transform 0.2s;
+      }
+      .proc-step:hover {
+        border-color: rgba(0,212,255,.3);
+        transform: translateY(-2px);
+      }
+      .proc-step::after {
+        content: attr(data-arrow);
+        position: absolute;
+        top: 50%;
+        right: -0.55rem;
+        transform: translateY(-50%);
+        font-size: 0.7rem;
+        color: var(--cyan);
+        opacity: 0.6;
+        font-family: var(--mono);
+        z-index: 1;
+      }
+      .proc-num {
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        color: var(--cyan);
+        letter-spacing: 0.14em;
+        font-weight: 700;
+      }
+      .proc-name {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.3;
+      }
+      .proc-desc {
+        font-size: 0.78rem;
+        color: var(--text-3);
+        line-height: 1.55;
+        flex: 1;
+      }
+
+      /* Embed */
+      .proj-embed-note {
+        font-size: 0.85rem;
+        color: var(--text-3);
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+      .proj-embed-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.02);
+      }
+      .proj-embed-wrap iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Actions */
+      .proj-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        padding-top: 0.5rem;
+      }
+      .proj-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 99px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid var(--line-strong);
+        color: var(--text-2);
+        background: rgba(255,255,255,.04);
+        transition: all 0.25s;
+      }
+      .proj-action-btn:hover {
+        border-color: var(--cyan);
+        color: var(--cyan);
+        background: rgba(0,212,255,.08);
+      }
+      .proj-action-btn svg { width: 16px; height: 16px; }
+      .proj-action-primary {
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+        border-color: transparent;
+        color: var(--navy-950);
+      }
+      .proj-action-primary:hover {
+        opacity: 0.88;
+        color: var(--navy-950);
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+      }
+
+      /* View Details link on project cards */
+      .proj-card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--cyan);
+        text-decoration: none;
+        transition: gap 0.2s;
+      }
+      .proj-card-link:hover { gap: 0.7rem; }
+      .proj-card-link svg { width: 14px; height: 14px; }
+
+      @media (max-width: 680px) {
+        .proj-tools-grid { grid-template-columns: 1fr; }
+        .proj-process { grid-template-columns: 1fr; }
+        .proj-stat { min-width: 130px; }
+        .proj-page-title { font-size: clamp(1.7rem, 7vw, 2.5rem); }
+      }
+
+      /* ============ SQL WALKTHROUGH — MAIN PORTFOLIO CARD PREVIEW ============ */
+      .sql-preview-card {
+        background: #020612;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        font-family: var(--mono);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .sql-preview-topbar {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.6rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+      }
+      .sql-preview-circles {
+        display: flex;
+        gap: 5px;
+      }
+      .sql-preview-circles span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .sql-preview-circles span:nth-child(1) { background: #ff5f57; }
+      .sql-preview-circles span:nth-child(2) { background: #febc2e; }
+      .sql-preview-circles span:nth-child(3) { background: #28c840; }
+      .sql-preview-label {
+        font-size: 0.65rem;
+        color: #636e72;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      .sql-preview-body {
+        padding: 1.1rem 1.3rem 1.3rem;
+        overflow: hidden;
+        flex: 1;
+        position: relative;
+      }
+      .sql-preview-body::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent, #020612);
+      }
+      .sql-preview-body code {
+        font-size: 0.78rem;
+        line-height: 1.8;
+        white-space: pre;
+        display: block;
+        color: #8892a4;
+      }
+
+      /* ============ SQL WALKTHROUGH — PROJECT DETAIL PAGE ============ */
+      .wt-intro {
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(77, 143, 255, 0.04));
+        border: 1px solid rgba(0, 212, 255, 0.18);
+        border-radius: 18px;
+        padding: 2rem 2.4rem;
+        margin-bottom: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
+      .wt-intro-flow {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+      }
+      .wt-flow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.45rem;
+      }
+      .wt-flow-step img {
+        width: 44px;
+        height: 44px;
+        object-fit: contain;
+      }
+      .wt-flow-step span {
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        color: var(--text-3);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      .wt-flow-arrow {
+        font-family: var(--mono);
+        font-size: 1.3rem;
+        color: var(--cyan);
+        opacity: 0.55;
+        line-height: 1;
+      }
+      .wt-intro-sub {
+        font-size: 0.94rem;
+        color: var(--text-2);
+        line-height: 1.75;
+        margin: 0;
+      }
+
+      /* Step cards */
+      .wt-steps { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 1.5rem; }
+      .wt-step {
+        display: flex;
+        border-radius: 16px;
+        overflow: hidden;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+        border: 1px solid var(--line);
+        transition: border-color 0.25s ease, transform 0.2s ease;
+      }
+      .wt-step:hover { transform: translateX(5px); border-color: rgba(255, 255, 255, 0.12); }
+      .wt-step-bar { width: 4px; flex-shrink: 0; }
+      .wt-step-content { padding: 1.6rem 1.8rem 1.7rem; flex: 1; min-width: 0; }
+
+      .wt-step-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .wt-step-left { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; min-width: 0; }
+      .wt-step-num {
+        font-family: var(--mono);
+        font-size: 0.67rem;
+        color: var(--text-3);
+        letter-spacing: 0.16em;
+        font-weight: 600;
+      }
+      .wt-step-tag {
+        display: inline-block;
+        font-family: var(--mono);
+        font-size: 0.67rem;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        padding: 0.25rem 0.65rem;
+        border-radius: 99px;
+        border: 1px solid;
+        font-weight: 700;
+        align-self: flex-start;
+      }
+      .wt-step-title {
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: var(--text);
+        margin: 0;
+        line-height: 1.3;
+      }
+      .wt-step-icon img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .wt-step-desc {
+        font-size: 0.9rem;
+        color: var(--text-2);
+        line-height: 1.75;
+        margin: 0 0 1.4rem;
+      }
+
+      /* Code block */
+      .wt-code-block {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+      }
+      .wt-code-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        background: rgba(0, 0, 0, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        gap: 0.8rem;
+      }
+      .wt-code-header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .wt-code-circles {
+        display: flex;
+        gap: 4px;
+      }
+      .wt-code-circles span {
+        display: block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
+      .wt-code-circles span:nth-child(1) { background: #ff5f57; }
+      .wt-code-circles span:nth-child(2) { background: #febc2e; }
+      .wt-code-circles span:nth-child(3) { background: #28c840; }
+      .wt-code-label {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        color: #636e72;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .wt-code-copy {
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        color: var(--text-3);
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 5px;
+        padding: 0.22rem 0.6rem;
+        cursor: pointer;
+        transition: color 0.2s, border-color 0.2s;
+        flex-shrink: 0;
+      }
+      .wt-code-copy:hover { color: var(--cyan); border-color: var(--cyan); }
+      .wt-code-copy.copied { color: #28c840; border-color: #28c840; }
+      .wt-code-body {
+        background: #020612;
+        padding: 1.3rem 1.5rem;
+        overflow-x: auto;
+      }
+      .wt-code {
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        line-height: 1.85;
+        white-space: pre;
+        display: block;
+      }
+
+      /* SQL syntax colours */
+      .sql-kw     { color: #00d4ff; font-weight: 600; }
+      .sql-fn     { color: #74b9ff; }
+      .sql-str    { color: #ffa502; }
+      .sql-ident  { color: #c9b1ff; }
+      .sql-num    { color: #fd79a8; }
+      .sql-comment{ color: #4a5568; font-style: italic; }
+
+      /* Outro */
+      .wt-outro {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.4rem;
+        padding: 1.8rem 2rem;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.07), rgba(77, 143, 255, 0.04));
+        border: 1px solid rgba(0, 212, 255, 0.22);
+        border-radius: 18px;
+      }
+      .wt-outro-badge {
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 212, 255, 0.12);
+        border: 1px solid rgba(0, 212, 255, 0.28);
+        border-radius: 50%;
+        font-size: 1.4rem;
+        color: var(--cyan);
+      }
+      .wt-outro-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
+        margin: 0 0 0.5rem;
+      }
+      .wt-outro-desc {
+        font-size: 0.88rem;
+        color: var(--text-2);
+        line-height: 1.75;
+        margin: 0;
+      }
+
+      @media (max-width: 680px) {
+        .wt-step-content { padding: 1.2rem 1.2rem 1.4rem; }
+        .wt-intro { padding: 1.4rem 1.5rem; }
+        .wt-code-body { padding: 1rem; }
+        .wt-code { font-size: 0.78rem; }
+        .wt-outro { flex-direction: column; gap: 1rem; padding: 1.4rem; }
+        .wt-intro-flow { gap: 0.8rem; }
+      }
+
+      /* ============ WALKTHROUGH (SQL project case-study) ============ */
+      .wk-intro-card {
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+        padding: 2rem 2.2rem;
+        background: linear-gradient(135deg, rgba(0,212,255,.06), rgba(77,143,255,.04));
+        border: 1px solid var(--line-strong);
+        border-radius: 18px;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+      .wk-intro-pipeline {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+      }
+      .wk-pipe-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 64px;
+      }
+      .wk-pipe-node img {
+        width: 40px; height: 40px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 8px rgba(0,212,255,.35));
+      }
+      .wk-pipe-label {
+        font-family: var(--mono);
+        font-size: .66rem;
+        color: var(--text-3);
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        white-space: nowrap;
+      }
+      .wk-pipe-arrow {
+        font-size: 1.2rem;
+        color: var(--cyan);
+        flex-shrink: 0;
+        margin-bottom: 1.2rem;
+      }
+      .wk-intro-text { flex: 1; min-width: 220px; }
+      .wk-intro-text h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: .5rem;
+      }
+      .wk-intro-text p {
+        font-size: .9rem;
+        color: var(--text-2);
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* Timeline */
+      .wk-timeline { display: flex; flex-direction: column; gap: 0; margin-bottom: 2rem; }
+      .wk-step {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 0 1.6rem;
+      }
+      /* Left column: number + line */
+      .wk-step-rail { display: flex; flex-direction: column; align-items: center; }
+      .wk-step-badge {
+        width: 44px; height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(0,212,255,.15), rgba(77,143,255,.12));
+        border: 1.5px solid var(--cyan);
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--mono);
+        font-size: .78rem;
+        font-weight: 700;
+        color: var(--cyan);
+        flex-shrink: 0;
+        z-index: 1;
+      }
+      .wk-step-line {
+        width: 1.5px;
+        flex: 1;
+        min-height: 24px;
+        background: linear-gradient(to bottom, var(--cyan), transparent);
+        opacity: .3;
+        margin: 6px 0;
+      }
+      .wk-step:last-child .wk-step-line { display: none; }
+
+      /* Right column: content card */
+      .wk-step-card {
+        background: linear-gradient(135deg, rgba(255,255,255,.03), transparent);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 1.6rem 1.8rem 1.8rem;
+        margin-bottom: 1.4rem;
+        transition: border-color .25s;
+      }
+      .wk-step-card:hover { border-color: rgba(0,212,255,.28); }
+      .wk-step-meta {
+        display: flex;
+        align-items: center;
+        gap: .7rem;
+        margin-bottom: .85rem;
+      }
+      .wk-step-icon {
+        width: 28px; height: 28px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+      .wk-step-tag {
+        font-family: var(--mono);
+        font-size: .68rem;
+        text-transform: uppercase;
+        letter-spacing: .16em;
+        color: var(--text-3);
+        padding: .28rem .65rem;
+        background: rgba(255,255,255,.04);
+        border: 1px solid var(--line);
+        border-radius: 99px;
+      }
+      .wk-step-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: .7rem;
+        line-height: 1.25;
+      }
+      .wk-step-desc {
+        font-size: .9rem;
+        color: var(--text-2);
+        line-height: 1.7;
+        margin-bottom: 1.3rem;
+      }
+
+      /* Code block */
+      .wk-code {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,.08);
+      }
+      .wk-code-header {
+        display: flex;
+        align-items: center;
+        gap: .7rem;
+        padding: .65rem 1rem;
+        background: #252832;
+        border-bottom: 1px solid rgba(255,255,255,.06);
+      }
+      .wk-tl { display: flex; gap: 5px; }
+      .wk-tl span {
+        width: 11px; height: 11px;
+        border-radius: 50%;
+      }
+      .wk-tl .red    { background: #ff5f57; }
+      .wk-tl .yellow { background: #febc2e; }
+      .wk-tl .green  { background: #28c840; }
+      .wk-code-label {
+        font-family: var(--mono);
+        font-size: .76rem;
+        color: rgba(255,255,255,.55);
+        letter-spacing: .04em;
+      }
+      .wk-code-body {
+        background: #1e2130;
+        padding: 1.2rem 1.3rem;
+        overflow-x: auto;
+        margin: 0;
+      }
+      .wk-code-body code {
+        font-family: var(--mono);
+        font-size: .84rem;
+        line-height: 1.8;
+        color: #cdd6f4;
+        white-space: pre;
+        counter-reset: line;
+      }
+      .wk-code-body .ln {
+        display: inline-block;
+        width: 2em;
+        color: rgba(255,255,255,.22);
+        user-select: none;
+        margin-right: .8em;
+        text-align: right;
+      }
+      /* SQL syntax colours */
+      .sql-kw   { color: #89b4fa; font-weight: 600; }  /* keywords: SELECT/FROM/WHERE/etc */
+      .sql-dml  { color: #f38ba8; font-weight: 600; }  /* DML: INSERT/UPDATE/DELETE/ALTER */
+      .sql-fn   { color: #a6e3a1; }                     /* functions: ROW_NUMBER/TRIM/etc */
+      .sql-str  { color: #a6e3a1; }                     /* string literals */
+      .sql-id   { color: #cba6f7; }                     /* backtick identifiers */
+      .sql-type { color: #fab387; }                     /* data types: int/text/DATE */
+      .sql-num  { color: #f9e2af; }                     /* numbers */
+      .sql-cmt  { color: rgba(255,255,255,.35); font-style:italic; }
+
+      /* Outro card */
+      .wk-outro {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.4rem 1.8rem;
+        background: linear-gradient(135deg, rgba(0,212,255,.08), rgba(77,143,255,.06));
+        border: 1px solid rgba(0,212,255,.25);
+        border-radius: 14px;
+        margin-top: .5rem;
+      }
+      .wk-outro-icon {
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        background: rgba(0,212,255,.15);
+        border: 1px solid rgba(0,212,255,.3);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      .wk-outro-icon svg { width: 20px; height: 20px; color: var(--cyan); }
+      .wk-outro h4 { font-size: 1rem; color: var(--text); margin-bottom: .25rem; }
+      .wk-outro p  { font-size: .85rem; color: var(--text-2); margin: 0; line-height: 1.6; }
+
+      @media (max-width: 680px) {
+        .wk-intro-card { gap: 1.4rem; padding: 1.4rem 1.4rem; }
+        .wk-step { grid-template-columns: 42px 1fr; gap: 0 1rem; }
+        .wk-step-badge { width: 36px; height: 36px; font-size: .7rem; }
+        .wk-step-card { padding: 1.2rem 1.3rem 1.4rem; }
+        .wk-code-body code { font-size: .78rem; }
+      }
+
       /* ============ FLOATING MOBILE NAV (hidden on desktop) ============ */
       .mobile-nav {
         display: none;
@@ -1822,6 +2665,292 @@
           font-size: 0.95rem;
         }
       }
+
+      /* ============================================================
+         PROJECT DETAIL PAGE
+      ============================================================ */
+      #projectPage { display: none; }
+      .proj-page-inner {
+        padding: 7rem 0 5rem;
+        min-height: 100vh;
+      }
+      /* Back button */
+      .proj-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        color: var(--text-2);
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        text-decoration: none;
+        margin-bottom: 3rem;
+        transition: color 0.2s;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+      .proj-back-btn:hover { color: var(--cyan); }
+      .proj-back-btn svg  { width: 16px; height: 16px; }
+      /* Header */
+      .proj-page-header { margin-bottom: 2.5rem; }
+      .proj-page-header h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin: 0.5rem 0 1.5rem;
+      }
+      .proj-desc {
+        font-size: 1.05rem;
+        color: var(--text-2);
+        line-height: 1.75;
+        max-width: 72ch;
+        margin: 1.5rem 0;
+      }
+      /* Stat chips */
+      .proj-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin: 1.6rem 0;
+      }
+      .proj-stat {
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem 1.4rem;
+        background: rgba(0, 212, 255, 0.06);
+        border: 1px solid rgba(0, 212, 255, 0.22);
+        border-radius: 12px;
+        min-width: 110px;
+      }
+      .proj-stat-value {
+        font-family: var(--mono);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--cyan);
+        line-height: 1;
+      }
+      .proj-stat-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-3);
+        margin-top: 0.35rem;
+      }
+      /* Full-width media on detail page */
+      .proj-media-full {
+        margin: 2.5rem 0;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .proj-media-full .project-visual { border-radius: 0; }
+      /* Section headings */
+      .proj-section { margin-top: 4.5rem; }
+      .proj-section-title {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--text-3);
+        margin-bottom: 2rem;
+      }
+      .proj-section-title::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, var(--line-strong), transparent);
+      }
+      /* Tools list */
+      .proj-tools-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .proj-tool-row {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        padding: 1.2rem 1.6rem;
+        background: linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        transition: border-color 0.3s, transform 0.25s;
+      }
+      .proj-tool-row:hover {
+        border-color: var(--cyan);
+        transform: translateX(4px);
+      }
+      .proj-tool-icon {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .proj-tool-icon img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        display: block;
+      }
+      .proj-tool-info { flex: 1; min-width: 0; }
+      .proj-tool-info strong {
+        display: block;
+        color: var(--text);
+        font-size: 1rem;
+        margin-bottom: 0.28rem;
+      }
+      .proj-tool-info p {
+        color: var(--text-2);
+        font-size: 0.9rem;
+        line-height: 1.55;
+        margin: 0;
+      }
+      /* Process flow */
+      .proj-process-flow {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        scrollbar-width: thin;
+        scrollbar-color: var(--line) transparent;
+      }
+      .proj-step {
+        flex: 1;
+        min-width: 160px;
+        padding: 1.6rem 1.4rem;
+        background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        position: relative;
+        transition: border-color 0.3s, transform 0.25s;
+      }
+      .proj-step:hover {
+        border-color: rgba(0,212,255,0.4);
+        transform: translateY(-3px);
+      }
+      .proj-step-num {
+        font-family: var(--mono);
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+        margin-bottom: 0.7rem;
+      }
+      .proj-step-name {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.6rem;
+        line-height: 1.25;
+      }
+      .proj-step-desc {
+        font-size: 0.82rem;
+        color: var(--text-2);
+        line-height: 1.6;
+      }
+      .proj-step-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0.5rem;
+        color: var(--cyan);
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        opacity: 0.7;
+      }
+      /* Embed container */
+      .proj-embed-note {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--text-3);
+        margin-bottom: 1rem;
+      }
+      .proj-embed-container {
+        width: 100%;
+        height: 560px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--line-strong);
+        background: rgba(8,13,36,0.6);
+      }
+      .proj-embed-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+      /* Action buttons */
+      .proj-page-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 4rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--line);
+      }
+      .btn-view-project {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+        color: var(--navy-950);
+        font-weight: 700;
+        font-size: 0.9rem;
+        border-radius: 99px;
+        text-decoration: none;
+        transition: opacity 0.2s, transform 0.2s;
+        white-space: nowrap;
+      }
+      .btn-view-project:hover { opacity: 0.88; transform: translateY(-2px); }
+      .btn-view-project svg  { width: 16px; height: 16px; }
+      .btn-download, .btn-source {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid var(--line-strong);
+        color: var(--text);
+        font-weight: 500;
+        font-size: 0.9rem;
+        border-radius: 99px;
+        text-decoration: none;
+        background: rgba(255,255,255,.04);
+        transition: border-color 0.2s, background 0.2s, transform 0.2s;
+        white-space: nowrap;
+      }
+      .btn-download:hover, .btn-source:hover {
+        border-color: var(--cyan);
+        background: rgba(0,212,255,.07);
+        transform: translateY(-2px);
+      }
+      .btn-download svg, .btn-source svg { width: 16px; height: 16px; }
+      /* Mobile overrides for project page */
+      @media (max-width: 980px) {
+        .proj-page-inner { padding: 6rem 0 6rem; }
+        .proj-process-flow { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .proj-step { min-width: 145px; padding: 1.2rem 1.1rem; }
+        .proj-step-num { font-size: 1.4rem; }
+      }
+      @media (max-width: 680px) {
+        .proj-process-flow { flex-direction: column; gap: 0.5rem; overflow-x: visible; }
+        .proj-step { min-width: unset; }
+        .proj-step-arrow { transform: rotate(90deg); padding: 0; height: 28px; }
+        .proj-tool-row { padding: 1rem 1.1rem; gap: 1rem; }
+        .proj-embed-container { height: 380px; }
+        .proj-page-actions { gap: 0.75rem; }
+      }
     </style>
   </head>
   <body>
@@ -1854,6 +2983,11 @@
     </main>
 
     <footer id="footer"></footer>
+
+    <!-- Project detail page (SPA route — shown instead of main when #/project/xxx) -->
+    <div id="projectPage">
+      <div class="proj-page-inner container"></div>
+    </div>
 
     <!-- ============ ICON LIBRARY (inline SVG strings for reuse) ============ -->
     <script>
@@ -2219,6 +3353,142 @@
   `;
       }
 
+      // ── SQL syntax highlighter ───────────────────────────────────────────
+      function sqlHighlight(raw) {
+        // Step 1: HTML-escape the raw SQL
+        let s = raw
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+
+        // Step 2: highlight string literals first (before keywords touch them)
+        s = s.replace(/'([^']*)'/g, "<span class='sql-str'>'$1'</span>");
+
+        // Step 3: backtick identifiers
+        s = s.replace(/`([^`]+)`/g, "<span class='sql-id'>`$1`</span>");
+
+        // Step 4: DML / DDL verbs (red-ish)
+        const dml = ['INSERT','UPDATE','DELETE','CREATE','ALTER','DROP','MODIFY'];
+        dml.forEach(k => {
+          s = s.replace(new RegExp(`\\b(${k})\\b`, 'g'), "<span class='sql-dml'>$1</span>");
+        });
+
+        // Step 5: query keywords (blue)
+        const kw = ['SELECT','FROM','WHERE','JOIN','ON','AND','OR','NOT','INTO',
+                    'SET','TABLE','COLUMN','DEFAULT','NULL','ENGINE','CHARSET',
+                    'COLLATE','AS','BY','OVER','PARTITION','TRAILING'];
+        kw.forEach(k => {
+          s = s.replace(new RegExp(`\\b(${k})\\b`, 'g'), "<span class='sql-kw'>$1</span>");
+        });
+
+        // Step 6: functions (green)
+        const fns = ['ROW_NUMBER','STR_TO_DATE','TRIM'];
+        fns.forEach(k => {
+          s = s.replace(new RegExp(`\\b(${k})\\b`, 'g'), "<span class='sql-fn'>$1</span>");
+        });
+
+        // Step 7: data types (orange)
+        const types = ['int','text','DATE','IS'];
+        types.forEach(k => {
+          s = s.replace(new RegExp(`\\b(${k})\\b`, 'g'), "<span class='sql-type'>$1</span>");
+        });
+
+        // Step 8: numbers
+        s = s.replace(/\b(\d+)\b/g, "<span class='sql-num'>$1</span>");
+
+        // Step 9: add line numbers
+        const lines = s.split('\n');
+        return lines.map((ln, i) =>
+          `<span class='ln'>${i + 1}</span>${ln}`
+        ).join('\n');
+      }
+
+      // ── Walkthrough renderer ─────────────────────────────────────────────
+      function renderWalkthrough(project, container) {
+        const wk = project.walkthrough;
+        if (!wk) return;
+        const intro = wk.intro || {};
+        const steps = wk.steps || [];
+        const outro = wk.outro || {};
+
+        const el = document.createElement('div');
+        el.className = 'proj-section';
+        el.innerHTML = `
+          <h2 class="proj-section-title">Case Study Walkthrough</h2>
+
+          <!-- Intro card: pipeline visual -->
+          <div class="wk-intro-card">
+            <div class="wk-intro-pipeline">
+              <div class="wk-pipe-node">
+                <img src="${esc(intro.dbIconUrl || '')}" alt="Raw Data">
+                <span class="wk-pipe-label">Raw Data</span>
+              </div>
+              <span class="wk-pipe-arrow">›</span>
+              <div class="wk-pipe-node">
+                <img src="${esc(intro.mysqlIconUrl || '')}" alt="MySQL">
+                <span class="wk-pipe-label">MySQL</span>
+              </div>
+              <span class="wk-pipe-arrow">›</span>
+              <div class="wk-pipe-node">
+                <img src="${esc(intro.cleanIconUrl || '')}" alt="Clean Data">
+                <span class="wk-pipe-label">Clean Data</span>
+              </div>
+            </div>
+            <div class="wk-intro-text">
+              <h3>What this project does</h3>
+              <p>${esc(intro.subtitle || '')}</p>
+            </div>
+          </div>
+
+          <!-- Step timeline -->
+          <div class="wk-timeline">
+            ${steps.map((step, i) => `
+              <div class="wk-step">
+                <div class="wk-step-rail">
+                  <div class="wk-step-badge">${esc(step.num)}</div>
+                  <div class="wk-step-line"></div>
+                </div>
+                <div class="wk-step-card">
+                  <div class="wk-step-meta">
+                    ${step.iconUrl ? `<img src="${esc(step.iconUrl)}" alt="${esc(step.title)}" class="wk-step-icon" loading="lazy">` : ''}
+                    <span class="wk-step-tag">${esc(step.tag)}</span>
+                  </div>
+                  <h3 class="wk-step-title">${esc(step.title)}</h3>
+                  <p class="wk-step-desc">${esc(step.desc)}</p>
+                  ${step.code ? `
+                    <div class="wk-code">
+                      <div class="wk-code-header">
+                        <div class="wk-tl">
+                          <span class="red"></span>
+                          <span class="yellow"></span>
+                          <span class="green"></span>
+                        </div>
+                        <span class="wk-code-label">${esc(step.codeLabel || '')}</span>
+                      </div>
+                      <pre class="wk-code-body"><code>${sqlHighlight(step.code)}</code></pre>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- Outro -->
+          ${outro.title ? `
+            <div class="wk-outro">
+              <div class="wk-outro-icon">
+                ${ICONS.arrowOut}
+              </div>
+              <div>
+                <h4>${esc(outro.title)}</h4>
+                <p>${esc(outro.desc || '')}</p>
+              </div>
+            </div>
+          ` : ''}
+        `;
+        container.appendChild(el);
+      }
+
       function renderProjects(d) {
         const el = document.getElementById("projects");
         const pj = d.projects || {};
@@ -2243,7 +3513,32 @@
         const media = p.media || [];
 
         let visualHtml = "";
-        if (visualMode === "single-landscape" && media.length) {
+        if (visualMode === "walkthrough") {
+          // Show a styled SQL terminal preview for walkthrough projects
+          const wt = p.walkthrough || {};
+          const steps = wt.steps || [];
+          const previewCode = steps.length
+            ? steps[0].code.split("\n").slice(0, 12).join("\n")
+            : "";
+          const mysqlUrl = (wt.intro || {}).mysqlIconUrl || "";
+          visualHtml = `
+      <div class="project-media">
+        <div class="project-visual" style="padding:0">
+          <div class="sql-preview-card">
+            <div class="sql-preview-topbar">
+              <div style="display:flex;align-items:center;gap:.6rem">
+                <div class="sql-preview-circles"><span></span><span></span><span></span></div>
+                ${mysqlUrl ? `<img src="${esc(mysqlUrl)}" alt="MySQL" style="width:16px;height:16px;object-fit:contain">` : ""}
+              </div>
+              <span class="sql-preview-label">MySQL &bull; ${steps.length}-Step Walkthrough</span>
+            </div>
+            <div class="sql-preview-body">
+              <code>${highlightSQL(previewCode)}</code>
+            </div>
+          </div>
+        </div>
+      </div>`;
+        } else if (visualMode === "single-landscape" && media.length) {
           visualHtml = `
       <div class="project-media">
         <div class="project-visual single">
@@ -2293,7 +3588,10 @@
         <h3>${esc(p.title || "")}</h3>
         <p>${p.descriptionHtml || ""}</p>
         ${p.techPills && p.techPills.length ? `<div class="tech-pills">${p.techPills.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
-        ${p.githubUrl ? `<div class="project-actions"><a href="${esc(p.githubUrl)}" target="_blank" rel="noopener" class="btn-gh">${ICONS.github} View on GitHub</a></div>` : ""}
+        ${p.githubUrl || p.id ? `<div class="project-actions">
+          ${p.id ? `<a href="#/project/${esc(p.id)}" class="proj-card-link">${ICONS.arrowOut} View Details</a>` : ""}
+          ${p.githubUrl ? `<a href="${esc(p.githubUrl)}" target="_blank" rel="noopener" class="btn-gh">${ICONS.github} View on GitHub</a>` : ""}
+        </div>` : ""}
       </div>
     </div>
   `;
@@ -2408,6 +3706,322 @@
 
     <!-- ============ INTERACTION LAYER ============ -->
     <script>
+      // ── SQL syntax highlighter ──────────────────────────────────────────
+      function highlightSQL(raw) {
+        const KW = "SELECT|FROM|WHERE|INSERT|INTO|UPDATE|SET|DELETE|CREATE|TABLE|ALTER|MODIFY|COLUMN|DROP|ADD|JOIN|LEFT|RIGHT|INNER|OUTER|ON|AND|OR|NOT|IS|NULL|AS|OVER|PARTITION|BY|ORDER|GROUP|HAVING|CASE|WHEN|THEN|ELSE|END|LIKE|IN|BETWEEN|DEFAULT|ENGINE|CHARSET|COLLATE|INT|TEXT|DATE|VALUES|WITH|UNION|ALL|DISTINCT|TRAILING|LEADING|IF|EXISTS";
+        const FN = "ROW_NUMBER|TRIM|STR_TO_DATE|COUNT|SUM|AVG|MAX|MIN|COALESCE|ISNULL|LENGTH|UPPER|LOWER|CONCAT|REPLACE|SUBSTRING|DATEDIFF|NOW|YEAR|MONTH|NULLIF";
+        return raw
+          .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+          .replace(/'([^']*)'/g, `<span class="sql-str">'$1'</span>`)
+          .replace(/`([^`]*)`/g, `<span class="sql-ident">\`$1\`</span>`)
+          .replace(/(--[^\n]*)/g, `<span class="sql-comment">$1</span>`)
+          .replace(/\b(\d+)\b/g, `<span class="sql-num">$1</span>`)
+          .replace(new RegExp(`\\b(${FN})(?=\\s*\\()`, "g"), `<span class="sql-fn">$1</span>`)
+          .replace(new RegExp(`\\b(${KW})\\b`, "g"), `<span class="sql-kw">$1</span>`);
+      }
+
+      // ── Copy-SQL handler (called via onclick on code blocks) ────────────
+      function copySQL(btn) {
+        const raw = btn.closest(".wt-code-block").querySelector("[data-raw]").dataset.raw;
+        navigator.clipboard.writeText(raw).then(() => {
+          btn.textContent = "Copied!";
+          btn.classList.add("copied");
+          setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1800);
+        }).catch(() => { btn.textContent = "Error"; setTimeout(() => btn.textContent = "Copy", 1500); });
+      }
+
+      // ── Walkthrough renderer (SQL project only) ─────────────────────────
+      function renderWalkthrough(wt) {
+        if (!wt) return "";
+        const intro = wt.intro || {};
+        const steps = wt.steps || [];
+        const outro = wt.outro || {};
+
+        function stepColor(iconUrl) {
+          const m = (iconUrl || "").match(/color=%23([0-9a-fA-F]{6})/);
+          return m ? "#" + m[1] : "#00d4ff";
+        }
+        function hexRGB(hex) {
+          const r = parseInt(hex.slice(1, 3), 16);
+          const g = parseInt(hex.slice(3, 5), 16);
+          const b = parseInt(hex.slice(5, 7), 16);
+          return `${r},${g},${b}`;
+        }
+
+        const stepsHtml = steps.map(step => {
+          const color = stepColor(step.iconUrl);
+          const rgb   = hexRGB(color);
+          const tagStyle = `color:${color};background:rgba(${rgb},0.13);border-color:rgba(${rgb},0.32)`;
+          const barStyle = `background:${color}`;
+          return `
+            <div class="wt-step">
+              <div class="wt-step-bar" style="${barStyle}"></div>
+              <div class="wt-step-content">
+                <div class="wt-step-header">
+                  <div class="wt-step-left">
+                    <span class="wt-step-num">${esc(step.num || "")}</span>
+                    <span class="wt-step-tag" style="${tagStyle}">${esc(step.tag || "")}</span>
+                    <h3 class="wt-step-title">${esc(step.title || "")}</h3>
+                  </div>
+                  ${step.iconUrl ? `<div class="wt-step-icon"><img src="${esc(step.iconUrl)}" alt="${esc(step.title || "")}" loading="lazy" onerror="this.style.display='none'"></div>` : ""}
+                </div>
+                <p class="wt-step-desc">${esc(step.desc || "")}</p>
+                ${step.code ? `
+                <div class="wt-code-block">
+                  <div class="wt-code-header">
+                    <div class="wt-code-header-left">
+                      <div class="wt-code-circles"><span></span><span></span><span></span></div>
+                      <span class="wt-code-label">${esc(step.codeLabel || "SQL")}</span>
+                    </div>
+                    <button class="wt-code-copy" onclick="copySQL(this)" aria-label="Copy code">Copy</button>
+                  </div>
+                  <div class="wt-code-body">
+                    <code class="wt-code" data-raw="${step.code.replace(/"/g, "&quot;")}">${highlightSQL(step.code)}</code>
+                  </div>
+                </div>` : ""}
+              </div>
+            </div>`;
+        }).join("");
+
+        return `
+          <div class="proj-section">
+            <h2 class="proj-section-title">Cleaning Walkthrough</h2>
+
+            <div class="wt-intro">
+              <div class="wt-intro-flow">
+                ${intro.mysqlIconUrl ? `<div class="wt-flow-step"><img src="${esc(intro.mysqlIconUrl)}" alt="MySQL"><span>MySQL</span></div>` : ""}
+                ${intro.mysqlIconUrl ? `<div class="wt-flow-arrow">→</div>` : ""}
+                ${intro.dbIconUrl    ? `<div class="wt-flow-step"><img src="${esc(intro.dbIconUrl)}" alt="Raw data"><span>Raw Data</span></div>` : ""}
+                ${intro.dbIconUrl    ? `<div class="wt-flow-arrow">→</div>` : ""}
+                ${intro.cleanIconUrl ? `<div class="wt-flow-step"><img src="${esc(intro.cleanIconUrl)}" alt="Clean data"><span>Clean Data</span></div>` : ""}
+              </div>
+              <p class="wt-intro-sub">${esc(intro.subtitle || "")}</p>
+            </div>
+
+            <div class="wt-steps">${stepsHtml}</div>
+
+            <div class="wt-outro">
+              <div class="wt-outro-badge">✓</div>
+              <div>
+                <h3 class="wt-outro-title">${esc(outro.title || "")}</h3>
+                <p class="wt-outro-desc">${esc(outro.desc || "")}</p>
+              </div>
+            </div>
+          </div>`;
+      }
+
+      // ── Carousel initialiser (reused on main view and project pages) ──────
+      function initCarousels(scope) {
+        const root = scope || document;
+        root.querySelectorAll("[data-carousel]").forEach((carousel) => {
+          const slides = carousel.querySelectorAll(".carousel-slide");
+          const dotsWrap = carousel.querySelector(".carousel-dots");
+          const prev = carousel.querySelector("[data-prev]");
+          const next = carousel.querySelector("[data-next]");
+          if (!slides.length || !dotsWrap || !prev || !next) return;
+          // clear any previously created dots (important when re-initialising)
+          dotsWrap.innerHTML = "";
+          let idx = 0;
+          let timer = null;
+          slides.forEach((_, i) => {
+            const b = document.createElement("button");
+            b.className = "dot-btn" + (i === 0 ? " active" : "");
+            b.addEventListener("click", () => go(i, true));
+            dotsWrap.appendChild(b);
+          });
+          const dots = dotsWrap.querySelectorAll(".dot-btn");
+          const go = (i, manual) => {
+            idx = (i + slides.length) % slides.length;
+            slides.forEach((s, k) => s.classList.toggle("active", k === idx));
+            dots.forEach((d, k) => d.classList.toggle("active", k === idx));
+            if (manual) restart();
+          };
+          prev.addEventListener("click", () => go(idx - 1, true));
+          next.addEventListener("click", () => go(idx + 1, true));
+          const start = () => { timer = setInterval(() => go(idx + 1), 5500); };
+          const restart = () => { clearInterval(timer); start(); };
+          carousel.addEventListener("mouseenter", () => clearInterval(timer));
+          carousel.addEventListener("mouseleave", start);
+          const visObs = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) start();
+                else clearInterval(timer);
+              });
+            },
+            { threshold: 0.3 },
+          );
+          visObs.observe(carousel);
+        });
+      }
+
+      // ── SPA routing — project detail pages ──────────────────────────────
+      let _portfolioData = null; // set in bootstrap, used by router
+
+      function router() {
+        const hash = window.location.hash;
+        const match = hash.match(/^#\/project\/([a-z0-9-]+)$/);
+        if (match && _portfolioData) {
+          const id = match[1];
+          const project = (_portfolioData.projects.items || []).find(
+            (p) => p.id === id,
+          );
+          if (project) { showProjectPage(project); return; }
+        }
+        showMainView();
+      }
+
+      function showProjectPage(project) {
+        document.querySelector("main").style.display = "none";
+        document.getElementById("footer").style.display = "none";
+        const mobileNav = document.getElementById("mobileNav");
+        if (mobileNav) mobileNav.style.display = "none";
+        const el = document.getElementById("projectPage");
+        el.style.display = "block";
+        renderProjectPage(project);
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+
+      function showMainView() {
+        document.querySelector("main").style.display = "";
+        document.getElementById("footer").style.display = "";
+        const mobileNav = document.getElementById("mobileNav");
+        if (mobileNav) mobileNav.style.display = "";
+        document.getElementById("projectPage").style.display = "none";
+      }
+
+      function buildMediaHtml(p) {
+        const media = p.media || [];
+        if (!media.length) return "";
+        if (p.visualMode === "single-landscape") {
+          return `<img src="${esc(media[0])}" alt="${esc(p.title)}" class="proj-page-img">`;
+        }
+        const portraitClass = p.visualMode === "carousel-portrait" ? " portrait" : "";
+        const containClass  = p.visualMode === "carousel-portrait" ? " contain" : "";
+        return `
+          <div class="project-media" data-carousel>
+            <div class="project-visual${portraitClass}">
+              <div class="carousel">
+                <div class="carousel-track">
+                  ${media.map((src, i) => `
+                    <div class="carousel-slide${i === 0 ? " active" : ""}${containClass}">
+                      <img src="${esc(src)}" alt="${esc(p.title)} slide ${i + 1}">
+                    </div>`).join("")}
+                </div>
+              </div>
+            </div>
+            ${media.length > 1 ? `
+            <div class="carousel-controls">
+              <button class="carousel-btn" data-prev aria-label="Previous">${ICONS.chevronLeft}</button>
+              <div class="carousel-dots"></div>
+              <button class="carousel-btn" data-next aria-label="Next">${ICONS.chevronRight}</button>
+            </div>` : ""}
+          </div>`;
+      }
+
+      function renderProjectPage(p) {
+        const wrap = document.querySelector("#projectPage .proj-page-inner");
+        const stats   = p.stats   || [];
+        const tools   = p.tools   || [];
+        const process = p.process || [];
+        const isWalkthrough = p.visualMode === "walkthrough";
+        const hasEmbed  = p.embedUrl  && p.embedUrl.trim();
+        const hasSource = p.sourceUrl && p.sourceUrl.trim();
+        const dlUrl = p.githubUrl
+          ? p.githubUrl.replace(/\/$/, "") + "/archive/refs/heads/main.zip"
+          : "";
+
+        const mediaSection = isWalkthrough
+          ? ""
+          : `<div class="proj-page-media">${buildMediaHtml(p)}</div>`;
+
+        wrap.innerHTML = `
+          <a href="#projects" class="proj-back">
+            ${ICONS.chevronLeft} Back to Projects
+          </a>
+
+          <div class="proj-page-header">
+            <div class="project-num">// ${esc(p.number || "")} — ${esc(p.tech || "")}</div>
+            <h1 class="proj-page-title">${esc(p.title || "")}</h1>
+          </div>
+
+          ${mediaSection}
+
+          ${stats.length ? `
+          <div class="proj-stats">
+            ${stats.map(s => `
+              <div class="proj-stat">
+                <span class="stat-val">${esc(s.value)}</span>
+                <span class="stat-label">${esc(s.label)}</span>
+              </div>`).join("")}
+          </div>` : ""}
+
+          <p class="proj-page-desc">${p.descriptionHtml || ""}</p>
+
+          ${isWalkthrough ? renderWalkthrough(p.walkthrough) : ""}
+
+          ${tools.length ? `
+          <div class="proj-section">
+            <h2 class="proj-section-title">Tools &amp; Technologies</h2>
+            <div class="proj-tools-grid">
+              ${tools.map(t => `
+                <div class="proj-tool">
+                  <div class="proj-tool-icon">
+                    ${t.iconUrl ? `<img src="${esc(t.iconUrl)}" alt="${esc(t.name)}" loading="lazy" onerror="this.style.display='none'">` : ""}
+                  </div>
+                  <div class="proj-tool-info">
+                    <span class="proj-tool-name">${esc(t.name)}</span>
+                    <span class="proj-tool-desc">${esc(t.usage)}</span>
+                  </div>
+                </div>`).join("")}
+            </div>
+          </div>` : ""}
+
+          ${process.length ? `
+          <div class="proj-section">
+            <h2 class="proj-section-title">Project Process</h2>
+            <div class="proj-process">
+              ${process.map((step, i) => `
+                <div class="proc-step"${i < process.length - 1 ? ' data-arrow="›"' : ""}>
+                  <span class="proc-num">${String(i + 1).padStart(2, "0")}</span>
+                  <span class="proc-name">${esc(step.step)}</span>
+                  <span class="proc-desc">${esc(step.description)}</span>
+                </div>`).join("")}
+            </div>
+          </div>` : ""}
+
+          ${hasEmbed ? `
+          <div class="proj-section">
+            <h2 class="proj-section-title">Live Dashboard</h2>
+            <p class="proj-embed-note">Fully interactive — explore the data directly below. Powered by Microsoft Excel Online.</p>
+            <div class="proj-embed-wrap">
+              <iframe src="${esc(p.embedUrl)}" frameborder="0" allowfullscreen="true"
+                title="${esc(p.title)} — Live Dashboard"></iframe>
+            </div>
+          </div>` : ""}
+
+          <div class="proj-actions">
+            ${p.githubUrl ? `
+              <a href="${esc(p.githubUrl)}" target="_blank" rel="noopener"
+                 class="proj-action-btn proj-action-primary">
+                ${ICONS.github} View on GitHub
+              </a>` : ""}
+            ${dlUrl ? `
+              <a href="${esc(dlUrl)}" target="_blank" rel="noopener"
+                 class="proj-action-btn">
+                ${ICONS.arrowOut} Download ZIP
+              </a>` : ""}
+            ${hasSource ? `
+              <a href="${esc(p.sourceUrl)}" target="_blank" rel="noopener"
+                 class="proj-action-btn">
+                ${ICONS.arrowOut} Dataset Source
+              </a>` : ""}
+          </div>
+        `;
+        // initialise any carousels that were just rendered (non-walkthrough projects)
+        if (!isWalkthrough) initCarousels(wrap);
+      }
+
       function initInteractions() {
         // nav scroll state
         const topbar = document.getElementById("topbar");
@@ -2477,50 +4091,8 @@
           .querySelectorAll(".reveal, .reveal-stagger")
           .forEach((el) => observer.observe(el));
 
-        // carousels
-        document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-          const slides = carousel.querySelectorAll(".carousel-slide");
-          const dotsWrap = carousel.querySelector(".carousel-dots");
-          const prev = carousel.querySelector("[data-prev]");
-          const next = carousel.querySelector("[data-next]");
-          if (!slides.length || !dotsWrap || !prev || !next) return;
-          let idx = 0;
-          let timer = null;
-          slides.forEach((_, i) => {
-            const b = document.createElement("button");
-            b.className = "dot-btn" + (i === 0 ? " active" : "");
-            b.addEventListener("click", () => go(i, true));
-            dotsWrap.appendChild(b);
-          });
-          const dots = dotsWrap.querySelectorAll(".dot-btn");
-          const go = (i, manual) => {
-            idx = (i + slides.length) % slides.length;
-            slides.forEach((s, k) => s.classList.toggle("active", k === idx));
-            dots.forEach((d, k) => d.classList.toggle("active", k === idx));
-            if (manual) restart();
-          };
-          prev.addEventListener("click", () => go(idx - 1, true));
-          next.addEventListener("click", () => go(idx + 1, true));
-          const start = () => {
-            timer = setInterval(() => go(idx + 1), 5500);
-          };
-          const restart = () => {
-            clearInterval(timer);
-            start();
-          };
-          carousel.addEventListener("mouseenter", () => clearInterval(timer));
-          carousel.addEventListener("mouseleave", start);
-          const visObs = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((e) => {
-                if (e.isIntersecting) start();
-                else clearInterval(timer);
-              });
-            },
-            { threshold: 0.3 },
-          );
-          visObs.observe(carousel);
-        });
+        // carousels on the main portfolio view
+        initCarousels(document);
       }
     </script>
 
@@ -2529,6 +4101,7 @@
       (async function () {
         try {
           const data = await loadData();
+          _portfolioData = data;  // store for router
           renderMeta(data);
           renderNav(data);
           renderHero(data);
@@ -2540,6 +4113,8 @@
           renderContact(data);
           renderFooter(data);
           initInteractions();
+          window.addEventListener("hashchange", router);
+          router(); // check hash on initial load (handles direct links to project pages)
           setTimeout(
             () =>
               document.getElementById("loadingOverlay").classList.add("hidden"),
