@@ -273,7 +273,16 @@
         ],
         "githubUrl": "https://github.com/MomenSoliman/SQL-Data-Cleaning-Layoffs",
         "visualMode": "walkthrough",
-        "media": [],
+        "media": [
+          "assets/projects/sql-cleaning/slide-1.png",
+          "assets/projects/sql-cleaning/slide-2.png",
+          "assets/projects/sql-cleaning/slide-3.png",
+          "assets/projects/sql-cleaning/slide-4.png",
+          "assets/projects/sql-cleaning/slide-5.png",
+          "assets/projects/sql-cleaning/slide-6.png",
+          "assets/projects/sql-cleaning/slide-7.png",
+          "assets/projects/sql-cleaning/slide-8.png"
+        ],
         "stats": [
           {
             "value": "2,361",
@@ -428,19 +437,9 @@
           "Inventory Analysis"
         ],
         "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Mexico-Toyes-Shop-Sales-Dashboard",
-        "visualMode": "carousel-landscape",
+        "visualMode": "single-landscape",
         "media": [
-          "assets/projects/mexico-report/slide-01.png",
-          "assets/projects/mexico-report/slide-02.png",
-          "assets/projects/mexico-report/slide-03.png",
-          "assets/projects/mexico-report/slide-04.png",
-          "assets/projects/mexico-report/slide-05.png",
-          "assets/projects/mexico-report/slide-06.png",
-          "assets/projects/mexico-report/slide-07.png",
-          "assets/projects/mexico-report/slide-08.png",
-          "assets/projects/mexico-report/slide-09.png",
-          "assets/projects/mexico-report/slide-10.png",
-          "assets/projects/mexico-report/slide-11.png"
+          "assets/projects/mexico-report/slide-01.png"
         ],
         "stats": [
           {
@@ -501,7 +500,140 @@
           }
         ],
         "sourceUrl": "",
-        "embedUrl": ""
+        "embedUrl": "",
+        "reportInsights": {
+          "metaLine": "Sales & Inventory Analysis · Jan 2022 – Sep 2023 · 50 stores · 35 products · 5 categories",
+          "kpis": [
+            {
+              "value": "$14.4M",
+              "label": "Total Revenue",
+              "sub": "across 50 stores"
+            },
+            {
+              "value": "$4.0M",
+              "label": "Total Profit",
+              "sub": "net after COGS"
+            },
+            {
+              "value": "27.8%",
+              "label": "Profit Margin",
+              "sub": "Electronics 44.6%"
+            },
+            {
+              "value": "1.09M",
+              "label": "Units Sold",
+              "sub": "avg 51,932/mo"
+            },
+            {
+              "value": "4.8%",
+              "label": "Out-of-Stock Rate",
+              "sub": "77 combinations"
+            }
+          ],
+          "insights": [
+            {
+              "num": "01",
+              "color": "#00d4ff",
+              "title": "Seasonal Revenue Patterns",
+              "text": "Revenue peaks every December (+32% vs Nov 2022) and dips each August across both years — a consistent, predictable back-to-school effect that enables proactive inventory planning."
+            },
+            {
+              "num": "02",
+              "color": "#28c840",
+              "title": "Electronics: Small Volume, Big Margins",
+              "text": "Electronics ranks 3rd in revenue ($2.25M) yet leads on profit margin at 44.6%. Colorbuds alone earned $835K profit — more than any single product. The category is under-invested."
+            },
+            {
+              "num": "03",
+              "color": "#4d8fff",
+              "title": "Downtown Store Dominance",
+              "text": "29 Downtown stores generate $8.2M (57% of revenue). But Airport stores earn $430K/store vs Downtown's $283K/store — pointing to clear airport-expansion upside."
+            },
+            {
+              "num": "04",
+              "color": "#ff6b6b",
+              "title": "The August Dip Is Structural",
+              "text": "August 2023 fell $167K vs July. Lego Bricks dropped from 115 to 85 avg units/day, with mid-week stock gaps — a replenishment-cycle issue, not lost demand."
+            },
+            {
+              "num": "05",
+              "color": "#ffa502",
+              "title": "Top 3 States = 30% of Revenue",
+              "text": "Ciudad de México, Nuevo León & Jalisco drive $4.5M combined. This concentration is a risk; diversifying into high-margin states like Sonora (29.2%) reduces dependency."
+            },
+            {
+              "num": "06",
+              "color": "#a29bfe",
+              "title": "Out-of-Stock Risk Is Real",
+              "text": "77 store-product combinations (4.8%) sit at zero stock. Given Lego Bricks' volume and $2.4M revenue contribution, any stockout is extremely costly."
+            }
+          ],
+          "rootCause": {
+            "headline": "July $828K  →  August $661K",
+            "drop": "−$167K  (−20.2%)",
+            "driver": "Primary drivers: Lego Bricks (−$36.9K) & Magic Sand (−$27.4K)",
+            "categoryDrops": [
+              {
+                "name": "Art & Crafts",
+                "pct": 24.9
+              },
+              {
+                "name": "Sports & Outdoors",
+                "pct": 23.4
+              },
+              {
+                "name": "Toys",
+                "pct": 20.6
+              },
+              {
+                "name": "Games",
+                "pct": 19.1
+              },
+              {
+                "name": "Electronics",
+                "pct": 4.5
+              }
+            ],
+            "conclusion": "Lego Bricks' daily average fell from 115 to 85 units/day, with mid-week (Mon/Tue) consistently underperforming — a replenishment-cycle misalignment rather than a genuine demand loss."
+          },
+          "recommendations": [
+            {
+              "priority": "HIGH",
+              "title": "Fix the August Replenishment Gap",
+              "text": "Automate reorder triggers for the top-10 SKUs (especially Lego Bricks) 30 days before August, and raise July safety stock by 20%.",
+              "impact": "Prevents the ~$167K annual dip — Lego Bricks alone is a $2.4M/yr risk."
+            },
+            {
+              "priority": "HIGH",
+              "title": "Expand the Electronics Range",
+              "text": "Grow Electronics SKU count and shelf space, bundle Colorbuds + Action Figure, and prioritise Downtown & Airport stores.",
+              "impact": "If Electronics share rises 15.6% → 25%, potential +$1.3M profit."
+            },
+            {
+              "priority": "MEDIUM",
+              "title": "Accelerate Airport Store Expansion",
+              "text": "Airport stores earn $430K/store vs the $283K Downtown average. Identify 5 high-traffic airports in underserved states.",
+              "impact": "5 new airport stores → an estimated +$2.15M annual revenue."
+            },
+            {
+              "priority": "MEDIUM",
+              "title": "Regional Diversification",
+              "text": "Sonora (29.2%) and Michoacán (33.1%) outperform on margin. Open 2–3 Electronics-heavy stores in these states.",
+              "impact": "Cuts top-3 state dependency from 30% to under 22% by 2025."
+            },
+            {
+              "priority": "LOW",
+              "title": "Rationalize Low-Margin Toy SKUs",
+              "text": "Toys lead revenue but trail on margin (21.2%). Trim slow movers in Commercial/Residential stores and reallocate shelf to Games (30.3%).",
+              "impact": "Potential 1.5–2% margin uplift across the Toys category."
+            }
+          ],
+          "bottomLine": [
+            "Fix the August inventory gap before it costs another $167K+ in 2024.",
+            "Double down on Electronics — 44.6% margin vs 21.2% for Toys.",
+            "Expand Airport stores — the highest revenue-per-store format in the portfolio."
+          ]
+        }
       }
     ]
   },

@@ -1732,6 +1732,8 @@
         min-width: 150px;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
         gap: 0.45rem;
         padding: 1.3rem 1.6rem;
         background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
@@ -2042,15 +2044,9 @@
         .proj-action-btn { width: 100%; justify-content: center; }
       }
 
-      /* Extra-small phones — stack stats as labelled rows */
+      /* Extra-small phones — stack the same left-aligned cards full width */
       @media (max-width: 400px) {
         .proj-stats { grid-template-columns: 1fr; }
-        .proj-stat {
-          flex-direction: row;
-          align-items: baseline;
-          justify-content: space-between;
-        }
-        .stat-label { text-align: right; }
       }
 
       /* ============ SQL WALKTHROUGH — MAIN PORTFOLIO CARD PREVIEW ============ */
@@ -2362,6 +2358,209 @@
         .sql-preview-body { max-height: 230px; }
         .sql-preview-body code { font-size: 0.72rem; line-height: 1.7; }
         .sql-preview-label { font-size: 0.58rem; }
+      }
+
+      /* ============ REPORT INSIGHTS (Mexico Toys case-study) ============ */
+      .report-meta {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--text-3);
+        letter-spacing: 0.04em;
+        margin: -0.6rem 0 1.8rem;
+      }
+      .report-kpis {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.8rem;
+        margin-bottom: 3rem;
+      }
+      .report-kpi {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 1.1rem 1.2rem;
+        background: linear-gradient(160deg, rgba(0,212,255,.05), rgba(255,255,255,.01));
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+      .rk-val { font-family: var(--mono); font-size: 1.4rem; font-weight: 700; color: var(--cyan); line-height: 1; }
+      .rk-label { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+      .rk-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--text-3); }
+
+      .report-subhead {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        margin: 0 0 1.3rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .report-subhead::before {
+        content: '';
+        width: 18px; height: 2px;
+        background: linear-gradient(90deg, var(--cyan), var(--blue));
+        border-radius: 2px;
+      }
+
+      .report-insights-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+      .report-insight {
+        padding: 1.4rem 1.5rem;
+        background: linear-gradient(160deg, rgba(var(--ri-rgb),.05), rgba(255,255,255,.01));
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--ri);
+        border-radius: 12px;
+      }
+      .ri-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.7rem; }
+      .ri-num { font-family: var(--mono); font-size: 1.1rem; font-weight: 700; color: var(--ri); }
+      .ri-title { font-size: 0.98rem; font-weight: 700; color: var(--text); margin: 0; line-height: 1.25; }
+      .ri-text { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; margin: 0; }
+
+      .report-rootcause { margin-bottom: 3rem; }
+      .rc-banner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.4rem 1.6rem;
+        background: linear-gradient(135deg, rgba(255,107,107,.1), rgba(255,107,107,.03));
+        border: 1px solid rgba(255,107,107,.3);
+        border-radius: 14px 14px 0 0;
+      }
+      .rc-banner-main { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+      .rc-headline { font-family: var(--mono); font-size: 1.05rem; font-weight: 700; color: var(--text); }
+      .rc-drop { font-family: var(--mono); font-size: 1.05rem; font-weight: 700; color: #ff6b6b; }
+      .rc-driver { font-size: 0.8rem; color: var(--text-2); }
+      .rc-bars {
+        padding: 1.5rem 1.6rem;
+        background: rgba(255,255,255,.02);
+        border: 1px solid var(--line);
+        border-top: none;
+      }
+      .rc-bars-title {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-3);
+        margin-bottom: 1.1rem;
+      }
+      .rc-bar-row {
+        display: grid;
+        grid-template-columns: 150px 1fr 56px;
+        align-items: center;
+        gap: 0.9rem;
+        margin-bottom: 0.7rem;
+      }
+      .rc-bar-row:last-child { margin-bottom: 0; }
+      .rc-bar-label { font-size: 0.82rem; color: var(--text-2); }
+      .rc-bar-track { height: 9px; background: rgba(255,255,255,.05); border-radius: 99px; overflow: hidden; }
+      .rc-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #ff6b6b, #ff9a6b); border-radius: 99px; }
+      .rc-bar-pct { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: #ff6b6b; text-align: right; }
+      .rc-conclusion {
+        font-size: 0.9rem;
+        color: var(--text-2);
+        line-height: 1.7;
+        padding: 1.3rem 1.6rem;
+        background: linear-gradient(135deg, rgba(0,212,255,.05), rgba(255,255,255,.01));
+        border: 1px solid var(--line);
+        border-top: none;
+        border-radius: 0 0 14px 14px;
+        margin: 0;
+      }
+
+      .report-recs { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 3rem; }
+      .rec-card {
+        padding: 1.3rem 1.5rem;
+        background: linear-gradient(135deg, rgba(255,255,255,.03), transparent);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+      .rec-top { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.6rem; }
+      .rec-priority {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        padding: 0.28rem 0.6rem;
+        border-radius: 99px;
+        color: var(--rec);
+        background: rgba(var(--rec-rgb),.13);
+        border: 1px solid rgba(var(--rec-rgb),.32);
+        flex-shrink: 0;
+      }
+      .rec-title { font-size: 0.98rem; font-weight: 700; color: var(--text); margin: 0; }
+      .rec-text { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; margin: 0 0 0.7rem; }
+      .rec-impact { font-size: 0.82rem; color: var(--cyan); line-height: 1.55; margin: 0; padding-top: 0.7rem; border-top: 1px dashed var(--line); }
+      .rec-impact span {
+        font-family: var(--mono);
+        font-size: 0.64rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-3);
+        margin-right: 0.6rem;
+      }
+
+      .report-bottomline {
+        padding: 1.8rem 2rem;
+        background: linear-gradient(135deg, rgba(0,212,255,.08), rgba(77,143,255,.04));
+        border: 1px solid rgba(0,212,255,.25);
+        border-radius: 18px;
+      }
+      .bl-head {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 1.2rem;
+      }
+      .bl-item { display: flex; align-items: flex-start; gap: 1rem; padding: 0.7rem 0; }
+      .bl-item + .bl-item { border-top: 1px solid rgba(0,212,255,.12); }
+      .bl-num {
+        width: 26px; height: 26px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(0,212,255,.15);
+        border: 1px solid rgba(0,212,255,.3);
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--cyan);
+      }
+      .bl-text { font-size: 0.92rem; color: var(--text); line-height: 1.6; padding-top: 0.15rem; }
+
+      /* Report — tablet */
+      @media (max-width: 980px) {
+        .report-kpis { grid-template-columns: repeat(3, 1fr); }
+      }
+      /* Report — mobile */
+      @media (max-width: 680px) {
+        .report-kpis { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+        .report-kpi { padding: 0.95rem 1rem; }
+        .rk-val { font-size: 1.2rem; }
+        .report-insights-grid { grid-template-columns: 1fr; }
+        .rc-banner { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 1.2rem 1.3rem; }
+        .rc-bars { padding: 1.2rem 1.3rem; }
+        .rc-bar-row { grid-template-columns: 88px 1fr 46px; gap: 0.55rem; }
+        .rc-bar-label { font-size: 0.72rem; }
+        .rc-conclusion { padding: 1.2rem 1.3rem; }
+        .rec-card { padding: 1.1rem 1.2rem; }
+        .report-bottomline { padding: 1.4rem 1.4rem; }
+      }
+      @media (max-width: 400px) {
+        .report-kpis { grid-template-columns: 1fr; }
       }
 
       /* ============ WALKTHROUGH (SQL project case-study) ============ */
@@ -3604,32 +3803,7 @@
         const media = p.media || [];
 
         let visualHtml = "";
-        if (visualMode === "walkthrough") {
-          // Show a styled SQL terminal preview for walkthrough projects
-          const wt = p.walkthrough || {};
-          const steps = wt.steps || [];
-          const previewCode = steps.length
-            ? steps[0].code.split("\n").slice(0, 12).join("\n")
-            : "";
-          const mysqlUrl = (wt.intro || {}).mysqlIconUrl || "";
-          visualHtml = `
-      <div class="project-media">
-        <div class="project-visual" style="padding:0">
-          <div class="sql-preview-card">
-            <div class="sql-preview-topbar">
-              <div style="display:flex;align-items:center;gap:.6rem">
-                <div class="sql-preview-circles"><span></span><span></span><span></span></div>
-                ${mysqlUrl ? `<img src="${esc(mysqlUrl)}" alt="MySQL" style="width:16px;height:16px;object-fit:contain">` : ""}
-              </div>
-              <span class="sql-preview-label">MySQL &bull; ${steps.length}-Step Walkthrough</span>
-            </div>
-            <div class="sql-preview-body">
-              <code>${highlightSQL(previewCode)}</code>
-            </div>
-          </div>
-        </div>
-      </div>`;
-        } else if (visualMode === "single-landscape" && media.length) {
+        if (visualMode === "single-landscape" && media.length) {
           visualHtml = `
       <div class="project-media">
         <div class="project-visual single">
@@ -3637,10 +3811,16 @@
         </div>
       </div>`;
         } else {
+          // walkthrough + carousel-* modes all render a carousel on the main card.
+          // (walkthrough's code walkthrough lives only on the detail page.)
           const portraitClass =
-            visualMode === "carousel-portrait" ? " portrait" : "";
+            visualMode === "carousel-portrait" || visualMode === "walkthrough"
+              ? " portrait"
+              : "";
           const containClass =
-            visualMode === "carousel-portrait" ? " contain" : "";
+            visualMode === "carousel-portrait" || visualMode === "walkthrough"
+              ? " contain"
+              : "";
           visualHtml = `
       <div class="project-media" data-carousel>
         <div class="project-visual${portraitClass}">
@@ -3901,6 +4081,108 @@
           </div>`;
       }
 
+      // ── Report insights renderer (Mexico Toys case-study) ──────────────
+      function renderReportInsights(r) {
+        if (!r) return "";
+        const kpis = r.kpis || [];
+        const insights = r.insights || [];
+        const rc = r.rootCause || {};
+        const recs = r.recommendations || [];
+        const bottom = r.bottomLine || [];
+
+        const priorityColor = (p) =>
+          p === "HIGH" ? "#ff6b6b" : p === "MEDIUM" ? "#ffa502" : "#28c840";
+        const hexRGB = (hex) => {
+          const h = hex.replace("#", "");
+          return `${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)}`;
+        };
+        const maxDrop = Math.max(...(rc.categoryDrops || [{pct:1}]).map(c => c.pct));
+
+        const kpiHtml = kpis.map(k => `
+          <div class="report-kpi">
+            <span class="rk-val">${esc(k.value)}</span>
+            <span class="rk-label">${esc(k.label)}</span>
+            <span class="rk-sub">${esc(k.sub || "")}</span>
+          </div>`).join("");
+
+        const insightsHtml = insights.map(it => {
+          const rgb = hexRGB(it.color || "#00d4ff");
+          return `
+            <div class="report-insight" style="--ri:${it.color};--ri-rgb:${rgb}">
+              <div class="ri-head">
+                <span class="ri-num">${esc(it.num)}</span>
+                <h4 class="ri-title">${esc(it.title)}</h4>
+              </div>
+              <p class="ri-text">${esc(it.text)}</p>
+            </div>`;
+        }).join("");
+
+        const barsHtml = (rc.categoryDrops || []).map(c => {
+          const w = Math.round((c.pct / maxDrop) * 100);
+          return `
+            <div class="rc-bar-row">
+              <span class="rc-bar-label">${esc(c.name)}</span>
+              <span class="rc-bar-track"><span class="rc-bar-fill" style="width:${w}%"></span></span>
+              <span class="rc-bar-pct">−${c.pct}%</span>
+            </div>`;
+        }).join("");
+
+        const recsHtml = recs.map(rec => {
+          const col = priorityColor(rec.priority);
+          const rgb = hexRGB(col);
+          return `
+            <div class="rec-card" style="--rec:${col};--rec-rgb:${rgb}">
+              <div class="rec-top">
+                <span class="rec-priority">${esc(rec.priority)}</span>
+                <h4 class="rec-title">${esc(rec.title)}</h4>
+              </div>
+              <p class="rec-text">${esc(rec.text)}</p>
+              <p class="rec-impact"><span>Impact</span>${esc(rec.impact)}</p>
+            </div>`;
+        }).join("");
+
+        const bottomHtml = bottom.map((b, i) => `
+          <div class="bl-item">
+            <span class="bl-num">${i + 1}</span>
+            <span class="bl-text">${esc(b)}</span>
+          </div>`).join("");
+
+        return `
+          <div class="proj-section report-section">
+            <h2 class="proj-section-title">Business Report — Key Findings</h2>
+            ${r.metaLine ? `<p class="report-meta">${esc(r.metaLine)}</p>` : ""}
+
+            <div class="report-kpis">${kpiHtml}</div>
+
+            <h3 class="report-subhead">Key Insights</h3>
+            <div class="report-insights-grid">${insightsHtml}</div>
+
+            <h3 class="report-subhead">Root Cause Analysis — The August Dip</h3>
+            <div class="report-rootcause">
+              <div class="rc-banner">
+                <div class="rc-banner-main">
+                  <span class="rc-headline">${esc(rc.headline || "")}</span>
+                  <span class="rc-drop">${esc(rc.drop || "")}</span>
+                </div>
+                <span class="rc-driver">${esc(rc.driver || "")}</span>
+              </div>
+              <div class="rc-bars">
+                <div class="rc-bars-title">Category revenue drop · Jul → Aug 2023</div>
+                ${barsHtml}
+              </div>
+              <p class="rc-conclusion">${esc(rc.conclusion || "")}</p>
+            </div>
+
+            <h3 class="report-subhead">Strategic Recommendations</h3>
+            <div class="report-recs">${recsHtml}</div>
+
+            <div class="report-bottomline">
+              <div class="bl-head">The Bottom Line</div>
+              ${bottomHtml}
+            </div>
+          </div>`;
+      }
+
       // ── Carousel initialiser (reused on main view and project pages) ──────
       function initCarousels(scope) {
         const root = scope || document;
@@ -4050,6 +4332,8 @@
           <p class="proj-page-desc">${p.descriptionHtml || ""}</p>
 
           ${isWalkthrough ? renderWalkthrough(p.walkthrough) : ""}
+
+          ${p.reportInsights ? renderReportInsights(p.reportInsights) : ""}
 
           ${tools.length ? `
           <div class="proj-section">
