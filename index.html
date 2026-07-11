@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -74,6 +74,7 @@
       [data-theme="light"] .report-insight,
       [data-theme="light"] .rec-card,
       [data-theme="light"] .float-card,
+      [data-theme="light"] .svc-card,
       [data-theme="light"] .rc-bars {
         background: #ffffff;
         box-shadow: 0 2px 16px -8px rgba(23, 37, 84, 0.16);
@@ -109,6 +110,7 @@
       /* Cyan-tinted highlight cards keep a soft tint instead of plain white */
       [data-theme="light"] .wt-intro,
       [data-theme="light"] .wt-outro,
+      [data-theme="light"] .svc-cta,
       [data-theme="light"] .report-bottomline,
       [data-theme="light"] .rc-conclusion {
         background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 255, 255, 0.7));
@@ -128,6 +130,156 @@
       /* Soft shadows for the floating/scrolled nav surfaces in light mode */
       [data-theme="light"] nav.topbar.scrolled { box-shadow: 0 4px 24px -12px rgba(23, 37, 84, 0.2); }
       [data-theme="light"] .mobile-nav { box-shadow: 0 18px 50px -16px rgba(23, 37, 84, 0.28); }
+
+      /* ============ FREELANCE SERVICES SECTION ============ */
+      .svc-availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #28c840;
+        background: rgba(40, 200, 64, 0.08);
+        border: 1px solid rgba(40, 200, 64, 0.28);
+        padding: 0.45rem 0.95rem;
+        border-radius: 99px;
+        margin-bottom: 1.2rem;
+      }
+      .svc-pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #28c840;
+        animation: svcPulse 2s infinite;
+      }
+      @keyframes svcPulse {
+        0% { box-shadow: 0 0 0 0 rgba(40, 200, 64, 0.45); }
+        70% { box-shadow: 0 0 0 9px rgba(40, 200, 64, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(40, 200, 64, 0); }
+      }
+      .svc-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.1rem;
+        margin-top: 2.6rem;
+      }
+      .svc-card {
+        padding: 1.7rem 1.7rem 1.6rem;
+        background: linear-gradient(160deg, rgba(var(--surf), 0.04), rgba(var(--surf), 0.01));
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      }
+      .svc-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0, 212, 255, 0.35);
+        box-shadow: 0 18px 44px -20px rgba(0, 212, 255, 0.25);
+      }
+      .svc-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.14), rgba(77, 143, 255, 0.1));
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        color: var(--cyan);
+        margin-bottom: 1.1rem;
+      }
+      .svc-icon svg { width: 23px; height: 23px; }
+      .svc-title {
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 0.55rem;
+      }
+      .svc-desc {
+        font-size: 0.9rem;
+        color: var(--text-2);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      .svc-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+      .svc-tags span {
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        color: var(--text-3);
+        padding: 0.3rem 0.65rem;
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        background: rgba(var(--surf), 0.03);
+      }
+      .svc-cta {
+        margin-top: 2.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+        padding: 1.6rem 2rem;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(77, 143, 255, 0.04));
+        border: 1px solid rgba(0, 212, 255, 0.25);
+      }
+      .svc-cta-text {
+        font-family: var(--display);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      @media (max-width: 980px) {
+        .svc-grid { gap: 0.9rem; }
+      }
+      @media (max-width: 680px) {
+        .svc-grid { grid-template-columns: 1fr; }
+        .svc-cta { flex-direction: column; align-items: flex-start; padding: 1.4rem; }
+      }
+
+      /* ============ ARABIC (RTL) SUPPORT — main page only ============ */
+      html[lang="ar"] {
+        --display: "Cairo", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+        --body: "Cairo", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      }
+      /* Wide letter-spacing is designed for uppercase Latin — disable it for Arabic */
+      html[lang="ar"] * { letter-spacing: normal !important; }
+
+      /* Timeline rail + dots mirror to the right */
+      [dir="rtl"] .timeline { padding-left: 0; padding-right: 2.4rem; }
+      [dir="rtl"] .timeline::before { left: auto; right: 7px; }
+      [dir="rtl"] .tl-item::before { left: auto; right: -2.4rem; }
+      @media (max-width: 680px) {
+        [dir="rtl"] .timeline { padding-right: 1.6rem; }
+        [dir="rtl"] .tl-item::before { right: -1.6rem; }
+      }
+
+      /* Latin/mono fragments render LTR inside the RTL flow */
+      [dir="rtl"] .project-num { direction: ltr; text-align: right; }
+
+      /* Directional arrows mirror in RTL */
+      [dir="rtl"] .proj-card-link svg,
+      [dir="rtl"] .btn-ghost svg,
+      [dir="rtl"] .nav-cta svg { transform: scaleX(-1); }
+
+      /* Keep carousel prev/next arrows in their physical positions */
+      [dir="rtl"] .carousel-controls { direction: ltr; }
+
+      /* Mobile hero stays start-aligned in Arabic */
+      @media (max-width: 980px) {
+        [dir="rtl"] .hero-grid { text-align: right; }
+      }
+
+      /* ============ MOBILE FLOATING NAV — sizing for 8 icons ============ */
+      @media (max-width: 480px) {
+        nav.mobile-nav { gap: 0.15rem; padding: 0.4rem; }
+        .mobile-nav .mobile-nav-item { width: 38px; height: 38px; }
+      }
+      @media (max-width: 374px) {
+        .mobile-nav .mobile-nav-item { width: 34px; height: 34px; }
+        .mobile-nav .mobile-nav-item svg { width: 18px; height: 18px; }
+      }
       * {
         box-sizing: border-box;
         margin: 0;
@@ -407,7 +559,8 @@
         align-items: center;
         gap: 0.75rem;
       }
-      .theme-toggle {
+      .theme-toggle,
+      .lang-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -426,7 +579,8 @@
           background 0.25s,
           transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
-      .theme-toggle:hover {
+      .theme-toggle:hover,
+      .lang-toggle:hover {
         color: var(--cyan);
         border-color: var(--cyan);
         background: rgba(0, 212, 255, 0.08);
@@ -436,6 +590,15 @@
         width: 19px;
         height: 19px;
         display: block;
+      }
+      .lang-toggle {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .lang-toggle:hover {
+        transform: translateY(-1px);
       }
 
       .hero {
@@ -3368,11 +3531,19 @@
       }
     </style>
     <script>
-      // Apply the saved theme before first paint to avoid a flash of the wrong mode.
+      // Apply the saved theme + language before first paint to avoid flashes.
       (function () {
         try {
           if (localStorage.getItem("mz-theme") === "light") {
             document.documentElement.setAttribute("data-theme", "light");
+          }
+          // Arabic applies to the MAIN page only — project routes stay English/LTR.
+          if (
+            localStorage.getItem("mz-lang") === "ar" &&
+            !location.hash.startsWith("#/project")
+          ) {
+            document.documentElement.setAttribute("lang", "ar");
+            document.documentElement.setAttribute("dir", "rtl");
           }
         } catch (e) {}
       })();
@@ -3404,6 +3575,7 @@
       <section id="projects"></section>
       <section id="volunteering"></section>
       <section id="skills"></section>
+      <section id="services"></section>
       <section id="contact" class="contact-section"></section>
     </main>
 
@@ -3428,6 +3600,11 @@
         chevronLeft: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`,
         sun: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>`,
         moon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`,
+        navService: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M18.5 5.5 16 8M21 12h-3M18.5 18.5 16 16M12 21v-3M5.5 18.5 8 16M3 12h3M5.5 5.5 8 8"/><circle cx="12" cy="12" r="2.5"/></svg>`,
+        svcInsights: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
+        svcDashboard: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>`,
+        svcClean: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>`,
+        svcReport: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>`,
         chevronRight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`,
         cap: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 10-10-5L2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
         award: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
@@ -3495,6 +3672,75 @@
           .replace(/<hl>(.*?)<\/hl>/g, '<span class="hl">$1</span>');
       }
 
+      // ── i18n: UI strings + language state (Arabic applies to MAIN page only) ──
+      const UI = {
+        en: {
+          nav: { home: "Home", about: "About", experience: "Experience", projects: "Projects", services: "Services", volunteering: "Volunteering", skills: "Skills", contact: "Contact" },
+          resume: "Resume",
+          viewResume: "View Resume",
+          seeProjects: "See projects",
+          viewDetails: "View Details",
+          viewGithub: "View on GitHub",
+          current: "Current",
+          scroll: "Scroll",
+          getInTouch: "Get in touch",
+          connectLinkedin: "Connect on LinkedIn",
+          certifications: "Certifications",
+        },
+        ar: {
+          nav: { home: "الرئيسية", about: "نبذة عني", experience: "الخبرة", projects: "المشاريع", services: "الخدمات", volunteering: "التطوع", skills: "المهارات", contact: "تواصل" },
+          resume: "السيرة الذاتية",
+          viewResume: "عرض السيرة الذاتية",
+          seeProjects: "استعرض المشاريع",
+          viewDetails: "عرض التفاصيل",
+          viewGithub: "عرض على GitHub",
+          current: "حاليًا",
+          scroll: "مرّر",
+          getInTouch: "تواصل معي",
+          connectLinkedin: "تواصل عبر LinkedIn",
+          certifications: "الشهادات",
+        },
+      };
+      let LANG = "en";
+      try {
+        if (localStorage.getItem("mz-lang") === "ar") LANG = "ar";
+      } catch (e) {}
+      const t = (k) => (UI[LANG] && UI[LANG][k]) ?? UI.en[k] ?? k;
+
+      let _dataEN = null; // original English data — project pages ALWAYS use this
+
+      // Deep-merge Arabic overrides onto the English base.
+      // Arrays merge element-by-element so overrides can be partial ({title} only, etc).
+      function deepMerge(base, ovr) {
+        if (Array.isArray(base) && Array.isArray(ovr)) {
+          const out = base.map((item, i) =>
+            i < ovr.length && ovr[i] != null ? deepMerge(item, ovr[i]) : item,
+          );
+          if (ovr.length > base.length) out.push(...ovr.slice(base.length));
+          return out;
+        }
+        if (
+          base && ovr &&
+          typeof base === "object" && typeof ovr === "object" &&
+          !Array.isArray(base) && !Array.isArray(ovr)
+        ) {
+          const out = { ...base };
+          for (const k of Object.keys(ovr)) {
+            out[k] = k in out ? deepMerge(out[k], ovr[k]) : ovr[k];
+          }
+          return out;
+        }
+        return ovr === undefined ? base : ovr;
+      }
+
+      function currentData() {
+        if (!_dataEN) return null;
+        if (LANG === "ar" && _dataEN.translations && _dataEN.translations.ar) {
+          return deepMerge(_dataEN, _dataEN.translations.ar);
+        }
+        return _dataEN;
+      }
+
       function renderMeta(d) {
         document.title = d.siteTitle || "Portfolio";
         const md = document.querySelector('meta[name="description"]');
@@ -3509,14 +3755,16 @@
       function renderNav(d) {
         const inner = document.getElementById("navInner");
         const profile = d.profile || {};
+        const nl = (UI[LANG] && UI[LANG].nav) || UI.en.nav;
         const sections = [
-          { id: "home", label: "Home", icon: ICONS.navHome },
-          { id: "about", label: "About", icon: ICONS.navUser },
-          { id: "experience", label: "Experience", icon: ICONS.navBriefcase },
-          { id: "projects", label: "Projects", icon: ICONS.navCode },
-          { id: "volunteering", label: "Volunteering", icon: ICONS.navUsers },
-          { id: "skills", label: "Skills", icon: ICONS.navCap },
-          { id: "contact", label: "Contact", icon: ICONS.navMail },
+          { id: "home", label: nl.home, icon: ICONS.navHome },
+          { id: "about", label: nl.about, icon: ICONS.navUser },
+          { id: "experience", label: nl.experience, icon: ICONS.navBriefcase },
+          { id: "projects", label: nl.projects, icon: ICONS.navCode },
+          { id: "volunteering", label: nl.volunteering, icon: ICONS.navUsers },
+          { id: "skills", label: nl.skills, icon: ICONS.navCap },
+          { id: "services", label: nl.services, icon: ICONS.navService },
+          { id: "contact", label: nl.contact, icon: ICONS.navMail },
         ];
         inner.innerHTML = `
     <a href="#home" class="brand">
@@ -3527,8 +3775,9 @@
       ${sections.map((s) => `<li><a href="#${s.id}" data-section="${s.id}">${s.label}</a></li>`).join("")}
     </ul>
     <div class="nav-actions">
-      <a href="${esc(profile.resumeUrl || "#")}" target="_blank" rel="noopener" class="nav-cta">Resume ${ICONS.arrowOut}</a>
+      <a href="${esc(profile.resumeUrl || "#")}" target="_blank" rel="noopener" class="nav-cta">${t("resume")} ${ICONS.arrowOut}</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle light / dark"></button>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language" title="Switch language"></button>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">${ICONS.menu}</button>
   `;
@@ -3567,8 +3816,8 @@
         </h1>
         <p class="titles">${p.titlesHtml || ""}</p>
         <div class="hero-actions">
-          <a href="${esc(p.resumeUrl || "#")}" target="_blank" rel="noopener" class="btn-primary">${ICONS.resume} View Resume</a>
-          <a href="#projects" class="btn-ghost">See projects ${ICONS.arrow}</a>
+          <a href="${esc(p.resumeUrl || "#")}" target="_blank" rel="noopener" class="btn-primary">${ICONS.resume} ${t("viewResume")}</a>
+          <a href="#projects" class="btn-ghost">${t("seeProjects")} ${ICONS.arrow}</a>
           <div class="socials">
             ${social.github ? `<a href="${esc(social.github)}" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">${ICONS.github}</a>` : ""}
             ${social.linkedin ? `<a href="${esc(social.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">${ICONS.linkedin}</a>` : ""}
@@ -3611,7 +3860,7 @@
         </div>
       </div>
     </div>
-    <div class="scroll-cue">Scroll<span class="line"></span></div>
+    <div class="scroll-cue">${t("scroll")}<span class="line"></span></div>
   `;
       }
 
@@ -3669,7 +3918,7 @@
                 ${item.location ? `<span class="role-loc">${esc(item.location)}</span>` : ""}
               </div>
               <h3>${esc(item.title || "")}</h3>
-              <p class="company">${esc(item.company || "")} ${item.current ? '<span class="badge-now">Current</span>' : ""}</p>
+              <p class="company">${esc(item.company || "")} ${item.current ? `<span class="badge-now">${t("current")}</span>` : ""}</p>
               <ul>
                 ${(item.bullets || []).map((b) => `<li>${b}</li>`).join("")}
               </ul>
@@ -3761,7 +4010,7 @@
                 <div class="vol-hero-meta">
                   ${item.activity ? `<span class="vol-activity-chip">${esc(item.activity)}</span>` : ""}
                   <h3>${esc(item.title || "")}</h3>
-                  <p class="vol-org">${esc(item.organization || "")}${item.current ? ' <span class="badge-now">Current</span>' : ""}</p>
+                  <p class="vol-org">${esc(item.organization || "")}${item.current ? ` <span class="badge-now">${t("current")}</span>` : ""}</p>
                   <div class="vol-meta-row">
                     ${item.period ? `<span>${esc(item.period)}</span>` : ""}
                     ${item.period && item.category ? '<span class="dot-sep">·</span>' : ""}
@@ -4000,10 +4249,54 @@
         <p>${p.descriptionHtml || ""}</p>
         ${p.techPills && p.techPills.length ? `<div class="tech-pills">${p.techPills.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
         ${p.githubUrl || p.id ? `<div class="project-actions">
-          ${p.id ? `<a href="#/project/${esc(p.id)}" class="proj-card-link">${ICONS.arrowOut} View Details</a>` : ""}
-          ${p.githubUrl ? `<a href="${esc(p.githubUrl)}" target="_blank" rel="noopener" class="btn-gh">${ICONS.github} View on GitHub</a>` : ""}
+          ${p.id ? `<a href="#/project/${esc(p.id)}" class="proj-card-link">${ICONS.arrowOut} ${t("viewDetails")}</a>` : ""}
+          ${p.githubUrl ? `<a href="${esc(p.githubUrl)}" target="_blank" rel="noopener" class="btn-gh">${ICONS.github} ${t("viewGithub")}</a>` : ""}
         </div>` : ""}
       </div>
+    </div>
+  `;
+      }
+
+      function renderServices(d) {
+        const el = document.getElementById("services");
+        if (!el) return;
+        const s = d.services || {};
+        const items = s.items || [];
+        if (!items.length) {
+          el.innerHTML = "";
+          return;
+        }
+        el.innerHTML = `
+    <div class="container">
+      <div class="reveal">
+        ${s.availability ? `<div class="svc-availability"><span class="svc-pulse"></span>${esc(s.availability)}</div>` : ""}
+        <span class="eyebrow">${esc(s.eyebrow || "Services")}</span>
+        <h2 class="section-title">${processInline(s.headlineHtml || "")}</h2>
+        ${s.subtitle ? `<p class="section-sub">${esc(s.subtitle)}</p>` : ""}
+      </div>
+      <div class="svc-grid reveal-stagger">
+        ${items
+          .map(
+            (it) => `
+          <div class="svc-card">
+            <div class="svc-icon">${ICONS[it.icon] || ICONS.navService}</div>
+            <h3 class="svc-title">${esc(it.title || "")}</h3>
+            <p class="svc-desc">${esc(it.desc || "")}</p>
+            ${(it.tags || []).length ? `<div class="svc-tags">${it.tags.map((tg) => `<span>${esc(tg)}</span>`).join("")}</div>` : ""}
+          </div>
+        `,
+          )
+          .join("")}
+      </div>
+      ${
+        s.cta
+          ? `
+      <div class="svc-cta reveal">
+        <div class="svc-cta-text">${esc(s.cta.heading || "")}</div>
+        <a href="#contact" class="btn-primary">${ICONS.email} ${esc(s.cta.button || "Let's talk")}</a>
+      </div>`
+          : ""
+      }
     </div>
   `;
       }
@@ -4039,7 +4332,7 @@
           ? `
       <div class="reveal">
         <h3 style="margin-top:4rem;font-family:var(--mono);font-size:.85rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.18em;display:flex;align-items:center;gap:1rem">
-          Certifications
+          ${t("certifications")}
           <span style="flex:1;height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)"></span>
         </h3>
         <div class="certs-list">
@@ -4084,8 +4377,8 @@
       <h2>${processInline(c.headlineHtml || "")}</h2>
       ${c.description ? `<p>${esc(c.description)}</p>` : ""}
       <div class="contact-actions">
-        ${email ? `<a href="mailto:${esc(email)}" class="btn-primary">${ICONS.email} Get in touch</a>` : ""}
-        ${social.linkedin ? `<a href="${esc(social.linkedin)}" target="_blank" rel="noopener" class="btn-ghost">Connect on LinkedIn</a>` : ""}
+        ${email ? `<a href="mailto:${esc(email)}" class="btn-primary">${ICONS.email} ${t("getInTouch")}</a>` : ""}
+        ${social.linkedin ? `<a href="${esc(social.linkedin)}" target="_blank" rel="noopener" class="btn-ghost">${t("connectLinkedin")}</a>` : ""}
       </div>
     </div>
   `;
@@ -4385,6 +4678,9 @@
       }
 
       function showProjectPage(project) {
+        // Project detail pages are always English / LTR, regardless of main-page language
+        document.documentElement.setAttribute("dir", "ltr");
+        document.documentElement.setAttribute("lang", "en");
         document.querySelector("main").style.display = "none";
         document.getElementById("footer").style.display = "none";
         const mobileNav = document.getElementById("mobileNav");
@@ -4396,6 +4692,12 @@
       }
 
       function showMainView() {
+        // Restore the visitor's chosen language / direction on the main page
+        document.documentElement.setAttribute("lang", LANG);
+        document.documentElement.setAttribute(
+          "dir",
+          LANG === "ar" ? "rtl" : "ltr",
+        );
         document.querySelector("main").style.display = "";
         document.getElementById("footer").style.display = "";
         const mobileNav = document.getElementById("mobileNav");
@@ -4566,18 +4868,61 @@
         );
       }
 
-      function initInteractions() {
-        initThemeToggle();
-        // nav scroll state
-        const topbar = document.getElementById("topbar");
-        const onScroll = () => {
-          if (window.scrollY > 30) topbar.classList.add("scrolled");
-          else topbar.classList.remove("scrolled");
-        };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
+      // ── render everything on the main page (called on load + language switch) ──
+      function renderAll(d) {
+        renderMeta(d);
+        renderNav(d);
+        renderHero(d);
+        renderAbout(d);
+        renderExperience(d);
+        renderProjects(d);
+        renderServices(d);
+        renderVolunteering(d);
+        renderSkills(d);
+        renderContact(d);
+        renderFooter(d);
+      }
 
-        // mobile nav toggle
+      function initLangToggle() {
+        const btn = document.getElementById("langToggle");
+        if (!btn) return;
+        // Show the language you'll switch TO: "ع" while in English, "EN" while in Arabic
+        btn.textContent = LANG === "ar" ? "EN" : "ع";
+        const title =
+          LANG === "ar" ? "Switch to English" : "التبديل إلى العربية";
+        btn.setAttribute("title", title);
+        btn.setAttribute("aria-label", title);
+        btn.addEventListener("click", () =>
+          setLanguage(LANG === "ar" ? "en" : "ar"),
+        );
+      }
+
+      function setLanguage(lang) {
+        LANG = lang === "ar" ? "ar" : "en";
+        try {
+          localStorage.setItem("mz-lang", LANG);
+        } catch (e) {}
+        // Arabic + RTL apply to the MAIN page only — project pages stay English/LTR
+        const onProject =
+          document.getElementById("projectPage").style.display === "block";
+        document.documentElement.setAttribute("lang", onProject ? "en" : LANG);
+        document.documentElement.setAttribute(
+          "dir",
+          LANG === "ar" && !onProject ? "rtl" : "ltr",
+        );
+        const d = currentData();
+        if (d) {
+          renderAll(d);
+          bindDynamic(false);
+        }
+      }
+
+      // ── bindings that must re-run whenever the nav / sections re-render ──
+      function bindDynamic(animateReveals) {
+        initThemeToggle();
+        initLangToggle();
+
+        // mobile hamburger (elements are recreated by renderNav)
         const navToggle = document.getElementById("navToggle");
         const navLinks = document.getElementById("navLinks");
         if (navToggle && navLinks) {
@@ -4593,7 +4938,43 @@
             );
         }
 
-        // active nav highlight
+        // reveal on scroll — animated on first load, instant after a language switch
+        if (animateReveals) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+          );
+          document
+            .querySelectorAll(".reveal, .reveal-stagger")
+            .forEach((el) => observer.observe(el));
+        } else {
+          document
+            .querySelectorAll(".reveal, .reveal-stagger")
+            .forEach((el) => el.classList.add("in"));
+        }
+
+        // carousels on the main portfolio view
+        initCarousels(document);
+      }
+
+      function initInteractions() {
+        // ── one-time listeners (survive language re-renders) ──
+        const topbar = document.getElementById("topbar");
+        const onScroll = () => {
+          if (window.scrollY > 30) topbar.classList.add("scrolled");
+          else topbar.classList.remove("scrolled");
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        // active nav highlight — anchors queried live so re-rendered navs keep working
         const sectionIds = [
           "home",
           "about",
@@ -4601,43 +4982,27 @@
           "projects",
           "volunteering",
           "skills",
+          "services",
           "contact",
         ];
         const sections = sectionIds.map((id) => document.getElementById(id));
-        const navAnchors = document.querySelectorAll(
-          ".nav-links a, .mobile-nav-item",
-        );
         const setActive = () => {
           const y = window.scrollY + 120;
           let current = "home";
           sections.forEach((sec) => {
             if (sec && sec.offsetTop <= y) current = sec.id;
           });
-          navAnchors.forEach((a) =>
-            a.classList.toggle("active", a.dataset.section === current),
-          );
+          document
+            .querySelectorAll(".nav-links a, .mobile-nav-item")
+            .forEach((a) =>
+              a.classList.toggle("active", a.dataset.section === current),
+            );
         };
         window.addEventListener("scroll", setActive, { passive: true });
         setActive();
 
-        // reveal on scroll
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("in");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
-        );
-        document
-          .querySelectorAll(".reveal, .reveal-stagger")
-          .forEach((el) => observer.observe(el));
-
-        // carousels on the main portfolio view
-        initCarousels(document);
+        // ── dynamic bindings (also re-run on language switch) ──
+        bindDynamic(true);
       }
     </script>
 
@@ -4646,17 +5011,9 @@
       (async function () {
         try {
           const data = await loadData();
-          _portfolioData = data;  // store for router
-          renderMeta(data);
-          renderNav(data);
-          renderHero(data);
-          renderAbout(data);
-          renderExperience(data);
-          renderProjects(data);
-          renderVolunteering(data);
-          renderSkills(data);
-          renderContact(data);
-          renderFooter(data);
+          _dataEN = data; // English base — Arabic overrides merge on top
+          _portfolioData = data; // router lookups — project pages always English
+          renderAll(currentData());
           initInteractions();
           window.addEventListener("hashchange", router);
           router(); // check hash on initial load (handles direct links to project pages)

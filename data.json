@@ -787,5 +787,251 @@
   },
   "footer": {
     "tagline": "Built with care."
+  },
+  "services": {
+    "eyebrow": "Services",
+    "headlineHtml": "Freelance <accent>services</accent>.",
+    "subtitle": "I help businesses turn messy data into clear decisions. Available for freelance and contract work — remote, worldwide.",
+    "availability": "Available for new projects",
+    "items": [
+      {
+        "id": "svc-1",
+        "icon": "svcInsights",
+        "title": "Data Analysis & Insights",
+        "desc": "Deep-dive analysis of your sales, operations, or customer data to surface trends, opportunities, and root causes — delivered as clear, decision-ready findings.",
+        "tags": [
+          "Excel",
+          "Python",
+          "Statistics"
+        ]
+      },
+      {
+        "id": "svc-2",
+        "icon": "svcDashboard",
+        "title": "Dashboard Development",
+        "desc": "Interactive Power BI and Excel dashboards that track your KPIs in real time and make performance visible at a glance.",
+        "tags": [
+          "Power BI",
+          "DAX",
+          "Power Query"
+        ]
+      },
+      {
+        "id": "svc-3",
+        "icon": "svcClean",
+        "title": "Data Cleaning & Preparation",
+        "desc": "Duplicates, broken formats, missing values — I turn unreliable spreadsheets into clean, structured, analysis-ready datasets.",
+        "tags": [
+          "SQL",
+          "Python",
+          "ETL"
+        ]
+      },
+      {
+        "id": "svc-4",
+        "icon": "svcReport",
+        "title": "Business Reporting",
+        "desc": "Professional reports and presentations that translate the numbers into a story your stakeholders can act on.",
+        "tags": [
+          "PowerPoint",
+          "KPI Design",
+          "Storytelling"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Have a data project in mind?",
+      "button": "Let's talk"
+    }
+  },
+  "translations": {
+    "ar": {
+      "siteTitle": "مؤمن سليمان — محلّل بيانات وذكاء أعمال",
+      "siteDescription": "الموقع الشخصي لمؤمن سليمان — محلّل ذكاء أعمال في Green Delta Home وطالب علوم حاسب بجامعة القاهرة.",
+      "profile": {
+        "firstName": "مؤمن",
+        "lastName": "سليمان",
+        "greeting": "مرحبًا، أنا",
+        "titlesHtml": "<strong>محلّل بيانات</strong> @ Green Delta Home <span class=\"pipe\">/</span> طالب علوم حاسب @ جامعة القاهرة <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL",
+        "floatingCards": [
+          {
+            "labelTop": "تنظيف",
+            "labelBottom": "بيانات التسريحات"
+          },
+          {
+            "labelTop": "تصوّر",
+            "labelBottom": "مجموعات البيانات"
+          },
+          {
+            "labelTop": "دقة ETL",
+            "labelBottom": "Make + Claude"
+          }
+        ]
+      },
+      "about": {
+        "eyebrow": "نبذة عني",
+        "headlineHtml": "أصل بين <accent>البيانات</accent> والقرارات.",
+        "paragraphs": [
+          "أنا <strong>طالب علوم حاسب في جامعة القاهرة</strong>، متخصص في <hl>دعم القرار وبحوث العمليات</hl>. منحتني خبرتي في بيئات العمل عالية الضغط في أمازون (عبر Concentrix) فهمًا عميقًا لكيفية إدارة الأعمال فعليًا — واليوم أجمع بين هذه النظرة التشغيلية والمهارات التقنية في تحليل البيانات.",
+          "أعمل حاليًا <strong>محلّل ذكاء أعمال في Green Delta Home</strong>، حيث أبني لوحات معلومات تفاعلية، وأصمّم خطوط ETL، وأهندس قواعد بيانات علائقية تحوّل المعلومات الخام إلى قرارات يمكن للإدارة التنفيذية التصرف بناءً عليها.",
+          "/// شغوف بتحويل البيانات المعقّدة إلى نموّ حقيقي للأعمال."
+        ],
+        "stats": [
+          {
+            "label": "نُزل تحت المتابعة"
+          },
+          {
+            "label": "جهة اتصال B2B مُدارة"
+          },
+          {
+            "label": "إيرادات تم تحليلها"
+          },
+          {
+            "label": "دقة خطوط ETL"
+          }
+        ]
+      },
+      "experience": {
+        "eyebrow": "الخبرة",
+        "headlineHtml": "أين صنعتُ <accent>الأثر</accent>.",
+        "subtitle": "من إدارة أكثر من 4,000 حساب B2B في Amazon Business إلى بناء أنظمة ذكاء الأعمال لفريق تنفيذي — كل دور أضاف طبقة جديدة إلى طريقة تفكيري في البيانات.",
+        "items": [
+          {
+            "title": "محلّل ذكاء أعمال (BI)",
+            "period": "أكتوبر 2025 — حتى الآن",
+            "location": "القاهرة، مصر",
+            "bullets": [
+              "<strong>ذكاء الأعمال ولوحات المعلومات:</strong> بناء لوحات معلومات تفاعلية لمتابعة الإشغال ومؤشرات الإيرادات عبر 4 نُزل — لتمكين قرارات مبنية على البيانات تصل مباشرة إلى المدير التنفيذي.",
+              "<strong>الأتمتة بالذكاء الاصطناعي:</strong> هندسة خط ETL آلي باستخدام Make.com وGemini AI لاستخراج بيانات منظّمة من فواتير PDF بدقة 100%.",
+              "<strong>إدارة الإيرادات:</strong> الإشراف على دورة الحسابات المدينة كاملة، ومطابقة المدفوعات من Booking.com والمجالس المحلية لتحسين التدفق النقدي.",
+              "<strong>المزامنة التشغيلية:</strong> إنشاء جسر بيانات لحظي من السحابة إلى سطح المكتب لتحديث لوحات المعلومات فورًا عبر Power Query — دون أي تدخل يدوي.",
+              "<strong>تقارير الإدارة:</strong> تقديم تقارير يومية ملخّصة عن العقود ذات الأولوية واتجاهات الإشغال لتسهيل التواصل مع الإدارة التنفيذية.",
+              "<strong>هندسة قواعد البيانات:</strong> تصميم قاعدة بيانات علائقية مركزية لتحل محل الملفات المسطّحة — بما يحسّن سلامة البيانات وسرعة التحليل."
+            ]
+          },
+          {
+            "title": "مستشار مبيعات B2B — حساب Amazon Business",
+            "period": "ديسمبر 2024 — أكتوبر 2025 · 11 شهرًا",
+            "location": "القاهرة الجديدة، مصر",
+            "bullets": [
+              "إدارة محفظة ضخمة تضم <strong>أكثر من 4,000 جهة اتصال B2B</strong> لصالح Amazon Business.",
+              "تطوير أدوات متابعة شخصية على Excel باستخدام <strong>VLOOKUP والفلاتر والدوال المتقدمة</strong> لمراقبة مؤشرات الأداء اليومية.",
+              "تتبّع سلوك العملاء وتنفيذ <strong>تقسيم العملاء (Segmentation)</strong> لتخصيص العروض البيعية حسب ملف كل حساب."
+            ]
+          }
+        ],
+        "education": {
+          "school": "جامعة القاهرة",
+          "degreeShort": "درجة البكالوريوس",
+          "field": "علوم الحاسب · دعم القرار وبحوث العمليات",
+          "year": "التخرج المتوقع 2028"
+        }
+      },
+      "projects": {
+        "eyebrow": "المشاريع",
+        "headlineHtml": "دراسات حالة <accent>مختارة</accent>.",
+        "subtitle": "مشاريع متكاملة عبر Excel وSQL وPython — كل منها يجيب عن سؤال عمل حقيقي، من تحليل المبيعات الإقليمية إلى تجهيز البيانات للتحليل.",
+        "items": [
+          {
+            "title": "تحليل بيانات المبيعات باستخدام Excel",
+            "descriptionHtml": "لوحة معلومات لذكاء مبيعات B2B مبنية بـ Excel Power Pivot وDAX — تحليل إيرادات تتجاوز 6.1 مليون دولار لاستخلاص رؤى إقليمية وربحية عبر الولايات الأمريكية."
+          },
+          {
+            "title": "تنظيف البيانات بـ SQL — تسريحات العمل",
+            "descriptionHtml": "مشروع تنظيف بيانات باستخدام MySQL لتوحيد وإزالة التكرارات وتجهيز مجموعة بيانات عالمية خام عن تسريحات العمل للتحليل الاستكشافي (EDA). يشرح كل خطوة — من معالجة غياب المفتاح الأساسي عبر <code>ROW_NUMBER()</code> إلى تنسيق التواريخ والربط الذاتي لملء القيم الفارغة."
+          },
+          {
+            "title": "مبيعات متاجر الألعاب في المكسيك",
+            "descriptionHtml": "مشروع تحليل بيانات بـ Excel وPython يستكشف المبيعات وهوامش الربح وصحة المخزون والأداء الإقليمي عبر <strong>50 متجر ألعاب في المكسيك</strong>. يشمل لوحة معلومات وجداول محورية وتقريرًا كاملًا. مبني على مجموعة بيانات Maven Analytics."
+          }
+        ]
+      },
+      "services": {
+        "eyebrow": "الخدمات",
+        "headlineHtml": "خدمات <accent>العمل الحر</accent>.",
+        "subtitle": "أساعد الشركات على تحويل البيانات الفوضوية إلى قرارات واضحة. متاح للعمل الحر والتعاقدات — عن بُعد ومن أي مكان.",
+        "availability": "متاح لمشاريع جديدة",
+        "items": [
+          {
+            "title": "تحليل البيانات واستخلاص الرؤى",
+            "desc": "تحليل معمّق لبيانات المبيعات أو العمليات أو العملاء للكشف عن الاتجاهات والفرص والأسباب الجذرية — بنتائج واضحة وجاهزة لاتخاذ القرار."
+          },
+          {
+            "title": "تطوير لوحات المعلومات",
+            "desc": "لوحات معلومات تفاعلية بـ Power BI وExcel تتابع مؤشرات أدائك لحظيًا وتجعل الأداء مرئيًا بنظرة واحدة."
+          },
+          {
+            "title": "تنظيف البيانات وتجهيزها",
+            "desc": "تكرارات، تنسيقات تالفة، قيم مفقودة — أحوّل الجداول غير الموثوقة إلى بيانات نظيفة ومنظّمة وجاهزة للتحليل."
+          },
+          {
+            "title": "التقارير والعروض الاحترافية",
+            "desc": "تقارير وعروض تقديمية احترافية تترجم الأرقام إلى قصة يمكن لأصحاب القرار التصرف بناءً عليها."
+          }
+        ],
+        "cta": {
+          "heading": "لديك مشروع بيانات في ذهنك؟",
+          "button": "لنتحدث"
+        }
+      },
+      "volunteering": {
+        "eyebrow": "التطوع",
+        "headlineHtml": "أقود وأبني <accent>مع الناس</accent>.",
+        "subtitle": "أدوار نمّيت فيها مهارات القيادة، ونظّمت فرق عمل، وأطلقت فعاليات مع مجتمعات شغوفة.",
+        "items": [
+          {
+            "title": "رئيس مجلس الإدارة",
+            "period": "2024 — حتى الآن · سنتان و5 أشهر",
+            "category": "العلوم والتكنولوجيا",
+            "activity": "يوم المقابلات",
+            "bullets": [
+              "قيادة المجلس التنفيذي لرسم التوجه الاستراتيجي لمنظمة تضم <strong>أكثر من 180 عضوًا</strong>، مع التركيز على الكفاءة التشغيلية والأثر القابل للقياس.",
+              "تطبيق <strong>متابعة مبنية على البيانات</strong> لقياس تفاعل الأعضاء ونجاح الفعاليات وضمان تحقيق جميع مؤشرات الأداء.",
+              "الإشراف على توزيع الموارد الداخلية والميزانيات استنادًا إلى تحليل إحصائي لأداء الفعاليات السابقة.",
+              "تيسير عمليات اتخاذ القرار عبر اللجان المختلفة بتطبيق منطق دعم القرار لحل التحديات التنظيمية."
+            ]
+          },
+          {
+            "title": "رئيس العلاقات العامة",
+            "period": "2022 — 2024 · سنتان",
+            "category": "العلوم والتكنولوجيا",
+            "activity": "فعالية First Step",
+            "bullets": [
+              "إدارة فريق علاقات عامة عالي الأداء لتأمين <strong>شراكات استراتيجية</strong> ومتحدثين من الطراز الأول لفعاليات جامعية كبرى.",
+              "تحليل بيانات السوق والرعاة لتحديد فرص الشراكة الأكثر فاعلية، بما أدى إلى زيادة قيمة الرعايات.",
+              "متابعة مؤشرات التفاعل والوصول وتقديم تقارير تحليلية مفصّلة للرعاة بعد كل فعالية.",
+              "استخدام <strong>Excel</strong> لتنظيم وإدارة قواعد بيانات كبيرة للمتحدثين والشركاء المحتملين، بما حسّن كفاءة التواصل."
+            ]
+          }
+        ]
+      },
+      "skills": {
+        "eyebrow": "المهارات",
+        "headlineHtml": "صندوق <accent>أدواتي</accent>.",
+        "subtitle": "الأدوات واللغات والمفاهيم التي أستخدمها يوميًا لتنظيف البيانات وبناء النماذج وإيصال القرارات.",
+        "categories": [
+          {
+            "name": "البيانات والتحليلات"
+          },
+          {
+            "name": "ذكاء الأعمال والأتمتة"
+          },
+          {
+            "name": "لغات البرمجة"
+          },
+          {
+            "name": "حزمة Microsoft Office"
+          }
+        ]
+      },
+      "contact": {
+        "eyebrow": "تواصل",
+        "headlineHtml": "لنحوّل البيانات إلى <accent>قرارات</accent>.",
+        "description": "متاح لأدوار محلّل ذكاء الأعمال، وأعمال لوحات المعلومات الحرة، وتعاونات تنظيف البيانات. إن كانت لديك بيانات تحتاج إلى إجابات — لنتحدث."
+      },
+      "footer": {
+        "tagline": "صُنع بعناية."
+      }
+    }
   }
 }
