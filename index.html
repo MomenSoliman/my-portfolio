@@ -271,6 +271,95 @@
         [dir="rtl"] .hero-grid { text-align: right; }
       }
 
+      /* ── RTL support for PROJECT DETAIL pages ── */
+      [dir="rtl"] .proj-stat { text-align: right; }
+      [dir="rtl"] .proj-back svg { transform: scaleX(-1); }
+      [dir="rtl"] .proc-step::after {
+        right: auto;
+        left: -0.55rem;
+        transform: translateY(-50%) scaleX(-1);
+      }
+      [dir="rtl"] .wt-flow-arrow { transform: scaleX(-1); }
+      /* Code blocks always read left-to-right, even inside Arabic pages */
+      [dir="rtl"] .wt-code-block { direction: ltr; }
+      [dir="rtl"] .proj-page-desc code,
+      [dir="rtl"] .wt-step-desc code,
+      [dir="rtl"] .ri-text code {
+        direction: ltr;
+        unicode-bidi: embed;
+      }
+      /* Insight card accent bar mirrors to the right edge */
+      [dir="rtl"] .report-insight {
+        border-left: 1px solid var(--line);
+        border-right: 3px solid var(--ri);
+      }
+
+      /* ── Arabic typography fixes (Cairo is taller than the Latin faces) ── */
+      html[lang="ar"] h1,
+      html[lang="ar"] h2,
+      html[lang="ar"] h3,
+      html[lang="ar"] h4 {
+        line-height: 1.4;
+      }
+      html[lang="ar"] .hero h1 {
+        line-height: 1.22;
+      }
+      html[lang="ar"] .hero h1 .last-name {
+        font-style: normal; /* synthetic italics distort Arabic script */
+        padding-right: 0;
+      }
+      html[lang="ar"] .section-title,
+      html[lang="ar"] .contact-card h2,
+      html[lang="ar"] .proj-page-title {
+        line-height: 1.35;
+      }
+      /* Section eyebrow: bigger + Cairo instead of tiny fallback-mono Arabic */
+      html[lang="ar"] .eyebrow {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 0.98rem;
+      }
+
+      /* ── Nav density: 8 links must never squeeze the brand name ── */
+      @media (max-width: 1300px) {
+        ul.nav-links { gap: 0.15rem; }
+        ul.nav-links a { padding: 0.5rem 0.7rem; font-size: 0.88rem; }
+      }
+
+      /* ── Light mode: browser-chrome bar above project media goes light ── */
+      [data-theme="light"] .project-visual::before {
+        background: linear-gradient(
+          180deg,
+          rgba(213, 222, 240, 0.95),
+          rgba(213, 222, 240, 0)
+        );
+      }
+
+      /* ── "View Details" — the single, prominent card action ── */
+      .btn-details {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.75rem 1.35rem;
+        background: rgba(0, 212, 255, 0.07);
+        color: var(--cyan);
+        border: 1px solid rgba(0, 212, 255, 0.45);
+        border-radius: 99px;
+        font-weight: 600;
+        font-size: 0.88rem;
+        text-decoration: none;
+        transition: all 0.25s;
+      }
+      .btn-details svg { width: 15px; height: 15px; }
+      .btn-details:hover {
+        background: var(--cyan);
+        border-color: var(--cyan);
+        color: #04071a;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px -10px rgba(0, 212, 255, 0.5);
+      }
+      [dir="rtl"] .btn-details svg { transform: scaleX(-1); }
+
       /* ============ MOBILE FLOATING NAV — sizing for 8 icons ============ */
       @media (max-width: 480px) {
         nav.mobile-nav { gap: 0.15rem; padding: 0.4rem; }
@@ -475,6 +564,7 @@
         gap: 0.75rem;
         text-decoration: none;
         color: var(--text);
+        flex-shrink: 0;
       }
       .brand-logo {
         width: 38px;
@@ -499,6 +589,7 @@
         font-weight: 700;
         font-size: 1.05rem;
         letter-spacing: 0.02em;
+        white-space: nowrap;
       }
       .brand .brand-name span {
         color: var(--cyan);
@@ -3537,11 +3628,8 @@
           if (localStorage.getItem("mz-theme") === "light") {
             document.documentElement.setAttribute("data-theme", "light");
           }
-          // Arabic applies to the MAIN page only — project routes stay English/LTR.
-          if (
-            localStorage.getItem("mz-lang") === "ar" &&
-            !location.hash.startsWith("#/project")
-          ) {
+          // Arabic applies site-wide — main page and project pages alike.
+          if (localStorage.getItem("mz-lang") === "ar") {
             document.documentElement.setAttribute("lang", "ar");
             document.documentElement.setAttribute("dir", "rtl");
           }
@@ -3672,7 +3760,7 @@
           .replace(/<hl>(.*?)<\/hl>/g, '<span class="hl">$1</span>');
       }
 
-      // ── i18n: UI strings + language state (Arabic applies to MAIN page only) ──
+      // ── i18n: UI strings + language state (applies site-wide, incl. project pages) ──
       const UI = {
         en: {
           nav: { home: "Home", about: "About", experience: "Experience", projects: "Projects", services: "Services", volunteering: "Volunteering", skills: "Skills", contact: "Contact" },
@@ -3686,6 +3774,27 @@
           getInTouch: "Get in touch",
           connectLinkedin: "Connect on LinkedIn",
           certifications: "Certifications",
+          backToProjects: "Back to Projects",
+          toolsTitle: "Tools & Technologies",
+          processTitle: "Project Process",
+          liveDashboard: "Live Dashboard",
+          embedNote:
+            "Fully interactive — explore the data directly below. Powered by Microsoft Excel Online.",
+          downloadZip: "Download ZIP",
+          datasetSource: "Dataset Source",
+          walkthroughTitle: "Cleaning Walkthrough",
+          rawData: "Raw Data",
+          cleanData: "Clean Data",
+          copy: "Copy",
+          copied: "Copied!",
+          reportTitle: "Business Report — Key Findings",
+          keyInsights: "Key Insights",
+          rootCauseTitle: "Root Cause Analysis — The August Dip",
+          categoryDropTitle: "Category revenue drop · Jul → Aug 2023",
+          recsTitle: "Strategic Recommendations",
+          bottomLineTitle: "The Bottom Line",
+          impact: "Impact",
+          priority: { HIGH: "HIGH", MEDIUM: "MEDIUM", LOW: "LOW" },
         },
         ar: {
           nav: { home: "الرئيسية", about: "نبذة عني", experience: "الخبرة", projects: "المشاريع", services: "الخدمات", volunteering: "التطوع", skills: "المهارات", contact: "تواصل" },
@@ -3699,6 +3808,27 @@
           getInTouch: "تواصل معي",
           connectLinkedin: "تواصل عبر LinkedIn",
           certifications: "الشهادات",
+          backToProjects: "العودة إلى المشاريع",
+          toolsTitle: "الأدوات والتقنيات",
+          processTitle: "مراحل المشروع",
+          liveDashboard: "لوحة المعلومات التفاعلية",
+          embedNote:
+            "تفاعلية بالكامل — استكشف البيانات مباشرة بالأسفل. تعمل عبر Microsoft Excel Online.",
+          downloadZip: "تحميل ZIP",
+          datasetSource: "مصدر البيانات",
+          walkthroughTitle: "شرح خطوات التنظيف",
+          rawData: "بيانات خام",
+          cleanData: "بيانات نظيفة",
+          copy: "نسخ",
+          copied: "تم النسخ!",
+          reportTitle: "تقرير الأعمال — أبرز النتائج",
+          keyInsights: "أهم الرؤى",
+          rootCauseTitle: "تحليل السبب الجذري — تراجع أغسطس",
+          categoryDropTitle: "انخفاض إيرادات الفئات · يوليو ← أغسطس 2023",
+          recsTitle: "التوصيات الاستراتيجية",
+          bottomLineTitle: "الخلاصة",
+          impact: "الأثر",
+          priority: { HIGH: "عالية", MEDIUM: "متوسطة", LOW: "منخفضة" },
         },
       };
       let LANG = "en";
@@ -3707,7 +3837,7 @@
       } catch (e) {}
       const t = (k) => (UI[LANG] && UI[LANG][k]) ?? UI.en[k] ?? k;
 
-      let _dataEN = null; // original English data — project pages ALWAYS use this
+      let _dataEN = null; // original English data — Arabic overrides merge on top
 
       // Deep-merge Arabic overrides onto the English base.
       // Arrays merge element-by-element so overrides can be partial ({title} only, etc).
@@ -4248,9 +4378,8 @@
         <h3>${esc(p.title || "")}</h3>
         <p>${p.descriptionHtml || ""}</p>
         ${p.techPills && p.techPills.length ? `<div class="tech-pills">${p.techPills.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
-        ${p.githubUrl || p.id ? `<div class="project-actions">
-          ${p.id ? `<a href="#/project/${esc(p.id)}" class="proj-card-link">${ICONS.arrowOut} ${t("viewDetails")}</a>` : ""}
-          ${p.githubUrl ? `<a href="${esc(p.githubUrl)}" target="_blank" rel="noopener" class="btn-gh">${ICONS.github} ${t("viewGithub")}</a>` : ""}
+        ${p.id ? `<div class="project-actions">
+          <a href="#/project/${esc(p.id)}" class="btn-details">${ICONS.arrowOut} ${t("viewDetails")}</a>
         </div>` : ""}
       </div>
     </div>
@@ -4428,10 +4557,10 @@
       function copySQL(btn) {
         const raw = btn.closest(".wt-code-block").querySelector("[data-raw]").dataset.raw;
         navigator.clipboard.writeText(raw).then(() => {
-          btn.textContent = "Copied!";
+          btn.textContent = t("copied");
           btn.classList.add("copied");
-          setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1800);
-        }).catch(() => { btn.textContent = "Error"; setTimeout(() => btn.textContent = "Copy", 1500); });
+          setTimeout(() => { btn.textContent = t("copy"); btn.classList.remove("copied"); }, 1800);
+        }).catch(() => { btn.textContent = "Error"; setTimeout(() => btn.textContent = t("copy"), 1500); });
       }
 
       // ── Walkthrough renderer (SQL project only) ─────────────────────────
@@ -4477,7 +4606,7 @@
                       <div class="wt-code-circles"><span></span><span></span><span></span></div>
                       <span class="wt-code-label">${esc(step.codeLabel || "SQL")}</span>
                     </div>
-                    <button class="wt-code-copy" onclick="copySQL(this)" aria-label="Copy code">Copy</button>
+                    <button class="wt-code-copy" onclick="copySQL(this)" aria-label="Copy code">${t("copy")}</button>
                   </div>
                   <div class="wt-code-body">
                     <code class="wt-code" data-raw="${step.code.replace(/"/g, "&quot;")}">${highlightSQL(step.code)}</code>
@@ -4489,15 +4618,15 @@
 
         return `
           <div class="proj-section">
-            <h2 class="proj-section-title">Cleaning Walkthrough</h2>
+            <h2 class="proj-section-title">${t("walkthroughTitle")}</h2>
 
             <div class="wt-intro">
               <div class="wt-intro-flow">
                 ${intro.mysqlIconUrl ? `<div class="wt-flow-step"><img src="${esc(intro.mysqlIconUrl)}" alt="MySQL"><span>MySQL</span></div>` : ""}
                 ${intro.mysqlIconUrl ? `<div class="wt-flow-arrow">→</div>` : ""}
-                ${intro.dbIconUrl    ? `<div class="wt-flow-step"><img src="${esc(intro.dbIconUrl)}" alt="Raw data"><span>Raw Data</span></div>` : ""}
+                ${intro.dbIconUrl    ? `<div class="wt-flow-step"><img src="${esc(intro.dbIconUrl)}" alt="Raw data"><span>${t("rawData")}</span></div>` : ""}
                 ${intro.dbIconUrl    ? `<div class="wt-flow-arrow">→</div>` : ""}
-                ${intro.cleanIconUrl ? `<div class="wt-flow-step"><img src="${esc(intro.cleanIconUrl)}" alt="Clean data"><span>Clean Data</span></div>` : ""}
+                ${intro.cleanIconUrl ? `<div class="wt-flow-step"><img src="${esc(intro.cleanIconUrl)}" alt="Clean data"><span>${t("cleanData")}</span></div>` : ""}
               </div>
               <p class="wt-intro-sub">${esc(intro.subtitle || "")}</p>
             </div>
@@ -4566,11 +4695,11 @@
           return `
             <div class="rec-card" style="--rec:${col};--rec-rgb:${rgb}">
               <div class="rec-top">
-                <span class="rec-priority">${esc(rec.priority)}</span>
+                <span class="rec-priority">${esc((UI[LANG].priority && UI[LANG].priority[rec.priority]) || rec.priority)}</span>
                 <h4 class="rec-title">${esc(rec.title)}</h4>
               </div>
               <p class="rec-text">${esc(rec.text)}</p>
-              <p class="rec-impact"><span>Impact</span>${esc(rec.impact)}</p>
+              <p class="rec-impact"><span>${t("impact")}</span>${esc(rec.impact)}</p>
             </div>`;
         }).join("");
 
@@ -4582,15 +4711,15 @@
 
         return `
           <div class="proj-section report-section">
-            <h2 class="proj-section-title">Business Report — Key Findings</h2>
+            <h2 class="proj-section-title">${t("reportTitle")}</h2>
             ${r.metaLine ? `<p class="report-meta">${esc(r.metaLine)}</p>` : ""}
 
             <div class="report-kpis">${kpiHtml}</div>
 
-            <h3 class="report-subhead">Key Insights</h3>
+            <h3 class="report-subhead">${t("keyInsights")}</h3>
             <div class="report-insights-grid">${insightsHtml}</div>
 
-            <h3 class="report-subhead">Root Cause Analysis — The August Dip</h3>
+            <h3 class="report-subhead">${t("rootCauseTitle")}</h3>
             <div class="report-rootcause">
               <div class="rc-banner">
                 <div class="rc-banner-main">
@@ -4600,17 +4729,17 @@
                 <span class="rc-driver">${esc(rc.driver || "")}</span>
               </div>
               <div class="rc-bars">
-                <div class="rc-bars-title">Category revenue drop · Jul → Aug 2023</div>
+                <div class="rc-bars-title">${t("categoryDropTitle")}</div>
                 ${barsHtml}
               </div>
               <p class="rc-conclusion">${esc(rc.conclusion || "")}</p>
             </div>
 
-            <h3 class="report-subhead">Strategic Recommendations</h3>
+            <h3 class="report-subhead">${t("recsTitle")}</h3>
             <div class="report-recs">${recsHtml}</div>
 
             <div class="report-bottomline">
-              <div class="bl-head">The Bottom Line</div>
+              <div class="bl-head">${t("bottomLineTitle")}</div>
               ${bottomHtml}
             </div>
           </div>`;
@@ -4667,9 +4796,10 @@
       function router() {
         const hash = window.location.hash;
         const match = hash.match(/^#\/project\/([a-z0-9-]+)$/);
-        if (match && _portfolioData) {
+        const src = currentData();
+        if (match && src) {
           const id = match[1];
-          const project = (_portfolioData.projects.items || []).find(
+          const project = (src.projects.items || []).find(
             (p) => p.id === id,
           );
           if (project) { showProjectPage(project); return; }
@@ -4678,9 +4808,6 @@
       }
 
       function showProjectPage(project) {
-        // Project detail pages are always English / LTR, regardless of main-page language
-        document.documentElement.setAttribute("dir", "ltr");
-        document.documentElement.setAttribute("lang", "en");
         document.querySelector("main").style.display = "none";
         document.getElementById("footer").style.display = "none";
         const mobileNav = document.getElementById("mobileNav");
@@ -4692,12 +4819,6 @@
       }
 
       function showMainView() {
-        // Restore the visitor's chosen language / direction on the main page
-        document.documentElement.setAttribute("lang", LANG);
-        document.documentElement.setAttribute(
-          "dir",
-          LANG === "ar" ? "rtl" : "ltr",
-        );
         document.querySelector("main").style.display = "";
         document.getElementById("footer").style.display = "";
         const mobileNav = document.getElementById("mobileNav");
@@ -4752,7 +4873,7 @@
 
         wrap.innerHTML = `
           <a href="#projects" class="proj-back">
-            ${ICONS.chevronLeft} Back to Projects
+            ${ICONS.chevronLeft} ${t("backToProjects")}
           </a>
 
           <div class="proj-page-header">
@@ -4779,7 +4900,7 @@
 
           ${tools.length ? `
           <div class="proj-section">
-            <h2 class="proj-section-title">Tools &amp; Technologies</h2>
+            <h2 class="proj-section-title">${t("toolsTitle")}</h2>
             <div class="proj-tools-grid">
               ${tools.map(t => `
                 <div class="proj-tool">
@@ -4796,7 +4917,7 @@
 
           ${process.length ? `
           <div class="proj-section">
-            <h2 class="proj-section-title">Project Process</h2>
+            <h2 class="proj-section-title">${t("processTitle")}</h2>
             <div class="proj-process">
               ${process.map((step, i) => `
                 <div class="proc-step"${i < process.length - 1 ? ' data-arrow="›"' : ""}>
@@ -4809,8 +4930,8 @@
 
           ${hasEmbed ? `
           <div class="proj-section">
-            <h2 class="proj-section-title">Live Dashboard</h2>
-            <p class="proj-embed-note">Fully interactive — explore the data directly below. Powered by Microsoft Excel Online.</p>
+            <h2 class="proj-section-title">${t("liveDashboard")}</h2>
+            <p class="proj-embed-note">${t("embedNote")}</p>
             <div class="proj-embed-wrap">
               <iframe src="${esc(p.embedUrl)}" frameborder="0" allowfullscreen="true"
                 title="${esc(p.title)} — Live Dashboard"></iframe>
@@ -4821,17 +4942,17 @@
             ${p.githubUrl ? `
               <a href="${esc(p.githubUrl)}" target="_blank" rel="noopener"
                  class="proj-action-btn proj-action-primary">
-                ${ICONS.github} View on GitHub
+                ${ICONS.github} ${t("viewGithub")}
               </a>` : ""}
             ${dlUrl ? `
               <a href="${esc(dlUrl)}" target="_blank" rel="noopener"
                  class="proj-action-btn">
-                ${ICONS.arrowOut} Download ZIP
+                ${ICONS.arrowOut} ${t("downloadZip")}
               </a>` : ""}
             ${hasSource ? `
               <a href="${esc(p.sourceUrl)}" target="_blank" rel="noopener"
                  class="proj-action-btn">
-                ${ICONS.arrowOut} Dataset Source
+                ${ICONS.arrowOut} ${t("datasetSource")}
               </a>` : ""}
           </div>
         `;
@@ -4902,18 +5023,21 @@
         try {
           localStorage.setItem("mz-lang", LANG);
         } catch (e) {}
-        // Arabic + RTL apply to the MAIN page only — project pages stay English/LTR
-        const onProject =
-          document.getElementById("projectPage").style.display === "block";
-        document.documentElement.setAttribute("lang", onProject ? "en" : LANG);
+        // Language + direction apply site-wide (main page AND project pages)
+        document.documentElement.setAttribute("lang", LANG);
         document.documentElement.setAttribute(
           "dir",
-          LANG === "ar" && !onProject ? "rtl" : "ltr",
+          LANG === "ar" ? "rtl" : "ltr",
         );
         const d = currentData();
-        if (d) {
-          renderAll(d);
-          bindDynamic(false);
+        if (!d) return;
+        renderAll(d);
+        bindDynamic(false);
+        // If a project page is open, re-render it in the new language too
+        if (document.getElementById("projectPage").style.display === "block") {
+          const y = window.scrollY;
+          router();
+          window.scrollTo({ top: y, behavior: "instant" });
         }
       }
 
