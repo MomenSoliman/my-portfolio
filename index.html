@@ -437,28 +437,108 @@
         z-index: 0;
         opacity: 0.45;
       }
-      body::after {
-        content: "";
+      /* ============ ANIMATED BACKGROUND — breathing aurora ============
+         The three ambient glows now live in .bg-aurora as real elements so
+         they can drift + breathe on the compositor (transform/opacity only —
+         zero repaint cost). The graph-paper grid above stays static. */
+      :root {
+        --aur-1: rgba(0, 212, 255, 0.11);
+        --aur-2: rgba(77, 143, 255, 0.09);
+        --aur-3: rgba(45, 108, 223, 0.1);
+      }
+      [data-theme="light"] {
+        --aur-1: rgba(0, 212, 255, 0.09);
+        --aur-2: rgba(77, 143, 255, 0.07);
+        --aur-3: rgba(45, 108, 223, 0.08);
+      }
+      .bg-aurora {
         position: fixed;
         inset: 0;
-        background:
-          radial-gradient(
-            60vw 60vh at 80% -10%,
-            rgba(0, 212, 255, 0.08),
-            transparent 60%
-          ),
-          radial-gradient(
-            50vw 50vh at -10% 40%,
-            rgba(77, 143, 255, 0.07),
-            transparent 60%
-          ),
-          radial-gradient(
-            40vw 40vh at 50% 110%,
-            rgba(45, 108, 223, 0.08),
-            transparent 60%
-          );
-        pointer-events: none;
         z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .aurora-glow {
+        position: absolute;
+        border-radius: 50%;
+        will-change: transform, opacity;
+      }
+      /* Same resting spots as the old static glows: top-right cyan,
+         left blue, bottom-center deep blue */
+      .aurora-glow.g1 {
+        width: 60vw;
+        height: 60vh;
+        left: 50vw;
+        top: -40vh;
+        background: radial-gradient(closest-side, var(--aur-1), transparent 72%);
+        animation: auroraDrift1 26s ease-in-out infinite alternate;
+      }
+      .aurora-glow.g2 {
+        width: 50vw;
+        height: 50vh;
+        left: -35vw;
+        top: 15vh;
+        background: radial-gradient(closest-side, var(--aur-2), transparent 72%);
+        animation: auroraDrift2 34s ease-in-out infinite alternate;
+        animation-delay: -9s;
+      }
+      .aurora-glow.g3 {
+        width: 40vw;
+        height: 40vh;
+        left: 30vw;
+        top: 90vh;
+        background: radial-gradient(closest-side, var(--aur-3), transparent 72%);
+        animation: auroraDrift3 29s ease-in-out infinite alternate;
+        animation-delay: -17s;
+      }
+      @keyframes auroraDrift1 {
+        0% {
+          transform: translate3d(0, 0, 0) scale(1);
+          opacity: 0.85;
+        }
+        50% {
+          transform: translate3d(-6vw, 5vh, 0) scale(1.18);
+          opacity: 1;
+        }
+        100% {
+          transform: translate3d(3vw, -3vh, 0) scale(0.94);
+          opacity: 0.7;
+        }
+      }
+      @keyframes auroraDrift2 {
+        0% {
+          transform: translate3d(0, 0, 0) scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translate3d(7vw, -6vh, 0) scale(1.15);
+          opacity: 1;
+        }
+        100% {
+          transform: translate3d(-3vw, 4vh, 0) scale(1.02);
+          opacity: 0.65;
+        }
+      }
+      @keyframes auroraDrift3 {
+        0% {
+          transform: translate3d(0, 0, 0) scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translate3d(-5vw, -7vh, 0) scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: translate3d(5vw, 2vh, 0) scale(0.96);
+          opacity: 0.7;
+        }
+      }
+      /* Accessibility: identical to the old static background when the
+         visitor prefers reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .aurora-glow {
+          animation: none !important;
+        }
       }
       main,
       nav,
@@ -3638,6 +3718,13 @@
     </script>
   </head>
   <body>
+    <!-- Animated background — three breathing glows (the grid stays static) -->
+    <div class="bg-aurora" aria-hidden="true">
+      <span class="aurora-glow g1"></span>
+      <span class="aurora-glow g2"></span>
+      <span class="aurora-glow g3"></span>
+    </div>
+
     <!-- Loading overlay (hidden after data loads) -->
     <div class="loading-overlay" id="loadingOverlay">
       <div class="loading-spinner"></div>
