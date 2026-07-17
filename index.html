@@ -442,14 +442,14 @@
          they can drift + breathe on the compositor (transform/opacity only —
          zero repaint cost). The graph-paper grid above stays static. */
       :root {
-        --aur-1: rgba(0, 212, 255, 0.11);
-        --aur-2: rgba(77, 143, 255, 0.09);
-        --aur-3: rgba(45, 108, 223, 0.1);
+        --aur-1: rgba(0, 212, 255, 0.22);
+        --aur-2: rgba(77, 143, 255, 0.18);
+        --aur-3: rgba(45, 108, 223, 0.2);
       }
       [data-theme="light"] {
-        --aur-1: rgba(0, 212, 255, 0.09);
-        --aur-2: rgba(77, 143, 255, 0.07);
-        --aur-3: rgba(45, 108, 223, 0.08);
+        --aur-1: rgba(0, 212, 255, 0.15);
+        --aur-2: rgba(77, 143, 255, 0.12);
+        --aur-3: rgba(45, 108, 223, 0.13);
       }
       .bg-aurora {
         position: fixed;
@@ -464,14 +464,15 @@
         will-change: transform, opacity;
       }
       /* Same resting spots as the old static glows: top-right cyan,
-         left blue, bottom-center deep blue */
+         left blue, bottom-center deep blue. At mid-cycle each glow's
+         bright core travels INTO the viewport so the motion reads clearly. */
       .aurora-glow.g1 {
         width: 60vw;
         height: 60vh;
         left: 50vw;
         top: -40vh;
         background: radial-gradient(closest-side, var(--aur-1), transparent 72%);
-        animation: auroraDrift1 26s ease-in-out infinite alternate;
+        animation: auroraDrift1 10s ease-in-out infinite alternate;
       }
       .aurora-glow.g2 {
         width: 50vw;
@@ -479,8 +480,8 @@
         left: -35vw;
         top: 15vh;
         background: radial-gradient(closest-side, var(--aur-2), transparent 72%);
-        animation: auroraDrift2 34s ease-in-out infinite alternate;
-        animation-delay: -9s;
+        animation: auroraDrift2 13s ease-in-out infinite alternate;
+        animation-delay: -4s;
       }
       .aurora-glow.g3 {
         width: 40vw;
@@ -488,58 +489,53 @@
         left: 30vw;
         top: 90vh;
         background: radial-gradient(closest-side, var(--aur-3), transparent 72%);
-        animation: auroraDrift3 29s ease-in-out infinite alternate;
-        animation-delay: -17s;
+        animation: auroraDrift3 11s ease-in-out infinite alternate;
+        animation-delay: -8s;
       }
       @keyframes auroraDrift1 {
         0% {
           transform: translate3d(0, 0, 0) scale(1);
-          opacity: 0.85;
+          opacity: 0.5;
         }
         50% {
-          transform: translate3d(-6vw, 5vh, 0) scale(1.18);
+          transform: translate3d(-10vw, 14vh, 0) scale(1.25);
           opacity: 1;
         }
         100% {
-          transform: translate3d(3vw, -3vh, 0) scale(0.94);
-          opacity: 0.7;
+          transform: translate3d(4vw, -4vh, 0) scale(0.95);
+          opacity: 0.45;
         }
       }
       @keyframes auroraDrift2 {
         0% {
           transform: translate3d(0, 0, 0) scale(1);
-          opacity: 0.8;
+          opacity: 0.5;
         }
         50% {
-          transform: translate3d(7vw, -6vh, 0) scale(1.15);
+          transform: translate3d(16vw, -8vh, 0) scale(1.2);
           opacity: 1;
         }
         100% {
-          transform: translate3d(-3vw, 4vh, 0) scale(1.02);
-          opacity: 0.65;
+          transform: translate3d(-4vw, 6vh, 0) scale(0.98);
+          opacity: 0.45;
         }
       }
       @keyframes auroraDrift3 {
         0% {
           transform: translate3d(0, 0, 0) scale(1);
-          opacity: 0.8;
+          opacity: 0.5;
         }
         50% {
-          transform: translate3d(-5vw, -7vh, 0) scale(1.2);
+          transform: translate3d(8vw, -16vh, 0) scale(1.25);
           opacity: 1;
         }
         100% {
-          transform: translate3d(5vw, 2vh, 0) scale(0.96);
-          opacity: 0.7;
+          transform: translate3d(-6vw, 3vh, 0) scale(0.95);
+          opacity: 0.45;
         }
       }
-      /* Accessibility: identical to the old static background when the
-         visitor prefers reduced motion */
-      @media (prefers-reduced-motion: reduce) {
-        .aurora-glow {
-          animation: none !important;
-        }
-      }
+      /* Note: the aurora intentionally ignores prefers-reduced-motion for now.
+         A gentle opacity-only fallback can be re-added once confirmed working. */
       main,
       nav,
       footer {
