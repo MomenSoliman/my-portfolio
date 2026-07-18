@@ -16,32 +16,33 @@
 
     <style>
       :root {
-        --navy-950: #04071a;
+        --navy-950: #030514;
         --navy-900: #080d24;
         --navy-800: #0d1432;
         --navy-700: #141d44;
         --navy-600: #1c2858;
         --navy-500: #27356f;
-        --line: rgba(125, 148, 220, 0.15);
+        --line: rgba(125, 148, 220, 0.22);
         --line-strong: rgba(125, 148, 220, 0.28);
         --cyan: #00d4ff;
         --cyan-soft: rgba(0, 212, 255, 0.18);
         --blue: #4d8fff;
         --blue-soft: rgba(77, 143, 255, 0.18);
-        --violet: #8b5cf6;
-        --violet-soft: rgba(139, 92, 246, 0.18);
-        --magenta: #d946ef;
-        --magenta-soft: rgba(217, 70, 239, 0.16);
+        --sky: #38bdf8;
+        --sky-soft: rgba(56, 189, 248, 0.16);
+        --blue-deep: #2d6cdf;
+        --deep-soft: rgba(45, 108, 223, 0.18);
         --green: #2ee6a8;
         --green-soft: rgba(46, 230, 168, 0.14);
         /* RGB triplets for rgba(var(--x-rgb), a) patterns (theme-aware badges) */
+        --cyan-rgb: 0, 212, 255;
         --blue-rgb: 77, 143, 255;
-        --violet-rgb: 139, 92, 246;
-        --magenta-rgb: 217, 70, 239;
+        --sky-rgb: 56, 189, 248;
+        --deep-rgb: 45, 108, 223;
         --green-rgb: 46, 230, 168;
-        /* Categorical series scale (cyan → blue → violet → magenta) —
-           mirrors the aurora; used as a color-scale legend motif site-wide */
-        --scale: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet), var(--magenta));
+        /* Categorical series scale (cyan → sky → blue → deep) —
+           an all-blue ramp; mirrors the aurora, used as a legend motif site-wide */
+        --scale: linear-gradient(90deg, var(--cyan), var(--sky), var(--blue), var(--blue-deep));
         --text: #eef2ff;
         --text-2: #aab3d4;
         --text-3: #6b7596;
@@ -70,16 +71,17 @@
         --text-3: #6c7796;
         --cyan: #00d4ff;        /* brand accent — unchanged */
         --blue: #4d8fff;        /* brand accent — unchanged */
-        --violet: #7c3aed;      /* deeper for contrast on light */
-        --violet-soft: rgba(124, 58, 237, 0.14);
-        --magenta: #a21caf;     /* deeper for contrast on light */
-        --magenta-soft: rgba(162, 28, 175, 0.12);
+        --sky: #0284c7;         /* deeper for contrast on light */
+        --sky-soft: rgba(2, 132, 199, 0.13);
+        --blue-deep: #1e56c8;   /* deeper for contrast on light */
+        --deep-soft: rgba(30, 86, 200, 0.13);
         --blue-soft: rgba(77, 143, 255, 0.15);
         --green: #047857;       /* deeper for contrast on light */
         --green-soft: rgba(4, 120, 87, 0.12);
+        --cyan-rgb: 0, 212, 255;
         --blue-rgb: 77, 143, 255;
-        --violet-rgb: 124, 58, 237;
-        --magenta-rgb: 162, 28, 175;
+        --sky-rgb: 2, 132, 199;
+        --deep-rgb: 30, 86, 200;
         --green-rgb: 4, 120, 87;
         --surf: 23, 37, 84;     /* surface tint flips white → dark navy */
         --glass: 255, 255, 255; /* nav glass flips dark → white */
@@ -97,7 +99,6 @@
       [data-theme="light"] .report-kpi,
       [data-theme="light"] .report-insight,
       [data-theme="light"] .rec-card,
-      [data-theme="light"] .float-card,
       [data-theme="light"] .svc-card,
       [data-theme="light"] .rc-bars {
         background: #ffffff;
@@ -130,9 +131,8 @@
       [data-theme="light"] .socials a:hover {
         color: #04071a;
       }
-      /* Series 3–4 (violet/magenta) gradients are deep in light mode —
-         their fallback glyphs stay white for contrast */
-      [data-theme="light"] .skill-cat:nth-child(3) .icon-fallback,
+      /* Series 4 (deep blue) gradient is dark in light mode —
+         its fallback glyph stays white for contrast */
       [data-theme="light"] .skill-cat:nth-child(4) .icon-fallback {
         color: #ffffff;
       }
@@ -195,14 +195,14 @@
         gap: 1.1rem;
         margin-top: 2.6rem;
       }
-      /* Each service is a "series": 1 cyan · 2 blue · 3 violet · 4 magenta */
+      /* Each service is a "series": 1 cyan · 2 sky · 3 blue · 4 deep */
       .svc-card { --svc: var(--cyan); }
-      .svc-card:nth-child(2) { --svc: var(--blue); }
-      .svc-card:nth-child(3) { --svc: var(--violet); }
-      .svc-card:nth-child(4) { --svc: var(--magenta); }
+      .svc-card:nth-child(2) { --svc: var(--sky); }
+      .svc-card:nth-child(3) { --svc: var(--blue); }
+      .svc-card:nth-child(4) { --svc: var(--blue-deep); }
       .svc-card {
         padding: 1.7rem 1.7rem 1.6rem;
-        background: linear-gradient(160deg, rgba(var(--surf), 0.04), rgba(var(--surf), 0.01));
+        background: linear-gradient(160deg, rgba(var(--surf), 0.06), rgba(var(--surf), 0.01));
         border: 1px solid var(--line);
         border-radius: 18px;
         transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
@@ -249,7 +249,7 @@
         padding: 0.3rem 0.65rem;
         border: 1px solid var(--line);
         border-radius: 99px;
-        background: rgba(var(--surf), 0.03);
+        background: rgba(var(--surf), 0.05);
       }
       .svc-cta {
         margin-top: 2.4rem;
@@ -421,7 +421,7 @@
         background: var(--navy-950);
         color: var(--text);
         line-height: 1.6;
-        overflow-x: hidden;
+        overflow-x: clip;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -453,25 +453,27 @@
         background: var(--cyan);
       }
 
-      /* ============ ANIMATED BACKGROUND — northern-lights ribbons ============
-         The graph-paper grid is gone: the aurora IS the background now.
-         Five blurred light curtains + one ambient sky wash sway on the
-         compositor (transform/opacity only — zero repaint cost). One shared
-         keyframe set drives every ribbon; each ribbon feeds it geometry via
-         custom props. Tuning cheat-sheet: --aur-* alphas = intensity,
-         per-ribbon --sway / --tilt / --lean = motion range, --dur = speed. */
+      /* ============ ANIMATED BACKGROUND — silk-wave aurora ============
+         Clean-blue-aurora rebuild (reference: minimal analytics hero): four
+         horizontal silk waves of light flow across a near-black navy sky,
+         rising gently to the right, plus one ambient wash and one bright
+         core crease. Compositor-only motion (transform/opacity). Tuning:
+         --aur-* alphas = intensity, per-wave --sway = drift range,
+         --dur = speed, --tilt = the wave's rise angle. */
       :root {
-        --aur-cyan: rgba(0, 212, 255, 0.6);
-        --aur-blue: rgba(77, 143, 255, 0.55);
-        --aur-violet: rgba(139, 92, 246, 0.55);
-        --aur-magenta: rgba(217, 70, 239, 0.5);
-        --aur-wash: rgba(0, 212, 255, 0.14);
+        --aur-cyan: rgba(0, 212, 255, 0.55);
+        --aur-blue: rgba(77, 143, 255, 0.5);
+        --aur-deep: rgba(45, 108, 223, 0.55);
+        --aur-sky: rgba(56, 189, 248, 0.45);
+        --aur-core: rgba(190, 242, 255, 0.5);
+        --aur-wash: rgba(0, 212, 255, 0.13);
       }
       [data-theme="light"] {
-        --aur-cyan: rgba(0, 186, 232, 0.32);
-        --aur-blue: rgba(77, 143, 255, 0.28);
-        --aur-violet: rgba(139, 92, 246, 0.26);
-        --aur-magenta: rgba(217, 70, 239, 0.22);
+        --aur-cyan: rgba(0, 186, 232, 0.3);
+        --aur-blue: rgba(77, 143, 255, 0.26);
+        --aur-deep: rgba(30, 86, 200, 0.22);
+        --aur-sky: rgba(2, 132, 199, 0.18);
+        --aur-core: rgba(0, 186, 232, 0.34);
         --aur-wash: rgba(0, 186, 232, 0.1);
       }
       .bg-aurora {
@@ -481,140 +483,161 @@
         overflow: hidden;
         pointer-events: none;
       }
-      /* Ambient sky glow behind the curtains — gives the ribbons a stage. */
+      /* Reference-style text shade: the waves dim under the headline column
+         (left-center) so type always sits on near-black, while the right
+         side — the photo's side — stays luminous. */
+      .bg-aurora::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 58% 68% at 22% 42%,
+          rgba(3, 5, 20, 0.9),
+          rgba(3, 5, 20, 0.44) 55%,
+          transparent 80%
+        );
+        z-index: 2;
+      }
+      [data-theme="light"] .bg-aurora::after {
+        background: radial-gradient(
+          ellipse 62% 70% at 24% 44%,
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0.22) 52%,
+          transparent 78%
+        );
+      }
+      /* Ambient sky glow — brightest where the waves crest (upper right). */
       .aurora-wash {
         position: absolute;
-        left: -25vw;
-        top: -35vh;
+        left: -20vw;
+        top: -30vh;
         width: 150vw;
-        height: 95vh;
+        height: 100vh;
         background: radial-gradient(
-          ellipse at 50% 40%,
+          ellipse at 62% 34%,
           var(--aur-wash),
-          transparent 70%
+          transparent 68%
         );
         will-change: transform, opacity;
-        animation: washBreathe 18s ease-in-out infinite alternate;
+        animation: washBreathe 20s ease-in-out infinite alternate;
       }
-      /* One curtain of light. Geometry + palette come from the per-ribbon
-         custom props below; the shared ribbonSway keyframes read them with
-         var(), so a single keyframe set animates all five curtains. */
-      .aurora-ribbon {
+      /* One silk wave: a wide horizontal band of light, soft-edged by its
+         gradient + blur, leaning up to the right like the reference. All
+         waves share the waveFlow keyframes and feed geometry via custom
+         props, so one keyframe set drives the whole sky. */
+      .aurora-wave {
         position: absolute;
-        top: -18vh;
-        height: 136vh;
-        width: clamp(130px, var(--w), 430px);
-        left: var(--x);
+        left: -32vw;
+        width: 172vw;
+        top: var(--y);
+        height: var(--h);
         background: linear-gradient(
-          180deg,
+          90deg,
           transparent 0%,
-          var(--c1) 24%,
-          var(--c2) 48%,
-          var(--c1) 66%,
-          transparent 92%
+          var(--c1) 34%,
+          var(--c2) 63%,
+          var(--c1) 84%,
+          transparent 100%
         );
-        border-radius: 999px;
-        filter: blur(clamp(30px, 4.5vw, 64px));
+        border-radius: 50%;
+        filter: blur(clamp(26px, 4vw, 58px));
         mix-blend-mode: screen;
-        transform-origin: 50% 10%;
+        transform: rotate(var(--tilt));
         will-change: transform, opacity;
-        animation: ribbonSway var(--dur) ease-in-out infinite alternate;
+        animation: waveFlow var(--dur) ease-in-out infinite alternate;
         animation-delay: var(--del);
       }
-      /* Light mode: screen-blending vanishes on white; multiply reads like
-         watercolor light — same curtains, softer voice. */
-      [data-theme="light"] .aurora-ribbon {
+      /* Light mode: screen vanishes on white; multiply reads like
+         watercolor light — same waves, softer voice. */
+      [data-theme="light"] .aurora-wave {
         mix-blend-mode: multiply;
       }
-      .aurora-ribbon.r1 {
-        --x: 3%;
-        --w: 17vw;
-        --c1: var(--aur-cyan);
+      .aurora-wave.w1 {
+        --y: 2%;
+        --h: 26vh;
+        --c1: var(--aur-sky);
         --c2: var(--aur-blue);
-        --tilt: 11deg;
-        --lean: 7deg;
-        --sway: clamp(26px, 5vw, 92px);
-        --dim: 0.55;
-        --dur: 12s;
+        --tilt: -9deg;
+        --sway: clamp(30px, 5vw, 90px);
+        --dim: 0.5;
+        --dur: 22s;
         --del: 0s;
       }
-      .aurora-ribbon.r2 {
-        --x: 21%;
-        --w: 12vw;
-        --c1: var(--aur-blue);
-        --c2: var(--aur-violet);
-        --tilt: 8deg;
-        --lean: 9deg;
-        --sway: clamp(34px, 6.5vw, 120px);
-        --dim: 0.6;
-        --dur: 15s;
-        --del: -6s;
-      }
-      .aurora-ribbon.r3 {
-        --x: 40%;
-        --w: 19vw;
-        --c1: var(--aur-violet);
-        --c2: var(--aur-magenta);
-        --tilt: 13deg;
-        --lean: 6deg;
-        --sway: clamp(24px, 4.5vw, 84px);
-        --dim: 0.5;
-        --dur: 17.5s;
-        --del: -11s;
-      }
-      .aurora-ribbon.r4 {
-        --x: 62%;
-        --w: 11vw;
+      .aurora-wave.w2 {
+        --y: 20%;
+        --h: 30vh;
         --c1: var(--aur-cyan);
-        --c2: var(--aur-violet);
-        --tilt: 7deg;
-        --lean: 10deg;
-        --sway: clamp(36px, 7vw, 128px);
-        --dim: 0.62;
-        --dur: 13.5s;
-        --del: -3s;
-      }
-      .aurora-ribbon.r5 {
-        --x: 80%;
-        --w: 15vw;
-        --c1: var(--aur-magenta);
         --c2: var(--aur-blue);
-        --tilt: 12deg;
-        --lean: 8deg;
-        --sway: clamp(28px, 5.5vw, 100px);
+        --tilt: -12deg;
+        --sway: clamp(36px, 6.5vw, 120px);
+        --dim: 0.58;
+        --dur: 16s;
+        --del: -7s;
+      }
+      /* The bright crease — a thin, hotter band riding wave 2: the
+         luminous silk fold that makes the reference glow. */
+      .aurora-wave.w2c {
+        --y: 30%;
+        --h: 7vh;
+        --c1: var(--aur-cyan);
+        --c2: var(--aur-core);
+        --tilt: -12deg;
+        --sway: clamp(36px, 6.5vw, 120px);
         --dim: 0.55;
         --dur: 16s;
-        --del: -9s;
+        --del: -7s;
+        filter: blur(clamp(16px, 2.2vw, 34px));
       }
-      /* The curtain sway: pinned near the top (transform-origin 50% 10%),
-         so skewX swings the tail like hanging fabric while the whole ribbon
-         drifts sideways and stretches. Alternate + desynced delays keep the
-         five curtains permanently out of phase. */
-      @keyframes ribbonSway {
+      .aurora-wave.w3 {
+        --y: 48%;
+        --h: 26vh;
+        --c1: var(--aur-blue);
+        --c2: var(--aur-deep);
+        --tilt: -8deg;
+        --sway: clamp(26px, 4.5vw, 84px);
+        --dim: 0.48;
+        --dur: 26s;
+        --del: -13s;
+      }
+      .aurora-wave.w4 {
+        --y: 70%;
+        --h: 24vh;
+        --c1: var(--aur-deep);
+        --c2: var(--aur-sky);
+        --tilt: -10deg;
+        --sway: clamp(28px, 5vw, 96px);
+        --dim: 0.45;
+        --dur: 19s;
+        --del: -4s;
+      }
+      /* The flow: each wave drifts sideways, breathes wider (scaleX) and
+         swells brighter, permanently desynced by the negative delays. The
+         rotation rides inside the keyframes so the lean survives the
+         transform overwrite. */
+      @keyframes waveFlow {
         0% {
-          transform: translate3d(calc(var(--sway) * -1), -1vh, 0)
-            rotate(var(--tilt)) skewX(calc(var(--lean) * -1)) scaleY(1.03);
+          transform: translate3d(calc(var(--sway) * -1), -0.8vh, 0)
+            rotate(var(--tilt)) scaleX(1) scaleY(1.02);
           opacity: var(--dim);
         }
         50% {
-          transform: translate3d(0, 1.4vh, 0)
-            rotate(calc(var(--tilt) + 2.5deg)) skewX(var(--lean)) scaleY(1.16);
+          transform: translate3d(0, 0.8vh, 0)
+            rotate(calc(var(--tilt) + 1.2deg)) scaleX(1.07) scaleY(1.12);
           opacity: 1;
         }
         100% {
-          transform: translate3d(var(--sway), 0.4vh, 0)
-            rotate(calc(var(--tilt) - 1.5deg))
-            skewX(calc(var(--lean) * -0.45)) scaleY(0.97);
-          opacity: calc(var(--dim) + 0.1);
+          transform: translate3d(var(--sway), -0.3vh, 0)
+            rotate(calc(var(--tilt) - 0.8deg)) scaleX(1.02) scaleY(0.96);
+          opacity: calc(var(--dim) + 0.12);
         }
       }
       @keyframes washBreathe {
         0% {
           transform: translate3d(-3vw, 0, 0) scale(1);
-          opacity: 0.65;
+          opacity: 0.6;
         }
         100% {
-          transform: translate3d(3vw, 2vh, 0) scale(1.12);
+          transform: translate3d(3vw, 1.5vh, 0) scale(1.1);
           opacity: 1;
         }
       }
@@ -663,14 +686,14 @@
         width: 32px;
         height: 3px;
         border-radius: 2px;
-        background: linear-gradient(90deg, var(--magenta), var(--violet), var(--blue), var(--cyan));
+        background: linear-gradient(90deg, var(--blue-deep), var(--blue), var(--sky), var(--cyan));
       }
       /* RTL: mirror the scale bars so the hot end still sits next to the text */
       html[dir="rtl"] .eyebrow::before {
-        background: linear-gradient(270deg, var(--cyan), var(--blue), var(--violet), var(--magenta));
+        background: linear-gradient(270deg, var(--cyan), var(--sky), var(--blue), var(--blue-deep));
       }
       html[dir="rtl"] .eyebrow.center::after {
-        background: linear-gradient(270deg, var(--magenta), var(--violet), var(--blue), var(--cyan));
+        background: linear-gradient(270deg, var(--blue-deep), var(--blue), var(--sky), var(--cyan));
       }
       .section-title {
         font-size: clamp(2.4rem, 5vw, 4.2rem);
@@ -681,7 +704,7 @@
       h2 .accent,
       h3 .accent,
       .section-title .accent {
-        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 52%, var(--violet) 108%);
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 52%, var(--blue-deep) 108%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -780,7 +803,7 @@
       }
       .nav-links a:hover {
         color: var(--text);
-        background: rgba(var(--surf), 0.04);
+        background: rgba(var(--surf), 0.06);
       }
       .nav-links a.active {
         color: var(--cyan);
@@ -941,9 +964,15 @@
       .hero h1 .first-name {
         display: block;
       }
+      .hero h1 {
+        text-shadow: 0 2px 26px rgba(3, 5, 20, 0.85), 0 1px 4px rgba(3, 5, 20, 0.6);
+      }
+      [data-theme="light"] .hero h1 {
+        text-shadow: 0 2px 26px rgba(255, 255, 255, 0.85), 0 1px 4px rgba(255, 255, 255, 0.6);
+      }
       .hero h1 .last-name {
         display: block;
-        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 58%, var(--violet) 118%);
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 58%, var(--blue-deep) 118%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -1005,7 +1034,7 @@
         align-items: center;
         gap: 0.6rem;
         padding: 0.95rem 1.5rem;
-        background: rgba(var(--surf), 0.03);
+        background: rgba(var(--surf), 0.05);
         color: var(--text);
         border: 1px solid var(--line-strong);
         border-radius: 99px;
@@ -1050,26 +1079,28 @@
         position: relative;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         opacity: 0;
         animation: rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s forwards;
       }
-      .photo-frame {
-        position: relative;
-        width: min(100%, 440px);
-        aspect-ratio: 3/4;
-      }
-      .photo-frame::before {
-        content: "";
+      /* Editorial photo: no frame, no card — the cutout floats on a soft
+         blue radial glow, head free against the aurora. The crop's bottom
+         edge fades out so it never shows a hard line. */
+      .photo-glow {
         position: absolute;
-        inset: -20px;
+        left: 50%;
+        bottom: -4%;
+        transform: translateX(-50%);
+        width: min(120%, 560px);
+        aspect-ratio: 1;
+        border-radius: 50%;
         background: radial-gradient(
           closest-side,
-          rgba(0, 212, 255, 0.4),
-          rgba(77, 143, 255, 0.18) 50%,
-          transparent 75%
+          rgba(0, 212, 255, 0.34),
+          rgba(77, 143, 255, 0.16) 48%,
+          transparent 74%
         );
-        filter: blur(40px);
+        filter: blur(34px);
         z-index: 0;
         animation: float 8s ease-in-out infinite;
       }
@@ -1082,74 +1113,41 @@
           transform: translateY(-14px) scale(1.04);
         }
       }
-      .photo-frame .photo-bg {
-        position: absolute;
-        inset: 0;
-        border-radius: 24px;
-        background: linear-gradient(
-          135deg,
-          var(--navy-700) 0%,
-          var(--navy-800) 50%,
-          var(--navy-900) 100%
-        );
-        border: 1px solid var(--line-strong);
-        overflow: hidden;
+      .hero-photo img {
+        position: relative;
         z-index: 1;
-      }
-      .photo-frame .photo-bg::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(transparent 0%, rgba(8, 13, 36, 0.65) 100%),
-          repeating-linear-gradient(
-            90deg,
-            transparent 0,
-            transparent 28px,
-            rgba(0, 212, 255, 0.03) 28px,
-            rgba(0, 212, 255, 0.03) 29px
-          );
-        z-index: 2;
-        pointer-events: none;
-      }
-      .photo-frame img {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 108%;
+        max-height: min(72vh, 620px);
         width: auto;
-        z-index: 2;
-        filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
+        max-width: 100%;
+        filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.65));
+        -webkit-mask-image: linear-gradient(to bottom, #000 84%, transparent 99%);
+        mask-image: linear-gradient(to bottom, #000 84%, transparent 99%);
       }
-      .float-card {
-        position: absolute;
-        background: rgba(13, 20, 50, 0.85);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid var(--line-strong);
-        border-radius: 14px;
-        padding: 0.85rem 1.1rem;
-        z-index: 3;
-        font-family: var(--mono);
-        font-size: 0.78rem;
-        color: var(--text-2);
+      /* Credibility strip: the analyst's toolbox as quiet mono pills. */
+      .hero-tools {
         display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        box-shadow: 0 14px 40px -12px rgba(0, 0, 0, 0.6);
-        animation: float 6s ease-in-out infinite;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-top: 1.5rem;
+        opacity: 0;
+        animation: rise 1s ease 0.55s forwards;
       }
-      .float-card .num {
-        color: var(--cyan);
-        font-weight: 600;
-        font-size: 1.05rem;
-      }
-      .float-card .label {
-        font-size: 0.7rem;
-        color: var(--text-3);
+      .tool-pill {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        color: var(--text-2);
+        padding: 0.42rem 0.85rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 99px;
+        background: rgba(var(--surf), 0.05);
+        transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      }
+      .tool-pill:hover {
+        color: var(--cyan);
+        border-color: rgba(0, 212, 255, 0.5);
+        transform: translateY(-2px);
       }
       .scroll-cue {
         position: absolute;
@@ -1270,7 +1268,7 @@
       .stat-card {
         background: linear-gradient(
           180deg,
-          rgba(var(--surf), 0.03),
+          rgba(var(--surf), 0.05),
           rgba(var(--surf), 0)
         );
         border: 1px solid var(--line);
@@ -1354,7 +1352,7 @@
       .tl-card {
         background: linear-gradient(
           135deg,
-          rgba(var(--surf), 0.03),
+          rgba(var(--surf), 0.05),
           rgba(var(--surf), 0)
         );
         border: 1px solid var(--line);
@@ -1444,7 +1442,7 @@
         overflow: hidden;
         background: linear-gradient(
           180deg,
-          rgba(var(--surf), 0.03),
+          rgba(var(--surf), 0.05),
           rgba(var(--surf), 0)
         );
         border: 1px solid var(--line-strong);
@@ -1885,9 +1883,9 @@
         letter-spacing: 0.2em;
         margin-bottom: 0.6rem;
       }
-      /* Projects as series: // 01 cyan · // 02 blue · // 03 violet (legend order) */
-      .projects-list .project:nth-child(2) .project-num { color: var(--blue); }
-      .projects-list .project:nth-child(3) .project-num { color: var(--violet); }
+      /* Projects as series: // 01 cyan · // 02 sky · // 03 blue (legend order) */
+      .projects-list .project:nth-child(2) .project-num { color: var(--sky); }
+      .projects-list .project:nth-child(3) .project-num { color: var(--blue); }
       .project-info h3 {
         font-size: clamp(1.6rem, 2.6vw, 2.2rem);
         margin-bottom: 1rem;
@@ -1930,7 +1928,7 @@
         align-items: center;
         gap: 0.55rem;
         padding: 0.75rem 1.3rem;
-        background: rgba(var(--surf), 0.04);
+        background: rgba(var(--surf), 0.06);
         color: var(--text);
         border: 1px solid var(--line-strong);
         border-radius: 99px;
@@ -1956,9 +1954,9 @@
       }
       /* Each skill category is a "series" — legend chip + tinted rule, like a chart legend */
       .skill-cat { --cat: var(--cyan); --cat-soft: var(--cyan-soft); }
-      .skill-cat:nth-child(2) { --cat: var(--blue); --cat-soft: var(--blue-soft); }
-      .skill-cat:nth-child(3) { --cat: var(--violet); --cat-soft: var(--violet-soft); }
-      .skill-cat:nth-child(4) { --cat: var(--magenta); --cat-soft: var(--magenta-soft); }
+      .skill-cat:nth-child(2) { --cat: var(--sky); --cat-soft: var(--sky-soft); }
+      .skill-cat:nth-child(3) { --cat: var(--blue); --cat-soft: var(--blue-soft); }
+      .skill-cat:nth-child(4) { --cat: var(--blue-deep); --cat-soft: var(--deep-soft); }
       .skill-cat h3 {
         font-family: var(--mono);
         font-size: 0.85rem;
@@ -1997,7 +1995,7 @@
         position: relative;
         background: linear-gradient(
           180deg,
-          rgba(var(--surf), 0.04),
+          rgba(var(--surf), 0.06),
           rgba(var(--surf), 0.01)
         );
         border: 1px solid var(--line);
@@ -2732,7 +2730,7 @@
         display: flex;
         border-radius: 16px;
         overflow: hidden;
-        background: linear-gradient(160deg, rgba(var(--surf), 0.03), rgba(var(--surf), 0.01));
+        background: linear-gradient(160deg, rgba(var(--surf), 0.05), rgba(var(--surf), 0.01));
         border: 1px solid var(--line);
         transition: border-color 0.25s ease, transform 0.2s ease;
       }
@@ -3031,7 +3029,7 @@
       .rc-bar-row:last-child { margin-bottom: 0; }
       .rc-bar-label { font-size: 0.82rem; color: var(--text-2); }
       .rc-bar-track { height: 9px; background: rgba(var(--surf),.05); border-radius: 99px; overflow: hidden; }
-      .rc-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #ff6b6b, var(--magenta)); border-radius: 99px; }
+      .rc-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #ff6b6b, #e05252); border-radius: 99px; }
       .rc-bar-pct { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: #ff6b6b; text-align: right; }
       .rc-conclusion {
         font-size: 0.9rem;
@@ -3065,6 +3063,21 @@
         border: 1px solid rgba(var(--rec-rgb),.32);
         flex-shrink: 0;
       }
+      /* Fill intensity = urgency (BI data-bar logic): solid > tint > faint */
+      .rec-priority.p-HIGH {
+        background: var(--cyan);
+        border-color: var(--cyan);
+        color: #04071a;
+      }
+      .rec-priority.p-LOW {
+        background: rgba(var(--rec-rgb), 0.06);
+        border-color: rgba(var(--rec-rgb), 0.2);
+      }
+      /* Light mode: bright cyan/blue text can't sit on white tints —
+         deepen the badge text, re-assert HIGH's dark-on-solid-cyan. */
+      [data-theme="light"] .rec-priority { color: #0e7490; }
+      [data-theme="light"] .rec-priority.p-LOW { color: var(--blue-deep); }
+      [data-theme="light"] .rec-priority.p-HIGH { color: #04071a; }
       .rec-title { font-size: 0.98rem; font-weight: 700; color: var(--text); margin: 0; }
       .rec-text { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; margin: 0 0 0.7rem; }
       .rec-impact { font-size: 0.82rem; color: var(--cyan); line-height: 1.55; margin: 0; padding-top: 0.7rem; border-top: 1px dashed var(--line); }
@@ -3379,9 +3392,11 @@
           margin: 0 auto;
           width: 100%;
         }
-        .photo-frame {
-          width: 100%;
-          max-width: 340px;
+        .hero-photo img {
+          max-height: 400px;
+        }
+        .photo-glow {
+          width: min(112%, 420px);
         }
         .scroll-cue {
           display: none;
@@ -3514,13 +3529,6 @@
         }
         .tl-card {
           padding: 1.4rem 1.3rem;
-        }
-        .float-card {
-          font-size: 0.7rem;
-          padding: 0.7rem 0.9rem;
-        }
-        .float-card .num {
-          font-size: 0.95rem;
         }
       }
 
@@ -3827,14 +3835,14 @@
     </script>
   </head>
   <body>
-    <!-- Animated background — northern-lights ribbons (grid removed; aurora is the background) -->
+    <!-- Animated background — silk-wave blue aurora (grid removed; the aurora IS the background) -->
     <div class="bg-aurora" aria-hidden="true">
       <span class="aurora-wash"></span>
-      <span class="aurora-ribbon r1"></span>
-      <span class="aurora-ribbon r2"></span>
-      <span class="aurora-ribbon r3"></span>
-      <span class="aurora-ribbon r4"></span>
-      <span class="aurora-ribbon r5"></span>
+      <span class="aurora-wave w1"></span>
+      <span class="aurora-wave w2"></span>
+      <span class="aurora-wave w2c"></span>
+      <span class="aurora-wave w3"></span>
+      <span class="aurora-wave w4"></span>
     </div>
 
     <!-- Loading overlay (hidden after data loads) -->
@@ -4134,7 +4142,6 @@
         const el = document.getElementById("home");
         const p = d.profile || {};
         const social = p.social || {};
-        const cards = p.floatingCards || [];
         el.innerHTML = `
     <div class="hero-grid">
       <div class="hero-text">
@@ -4153,40 +4160,11 @@
             ${social.facebook ? `<a href="${esc(social.facebook)}" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">${ICONS.facebook}</a>` : ""}
           </div>
         </div>
+        ${(p.heroTools && p.heroTools.length) ? `<div class="hero-tools">${p.heroTools.map((tl) => `<span class="tool-pill">${esc(tl)}</span>`).join("")}</div>` : ""}
       </div>
       <div class="hero-photo">
-        <div class="photo-frame">
-          <div class="photo-bg"></div>
-          ${p.photo ? `<img src="${esc(p.photo)}" alt="${esc((p.firstName || "") + " " + (p.lastName || ""))}">` : ""}
-          ${cards
-            .map((c, i) => {
-              const pos = c.position || {};
-              const styleParts = [];
-              if (pos.top !== undefined)
-                styleParts.push(`top:${esc(String(pos.top))}`);
-              if (pos.left !== undefined)
-                styleParts.push(`left:${esc(String(pos.left))}`);
-              if (pos.right !== undefined)
-                styleParts.push(`right:${esc(String(pos.right))}`);
-              if (pos.bottom !== undefined)
-                styleParts.push(`bottom:${esc(String(pos.bottom))}`);
-              if (c.delay)
-                styleParts.push(`animation-delay:${esc(String(c.delay))}`);
-              const style = styleParts.length
-                ? ` style="${styleParts.join(";")}"`
-                : "";
-              return `
-            <div class="float-card"${style}>
-              <span class="num">${esc(c.value)}</span>
-              <div>
-                <div class="label">${esc(c.labelTop)}</div>
-                <div style="color:var(--text)">${esc(c.labelBottom)}</div>
-              </div>
-            </div>
-          `;
-            })
-            .join("")}
-        </div>
+        <div class="photo-glow" aria-hidden="true"></div>
+        ${p.photo ? `<img src="${esc(p.photo)}" alt="${esc((p.firstName || "") + " " + (p.lastName || ""))}">` : ""}
       </div>
     </div>
     <div class="scroll-cue">${t("scroll")}<span class="line"></span></div>
@@ -4851,13 +4829,14 @@
         const recs = r.recommendations || [];
         const bottom = r.bottomLine || [];
 
-        /* Priority as an aurora heat scale (hot → cool). Red stays reserved
-           for the root-cause alarm banner so it keeps its urgency. */
+        /* Priority as fill intensity, like BI data bars: HIGH = solid cyan,
+           MEDIUM = cyan tint, LOW = faint blue. Red stays reserved for the
+           root-cause alarm banner so it keeps its urgency. */
         const priorityColor = (p) =>
           p === "HIGH"
-            ? ["var(--magenta)", "var(--magenta-rgb)"]
+            ? ["var(--cyan)", "var(--cyan-rgb)"]
             : p === "MEDIUM"
-              ? ["var(--violet)", "var(--violet-rgb)"]
+              ? ["var(--cyan)", "var(--cyan-rgb)"]
               : ["var(--blue)", "var(--blue-rgb)"];
         const hexRGB = (hex) => {
           const h = hex.replace("#", "");
@@ -4899,7 +4878,7 @@
           return `
             <div class="rec-card" style="--rec:${col};--rec-rgb:${rgb}">
               <div class="rec-top">
-                <span class="rec-priority">${esc((UI[LANG].priority && UI[LANG].priority[rec.priority]) || rec.priority)}</span>
+                <span class="rec-priority p-${esc(rec.priority)}">${esc((UI[LANG].priority && UI[LANG].priority[rec.priority]) || rec.priority)}</span>
                 <h4 class="rec-title">${esc(rec.title)}</h4>
               </div>
               <p class="rec-text">${esc(rec.text)}</p>

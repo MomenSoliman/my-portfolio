@@ -5,8 +5,14 @@
     "firstName": "MOAMEN",
     "lastName": "Soliman",
     "greeting": "Hi, I'm",
-    "titlesHtml": "<strong>Data Analyst</strong> @ Green Delta Home <span class=\"pipe\">/</span> Computer Science Student @ Cairo University <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL",
-    "photo": "assets/profile.png",
+    "titlesHtml": "<strong>Data Analyst</strong> @ Green Delta Home <span class=\"pipe\">/</span> Computer Science Student @ Cairo University",
+    "heroTools": [
+      "Excel",
+      "Power BI",
+      "SQL",
+      "Python"
+    ],
+    "photo": "assets/profile.webp",
     "logo": "assets/logo.png",
     "resumeUrl": "https://drive.google.com/file/d/1EhawEJEflpy9yOZlkDSkga6LI3gFTuAH/view?usp=sharing",
     "email": "moamensoliman1304@gmail.com",
@@ -14,42 +20,7 @@
       "github": "https://github.com/MomenSoliman",
       "linkedin": "https://www.linkedin.com/in/moamen-soliman-17826323b/",
       "facebook": "#"
-    },
-    "floatingCards": [
-      {
-        "id": "fc-1",
-        "value": "SQL",
-        "labelTop": "Cleaning",
-        "labelBottom": "Layoffs ETL",
-        "position": {
-          "top": "7%",
-          "left": "-6%"
-        },
-        "delay": "0.5s"
-      },
-      {
-        "id": "fc-2",
-        "value": "Power BI",
-        "labelTop": "Visualizing",
-        "labelBottom": "Data Sets",
-        "position": {
-          "bottom": "18%",
-          "right": "-10%"
-        },
-        "delay": "1.5s"
-      },
-      {
-        "id": "fc-3",
-        "value": "100%",
-        "labelTop": "ETL Accuracy",
-        "labelBottom": "Make + Claude",
-        "position": {
-          "bottom": "0",
-          "left": "0"
-        },
-        "delay": "1s"
-      }
-    ]
+    }
   },
   "about": {
     "eyebrow": "About",
@@ -557,13 +528,13 @@
             },
             {
               "num": "05",
-              "color": "#d946ef",
+              "color": "#0284c7",
               "title": "Top 3 States = 30% of Revenue",
               "text": "Ciudad de México, Nuevo León & Jalisco drive $4.5M combined. This concentration is a risk; diversifying into high-margin states like Sonora (29.2%) reduces dependency."
             },
             {
               "num": "06",
-              "color": "#8b5cf6",
+              "color": "#2d6cdf",
               "title": "Out-of-Stock Risk Is Real",
               "text": "77 store-product combinations (4.8%) sit at zero stock. Given Lego Bricks' volume and $2.4M revenue contribution, any stockout is extremely costly."
             }
@@ -852,21 +823,7 @@
         "firstName": "مؤمن",
         "lastName": "سليمان",
         "greeting": "مرحبًا، أنا",
-        "titlesHtml": "<strong>محلّل بيانات</strong> @ Green Delta Home <span class=\"pipe\">/</span> طالب علوم حاسب @ جامعة القاهرة <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL",
-        "floatingCards": [
-          {
-            "labelTop": "تنظيف",
-            "labelBottom": "بيانات التسريحات"
-          },
-          {
-            "labelTop": "تصوّر",
-            "labelBottom": "مجموعات البيانات"
-          },
-          {
-            "labelTop": "دقة ETL",
-            "labelBottom": "Make + Claude"
-          }
-        ]
+        "titlesHtml": "<strong>محلّل بيانات</strong> @ Green Delta Home <span class=\"pipe\">/</span> طالب علوم حاسب @ جامعة القاهرة"
       },
       "about": {
         "eyebrow": "نبذة عني",
