@@ -27,8 +27,21 @@
         --cyan: #00d4ff;
         --cyan-soft: rgba(0, 212, 255, 0.18);
         --blue: #4d8fff;
-        --blue-deep: #2d6cdf;
-        --gold: #ffc14d;
+        --blue-soft: rgba(77, 143, 255, 0.18);
+        --violet: #8b5cf6;
+        --violet-soft: rgba(139, 92, 246, 0.18);
+        --magenta: #d946ef;
+        --magenta-soft: rgba(217, 70, 239, 0.16);
+        --green: #2ee6a8;
+        --green-soft: rgba(46, 230, 168, 0.14);
+        /* RGB triplets for rgba(var(--x-rgb), a) patterns (theme-aware badges) */
+        --blue-rgb: 77, 143, 255;
+        --violet-rgb: 139, 92, 246;
+        --magenta-rgb: 217, 70, 239;
+        --green-rgb: 46, 230, 168;
+        /* Categorical series scale (cyan → blue → violet → magenta) —
+           mirrors the aurora; used as a color-scale legend motif site-wide */
+        --scale: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet), var(--magenta));
         --text: #eef2ff;
         --text-2: #aab3d4;
         --text-3: #6b7596;
@@ -57,6 +70,17 @@
         --text-3: #6c7796;
         --cyan: #00d4ff;        /* brand accent — unchanged */
         --blue: #4d8fff;        /* brand accent — unchanged */
+        --violet: #7c3aed;      /* deeper for contrast on light */
+        --violet-soft: rgba(124, 58, 237, 0.14);
+        --magenta: #a21caf;     /* deeper for contrast on light */
+        --magenta-soft: rgba(162, 28, 175, 0.12);
+        --blue-soft: rgba(77, 143, 255, 0.15);
+        --green: #047857;       /* deeper for contrast on light */
+        --green-soft: rgba(4, 120, 87, 0.12);
+        --blue-rgb: 77, 143, 255;
+        --violet-rgb: 124, 58, 237;
+        --magenta-rgb: 162, 28, 175;
+        --green-rgb: 4, 120, 87;
         --surf: 23, 37, 84;     /* surface tint flips white → dark navy */
         --glass: 255, 255, 255; /* nav glass flips dark → white */
         color-scheme: light;
@@ -106,6 +130,12 @@
       [data-theme="light"] .socials a:hover {
         color: #04071a;
       }
+      /* Series 3–4 (violet/magenta) gradients are deep in light mode —
+         their fallback glyphs stay white for contrast */
+      [data-theme="light"] .skill-cat:nth-child(3) .icon-fallback,
+      [data-theme="light"] .skill-cat:nth-child(4) .icon-fallback {
+        color: #ffffff;
+      }
 
       /* Cyan-tinted highlight cards keep a soft tint instead of plain white */
       [data-theme="light"] .wt-intro,
@@ -140,9 +170,9 @@
         font-size: 0.72rem;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: #28c840;
-        background: rgba(40, 200, 64, 0.08);
-        border: 1px solid rgba(40, 200, 64, 0.28);
+        color: var(--green);
+        background: rgba(var(--green-rgb), 0.08);
+        border: 1px solid rgba(var(--green-rgb), 0.28);
         padding: 0.45rem 0.95rem;
         border-radius: 99px;
         margin-bottom: 1.2rem;
@@ -151,13 +181,13 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #28c840;
+        background: var(--green);
         animation: svcPulse 2s infinite;
       }
       @keyframes svcPulse {
-        0% { box-shadow: 0 0 0 0 rgba(40, 200, 64, 0.45); }
-        70% { box-shadow: 0 0 0 9px rgba(40, 200, 64, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(40, 200, 64, 0); }
+        0% { box-shadow: 0 0 0 0 rgba(var(--green-rgb), 0.45); }
+        70% { box-shadow: 0 0 0 9px rgba(var(--green-rgb), 0); }
+        100% { box-shadow: 0 0 0 0 rgba(var(--green-rgb), 0); }
       }
       .svc-grid {
         display: grid;
@@ -165,6 +195,11 @@
         gap: 1.1rem;
         margin-top: 2.6rem;
       }
+      /* Each service is a "series": 1 cyan · 2 blue · 3 violet · 4 magenta */
+      .svc-card { --svc: var(--cyan); }
+      .svc-card:nth-child(2) { --svc: var(--blue); }
+      .svc-card:nth-child(3) { --svc: var(--violet); }
+      .svc-card:nth-child(4) { --svc: var(--magenta); }
       .svc-card {
         padding: 1.7rem 1.7rem 1.6rem;
         background: linear-gradient(160deg, rgba(var(--surf), 0.04), rgba(var(--surf), 0.01));
@@ -174,8 +209,8 @@
       }
       .svc-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(0, 212, 255, 0.35);
-        box-shadow: 0 18px 44px -20px rgba(0, 212, 255, 0.25);
+        border-color: color-mix(in srgb, var(--svc) 40%, transparent);
+        box-shadow: 0 18px 44px -20px color-mix(in srgb, var(--svc) 28%, transparent);
       }
       .svc-icon {
         width: 48px;
@@ -184,9 +219,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, rgba(0, 212, 255, 0.14), rgba(77, 143, 255, 0.1));
-        border: 1px solid rgba(0, 212, 255, 0.3);
-        color: var(--cyan);
+        background: linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--svc) 15%, transparent),
+          color-mix(in srgb, var(--svc) 7%, transparent)
+        );
+        border: 1px solid color-mix(in srgb, var(--svc) 32%, transparent);
+        color: var(--svc);
         margin-bottom: 1.1rem;
       }
       .svc-icon svg { width: 23px; height: 23px; }
@@ -611,8 +650,9 @@
       .eyebrow::before {
         content: "";
         width: 32px;
-        height: 1px;
-        background: var(--cyan);
+        height: 3px;
+        border-radius: 2px;
+        background: var(--scale);
       }
       .eyebrow.center {
         display: flex;
@@ -621,8 +661,16 @@
       .eyebrow.center::after {
         content: "";
         width: 32px;
-        height: 1px;
-        background: var(--cyan);
+        height: 3px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--magenta), var(--violet), var(--blue), var(--cyan));
+      }
+      /* RTL: mirror the scale bars so the hot end still sits next to the text */
+      html[dir="rtl"] .eyebrow::before {
+        background: linear-gradient(270deg, var(--cyan), var(--blue), var(--violet), var(--magenta));
+      }
+      html[dir="rtl"] .eyebrow.center::after {
+        background: linear-gradient(270deg, var(--magenta), var(--violet), var(--blue), var(--cyan));
       }
       .section-title {
         font-size: clamp(2.4rem, 5vw, 4.2rem);
@@ -633,7 +681,7 @@
       h2 .accent,
       h3 .accent,
       .section-title .accent {
-        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 52%, var(--violet) 108%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -895,7 +943,7 @@
       }
       .hero h1 .last-name {
         display: block;
-        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 58%, var(--violet) 118%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -1837,6 +1885,9 @@
         letter-spacing: 0.2em;
         margin-bottom: 0.6rem;
       }
+      /* Projects as series: // 01 cyan · // 02 blue · // 03 violet (legend order) */
+      .projects-list .project:nth-child(2) .project-num { color: var(--blue); }
+      .projects-list .project:nth-child(3) .project-num { color: var(--violet); }
       .project-info h3 {
         font-size: clamp(1.6rem, 2.6vw, 2.2rem);
         margin-bottom: 1rem;
@@ -1903,6 +1954,11 @@
         flex-direction: column;
         gap: 3rem;
       }
+      /* Each skill category is a "series" — legend chip + tinted rule, like a chart legend */
+      .skill-cat { --cat: var(--cyan); --cat-soft: var(--cyan-soft); }
+      .skill-cat:nth-child(2) { --cat: var(--blue); --cat-soft: var(--blue-soft); }
+      .skill-cat:nth-child(3) { --cat: var(--violet); --cat-soft: var(--violet-soft); }
+      .skill-cat:nth-child(4) { --cat: var(--magenta); --cat-soft: var(--magenta-soft); }
       .skill-cat h3 {
         font-family: var(--mono);
         font-size: 0.85rem;
@@ -1914,11 +1970,23 @@
         align-items: center;
         gap: 1rem;
       }
+      .skill-cat h3::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        background: var(--cat);
+        flex-shrink: 0;
+      }
       .skill-cat h3::after {
         content: "";
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, var(--line-strong), transparent);
+        background: linear-gradient(
+          90deg,
+          color-mix(in srgb, var(--cat) 40%, transparent),
+          transparent
+        );
       }
       .skill-grid {
         display: grid;
@@ -1949,7 +2017,7 @@
         inset: 0;
         background: radial-gradient(
           circle at center top,
-          var(--cyan-soft),
+          var(--cat-soft),
           transparent 60%
         );
         opacity: 0;
@@ -1957,8 +2025,8 @@
       }
       .skill-card:hover {
         transform: translateY(-4px);
-        border-color: var(--cyan);
-        box-shadow: 0 18px 40px -16px rgba(0, 212, 255, 0.3);
+        border-color: var(--cat);
+        box-shadow: 0 18px 40px -16px color-mix(in srgb, var(--cat) 30%, transparent);
       }
       .skill-card:hover::before {
         opacity: 1;
@@ -1977,9 +2045,9 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.3));
+        filter: drop-shadow(0 0 12px color-mix(in srgb, var(--cat) 30%, transparent));
         transition: transform 0.3s;
-        color: var(--cyan);
+        color: var(--cat);
       }
       .skill-card:hover .icon-wrap img,
       .skill-card:hover .icon-wrap svg {
@@ -1998,7 +2066,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, var(--cyan), var(--blue));
+        background: linear-gradient(135deg, var(--cat), color-mix(in srgb, var(--cat) 55%, var(--blue)));
         color: var(--navy-950);
         font-family: var(--display);
         font-weight: 700;
@@ -2963,7 +3031,7 @@
       .rc-bar-row:last-child { margin-bottom: 0; }
       .rc-bar-label { font-size: 0.82rem; color: var(--text-2); }
       .rc-bar-track { height: 9px; background: rgba(var(--surf),.05); border-radius: 99px; overflow: hidden; }
-      .rc-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #ff6b6b, #ff9a6b); border-radius: 99px; }
+      .rc-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #ff6b6b, var(--magenta)); border-radius: 99px; }
       .rc-bar-pct { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: #ff6b6b; text-align: right; }
       .rc-conclusion {
         font-size: 0.9rem;
@@ -4783,8 +4851,14 @@
         const recs = r.recommendations || [];
         const bottom = r.bottomLine || [];
 
+        /* Priority as an aurora heat scale (hot → cool). Red stays reserved
+           for the root-cause alarm banner so it keeps its urgency. */
         const priorityColor = (p) =>
-          p === "HIGH" ? "#ff6b6b" : p === "MEDIUM" ? "#ffa502" : "#28c840";
+          p === "HIGH"
+            ? ["var(--magenta)", "var(--magenta-rgb)"]
+            : p === "MEDIUM"
+              ? ["var(--violet)", "var(--violet-rgb)"]
+              : ["var(--blue)", "var(--blue-rgb)"];
         const hexRGB = (hex) => {
           const h = hex.replace("#", "");
           return `${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)}`;
@@ -4821,8 +4895,7 @@
         }).join("");
 
         const recsHtml = recs.map(rec => {
-          const col = priorityColor(rec.priority);
-          const rgb = hexRGB(col);
+          const [col, rgb] = priorityColor(rec.priority);
           return `
             <div class="rec-card" style="--rec:${col};--rec-rgb:${rgb}">
               <div class="rec-top">

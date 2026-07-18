@@ -539,7 +539,7 @@
             },
             {
               "num": "02",
-              "color": "#28c840",
+              "color": "#2ee6a8",
               "title": "Electronics: Small Volume, Big Margins",
               "text": "Electronics ranks 3rd in revenue ($2.25M) yet leads on profit margin at 44.6%. Colorbuds alone earned $835K profit — more than any single product. The category is under-invested."
             },
@@ -557,13 +557,13 @@
             },
             {
               "num": "05",
-              "color": "#ffa502",
+              "color": "#d946ef",
               "title": "Top 3 States = 30% of Revenue",
               "text": "Ciudad de México, Nuevo León & Jalisco drive $4.5M combined. This concentration is a risk; diversifying into high-margin states like Sonora (29.2%) reduces dependency."
             },
             {
               "num": "06",
-              "color": "#a29bfe",
+              "color": "#8b5cf6",
               "title": "Out-of-Stock Risk Is Real",
               "text": "77 store-product combinations (4.8%) sit at zero stock. Given Lego Bricks' volume and $2.4M revenue contribution, any stockout is extremely costly."
             }
