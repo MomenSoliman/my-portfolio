@@ -28,21 +28,20 @@
         --cyan-soft: rgba(0, 212, 255, 0.18);
         --blue: #4d8fff;
         --blue-soft: rgba(77, 143, 255, 0.18);
-        --sky: #38bdf8;
-        --sky-soft: rgba(56, 189, 248, 0.16);
-        --blue-deep: #2d6cdf;
-        --deep-soft: rgba(45, 108, 223, 0.18);
+        --violet: #8b5cf6;
+        --violet-soft: rgba(139, 92, 246, 0.18);
+        --magenta: #d946ef;
+        --magenta-soft: rgba(217, 70, 239, 0.16);
         --green: #2ee6a8;
         --green-soft: rgba(46, 230, 168, 0.14);
         /* RGB triplets for rgba(var(--x-rgb), a) patterns (theme-aware badges) */
-        --cyan-rgb: 0, 212, 255;
         --blue-rgb: 77, 143, 255;
-        --sky-rgb: 56, 189, 248;
-        --deep-rgb: 45, 108, 223;
+        --violet-rgb: 139, 92, 246;
+        --magenta-rgb: 217, 70, 239;
         --green-rgb: 46, 230, 168;
-        /* Categorical series scale (cyan → sky → blue → deep) —
-           an all-blue ramp; mirrors the aurora, used as a legend motif site-wide */
-        --scale: linear-gradient(90deg, var(--cyan), var(--sky), var(--blue), var(--blue-deep));
+        /* Categorical series scale (cyan → blue → violet → magenta) —
+           the brand accent ramp, used as a color-scale legend motif site-wide */
+        --scale: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet), var(--magenta));
         --text: #eef2ff;
         --text-2: #aab3d4;
         --text-3: #6b7596;
@@ -71,17 +70,16 @@
         --text-3: #6c7796;
         --cyan: #00d4ff;        /* brand accent — unchanged */
         --blue: #4d8fff;        /* brand accent — unchanged */
-        --sky: #0284c7;         /* deeper for contrast on light */
-        --sky-soft: rgba(2, 132, 199, 0.13);
-        --blue-deep: #1e56c8;   /* deeper for contrast on light */
-        --deep-soft: rgba(30, 86, 200, 0.13);
+        --violet: #7c3aed;      /* deeper for contrast on light */
+        --violet-soft: rgba(124, 58, 237, 0.14);
+        --magenta: #a21caf;     /* deeper for contrast on light */
+        --magenta-soft: rgba(162, 28, 175, 0.12);
         --blue-soft: rgba(77, 143, 255, 0.15);
         --green: #047857;       /* deeper for contrast on light */
         --green-soft: rgba(4, 120, 87, 0.12);
-        --cyan-rgb: 0, 212, 255;
         --blue-rgb: 77, 143, 255;
-        --sky-rgb: 2, 132, 199;
-        --deep-rgb: 30, 86, 200;
+        --violet-rgb: 124, 58, 237;
+        --magenta-rgb: 162, 28, 175;
         --green-rgb: 4, 120, 87;
         --surf: 23, 37, 84;     /* surface tint flips white → dark navy */
         --glass: 255, 255, 255; /* nav glass flips dark → white */
@@ -131,8 +129,9 @@
       [data-theme="light"] .socials a:hover {
         color: #04071a;
       }
-      /* Series 4 (deep blue) gradient is dark in light mode —
-         its fallback glyph stays white for contrast */
+      /* Series 3–4 (violet/magenta) gradients are deep in light mode —
+         their fallback glyphs stay white for contrast */
+      [data-theme="light"] .skill-cat:nth-child(3) .icon-fallback,
       [data-theme="light"] .skill-cat:nth-child(4) .icon-fallback {
         color: #ffffff;
       }
@@ -195,11 +194,11 @@
         gap: 1.1rem;
         margin-top: 2.6rem;
       }
-      /* Each service is a "series": 1 cyan · 2 sky · 3 blue · 4 deep */
+      /* Each service is a "series": 1 cyan · 2 blue · 3 violet · 4 magenta */
       .svc-card { --svc: var(--cyan); }
-      .svc-card:nth-child(2) { --svc: var(--sky); }
-      .svc-card:nth-child(3) { --svc: var(--blue); }
-      .svc-card:nth-child(4) { --svc: var(--blue-deep); }
+      .svc-card:nth-child(2) { --svc: var(--blue); }
+      .svc-card:nth-child(3) { --svc: var(--violet); }
+      .svc-card:nth-child(4) { --svc: var(--magenta); }
       .svc-card {
         padding: 1.7rem 1.7rem 1.6rem;
         background: linear-gradient(160deg, rgba(var(--surf), 0.06), rgba(var(--surf), 0.01));
@@ -686,14 +685,14 @@
         width: 32px;
         height: 3px;
         border-radius: 2px;
-        background: linear-gradient(90deg, var(--blue-deep), var(--blue), var(--sky), var(--cyan));
+        background: linear-gradient(90deg, var(--magenta), var(--violet), var(--blue), var(--cyan));
       }
       /* RTL: mirror the scale bars so the hot end still sits next to the text */
       html[dir="rtl"] .eyebrow::before {
-        background: linear-gradient(270deg, var(--cyan), var(--sky), var(--blue), var(--blue-deep));
+        background: linear-gradient(270deg, var(--cyan), var(--blue), var(--violet), var(--magenta));
       }
       html[dir="rtl"] .eyebrow.center::after {
-        background: linear-gradient(270deg, var(--blue-deep), var(--blue), var(--sky), var(--cyan));
+        background: linear-gradient(270deg, var(--magenta), var(--violet), var(--blue), var(--cyan));
       }
       .section-title {
         font-size: clamp(2.4rem, 5vw, 4.2rem);
@@ -704,7 +703,7 @@
       h2 .accent,
       h3 .accent,
       .section-title .accent {
-        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 52%, var(--blue-deep) 108%);
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 52%, var(--violet) 108%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -972,7 +971,7 @@
       }
       .hero h1 .last-name {
         display: block;
-        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 58%, var(--blue-deep) 118%);
+        background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 58%, var(--violet) 118%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -1079,28 +1078,29 @@
         position: relative;
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        align-items: center;
         opacity: 0;
         animation: rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s forwards;
       }
-      /* Editorial photo: no frame, no card — the cutout floats on a soft
-         blue radial glow, head free against the aurora. The crop's bottom
-         edge fades out so it never shows a hard line. */
-      .photo-glow {
+      /* Framed photo, aurora-matched: a deep navy panel that carries its own
+         miniature silk wave — same lean, same light as the sky behind it —
+         with the cutout rising past the top edge. */
+      .photo-frame {
+        position: relative;
+        width: min(100%, 440px);
+        aspect-ratio: 3/4;
+      }
+      .photo-frame::before {
+        content: "";
         position: absolute;
-        left: 50%;
-        bottom: -4%;
-        transform: translateX(-50%);
-        width: min(120%, 560px);
-        aspect-ratio: 1;
-        border-radius: 50%;
+        inset: -22px;
         background: radial-gradient(
           closest-side,
-          rgba(0, 212, 255, 0.34),
-          rgba(77, 143, 255, 0.16) 48%,
-          transparent 74%
+          rgba(0, 212, 255, 0.35),
+          rgba(77, 143, 255, 0.16) 52%,
+          transparent 76%
         );
-        filter: blur(34px);
+        filter: blur(38px);
         z-index: 0;
         animation: float 8s ease-in-out infinite;
       }
@@ -1113,15 +1113,63 @@
           transform: translateY(-14px) scale(1.04);
         }
       }
-      .hero-photo img {
-        position: relative;
+      .photo-frame .photo-bg {
+        position: absolute;
+        inset: 0;
+        border-radius: 24px;
+        background:
+          radial-gradient(120% 85% at 80% 12%, rgba(0, 212, 255, 0.14), transparent 55%),
+          radial-gradient(110% 80% at 15% 90%, rgba(45, 108, 223, 0.18), transparent 60%),
+          linear-gradient(165deg, var(--navy-800) 0%, var(--navy-900) 55%, var(--navy-950) 100%);
+        border: 1px solid var(--line-strong);
+        overflow: hidden;
         z-index: 1;
-        max-height: min(72vh, 620px);
+      }
+      /* The frame's own silk wave, riding behind the shoulders. */
+      .photo-frame .photo-bg::after {
+        content: "";
+        position: absolute;
+        left: -30%;
+        right: -30%;
+        top: 40%;
+        height: 24%;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(56, 189, 248, 0.2) 38%,
+          rgba(0, 212, 255, 0.3) 62%,
+          transparent 100%
+        );
+        transform: rotate(-10deg);
+        filter: blur(16px);
+        animation: frameWave 14s ease-in-out infinite alternate;
+      }
+      @keyframes frameWave {
+        from {
+          transform: translateX(-4%) rotate(-10deg);
+          opacity: 0.7;
+        }
+        to {
+          transform: translateX(4%) rotate(-9deg);
+          opacity: 1;
+        }
+      }
+      [data-theme="light"] .photo-frame .photo-bg {
+        background:
+          radial-gradient(120% 85% at 80% 12%, rgba(0, 186, 232, 0.14), transparent 55%),
+          radial-gradient(110% 80% at 15% 90%, rgba(30, 86, 200, 0.12), transparent 60%),
+          linear-gradient(165deg, #ffffff 0%, #eef3fc 60%, #e2eaf9 100%);
+      }
+      .photo-frame img {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 108%;
         width: auto;
-        max-width: 100%;
-        filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.65));
-        -webkit-mask-image: linear-gradient(to bottom, #000 84%, transparent 99%);
-        mask-image: linear-gradient(to bottom, #000 84%, transparent 99%);
+        max-width: none;
+        z-index: 2;
+        filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
       }
       /* Credibility strip: the analyst's toolbox as quiet mono pills. */
       .hero-tools {
@@ -1883,9 +1931,9 @@
         letter-spacing: 0.2em;
         margin-bottom: 0.6rem;
       }
-      /* Projects as series: // 01 cyan · // 02 sky · // 03 blue (legend order) */
-      .projects-list .project:nth-child(2) .project-num { color: var(--sky); }
-      .projects-list .project:nth-child(3) .project-num { color: var(--blue); }
+      /* Projects as series: // 01 cyan · // 02 blue · // 03 violet (legend order) */
+      .projects-list .project:nth-child(2) .project-num { color: var(--blue); }
+      .projects-list .project:nth-child(3) .project-num { color: var(--violet); }
       .project-info h3 {
         font-size: clamp(1.6rem, 2.6vw, 2.2rem);
         margin-bottom: 1rem;
@@ -1954,9 +2002,9 @@
       }
       /* Each skill category is a "series" — legend chip + tinted rule, like a chart legend */
       .skill-cat { --cat: var(--cyan); --cat-soft: var(--cyan-soft); }
-      .skill-cat:nth-child(2) { --cat: var(--sky); --cat-soft: var(--sky-soft); }
-      .skill-cat:nth-child(3) { --cat: var(--blue); --cat-soft: var(--blue-soft); }
-      .skill-cat:nth-child(4) { --cat: var(--blue-deep); --cat-soft: var(--deep-soft); }
+      .skill-cat:nth-child(2) { --cat: var(--blue); --cat-soft: var(--blue-soft); }
+      .skill-cat:nth-child(3) { --cat: var(--violet); --cat-soft: var(--violet-soft); }
+      .skill-cat:nth-child(4) { --cat: var(--magenta); --cat-soft: var(--magenta-soft); }
       .skill-cat h3 {
         font-family: var(--mono);
         font-size: 0.85rem;
@@ -3029,7 +3077,7 @@
       .rc-bar-row:last-child { margin-bottom: 0; }
       .rc-bar-label { font-size: 0.82rem; color: var(--text-2); }
       .rc-bar-track { height: 9px; background: rgba(var(--surf),.05); border-radius: 99px; overflow: hidden; }
-      .rc-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #ff6b6b, #e05252); border-radius: 99px; }
+      .rc-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, #ff6b6b, var(--magenta)); border-radius: 99px; }
       .rc-bar-pct { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: #ff6b6b; text-align: right; }
       .rc-conclusion {
         font-size: 0.9rem;
@@ -3063,21 +3111,6 @@
         border: 1px solid rgba(var(--rec-rgb),.32);
         flex-shrink: 0;
       }
-      /* Fill intensity = urgency (BI data-bar logic): solid > tint > faint */
-      .rec-priority.p-HIGH {
-        background: var(--cyan);
-        border-color: var(--cyan);
-        color: #04071a;
-      }
-      .rec-priority.p-LOW {
-        background: rgba(var(--rec-rgb), 0.06);
-        border-color: rgba(var(--rec-rgb), 0.2);
-      }
-      /* Light mode: bright cyan/blue text can't sit on white tints —
-         deepen the badge text, re-assert HIGH's dark-on-solid-cyan. */
-      [data-theme="light"] .rec-priority { color: #0e7490; }
-      [data-theme="light"] .rec-priority.p-LOW { color: var(--blue-deep); }
-      [data-theme="light"] .rec-priority.p-HIGH { color: #04071a; }
       .rec-title { font-size: 0.98rem; font-weight: 700; color: var(--text); margin: 0; }
       .rec-text { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; margin: 0 0 0.7rem; }
       .rec-impact { font-size: 0.82rem; color: var(--cyan); line-height: 1.55; margin: 0; padding-top: 0.7rem; border-top: 1px dashed var(--line); }
@@ -3392,11 +3425,9 @@
           margin: 0 auto;
           width: 100%;
         }
-        .hero-photo img {
-          max-height: 400px;
-        }
-        .photo-glow {
-          width: min(112%, 420px);
+        .photo-frame {
+          width: 100%;
+          max-width: 340px;
         }
         .scroll-cue {
           display: none;
@@ -4163,8 +4194,10 @@
         ${(p.heroTools && p.heroTools.length) ? `<div class="hero-tools">${p.heroTools.map((tl) => `<span class="tool-pill">${esc(tl)}</span>`).join("")}</div>` : ""}
       </div>
       <div class="hero-photo">
-        <div class="photo-glow" aria-hidden="true"></div>
-        ${p.photo ? `<img src="${esc(p.photo)}" alt="${esc((p.firstName || "") + " " + (p.lastName || ""))}">` : ""}
+        <div class="photo-frame">
+          <div class="photo-bg" aria-hidden="true"></div>
+          ${p.photo ? `<img src="${esc(p.photo)}" alt="${esc((p.firstName || "") + " " + (p.lastName || ""))}">` : ""}
+        </div>
       </div>
     </div>
     <div class="scroll-cue">${t("scroll")}<span class="line"></span></div>
@@ -4829,14 +4862,13 @@
         const recs = r.recommendations || [];
         const bottom = r.bottomLine || [];
 
-        /* Priority as fill intensity, like BI data bars: HIGH = solid cyan,
-           MEDIUM = cyan tint, LOW = faint blue. Red stays reserved for the
-           root-cause alarm banner so it keeps its urgency. */
+        /* Priority as an aurora heat scale (hot → cool). Red stays reserved
+           for the root-cause alarm banner so it keeps its urgency. */
         const priorityColor = (p) =>
           p === "HIGH"
-            ? ["var(--cyan)", "var(--cyan-rgb)"]
+            ? ["var(--magenta)", "var(--magenta-rgb)"]
             : p === "MEDIUM"
-              ? ["var(--cyan)", "var(--cyan-rgb)"]
+              ? ["var(--violet)", "var(--violet-rgb)"]
               : ["var(--blue)", "var(--blue-rgb)"];
         const hexRGB = (hex) => {
           const h = hex.replace("#", "");
@@ -4878,7 +4910,7 @@
           return `
             <div class="rec-card" style="--rec:${col};--rec-rgb:${rgb}">
               <div class="rec-top">
-                <span class="rec-priority p-${esc(rec.priority)}">${esc((UI[LANG].priority && UI[LANG].priority[rec.priority]) || rec.priority)}</span>
+                <span class="rec-priority">${esc((UI[LANG].priority && UI[LANG].priority[rec.priority]) || rec.priority)}</span>
                 <h4 class="rec-title">${esc(rec.title)}</h4>
               </div>
               <p class="rec-text">${esc(rec.text)}</p>

@@ -528,13 +528,13 @@
             },
             {
               "num": "05",
-              "color": "#0284c7",
+              "color": "#d946ef",
               "title": "Top 3 States = 30% of Revenue",
               "text": "Ciudad de México, Nuevo León & Jalisco drive $4.5M combined. This concentration is a risk; diversifying into high-margin states like Sonora (29.2%) reduces dependency."
             },
             {
               "num": "06",
-              "color": "#2d6cdf",
+              "color": "#8b5cf6",
               "title": "Out-of-Stock Risk Is Real",
               "text": "77 store-product combinations (4.8%) sit at zero stock. Given Lego Bricks' volume and $2.4M revenue contribution, any stockout is extremely costly."
             }
