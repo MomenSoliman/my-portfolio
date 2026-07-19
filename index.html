@@ -1092,8 +1092,10 @@
       .photo-frame {
         position: relative;
         width: min(100%, 440px);
-        aspect-ratio: 3/4;
+        /* Updated aspect ratio to match 740x1384 */
+        aspect-ratio: 740 / 1384;
       }
+
       .photo-frame::before {
         content: "";
         position: absolute;
@@ -1108,6 +1110,7 @@
         z-index: 0;
         animation: float 8s ease-in-out infinite;
       }
+
       @keyframes float {
         0%,
         100% {
@@ -1117,6 +1120,7 @@
           transform: translateY(-14px) scale(1.04);
         }
       }
+
       .photo-frame .photo-bg {
         position: absolute;
         inset: 0;
@@ -1131,6 +1135,7 @@
         overflow: hidden;
         z-index: 1;
       }
+
       .photo-frame .photo-bg::after {
         content: "";
         position: absolute;
@@ -1147,12 +1152,15 @@
         z-index: 2;
         pointer-events: none;
       }
+
       .photo-frame img {
         position: absolute;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        height: 108%;
+        /* Changed to 100% so it fits perfectly inside the new ratio. 
+          Change back to 108% if you want the head to pop out over the top border. */
+        height: 100%;
         width: auto;
         z-index: 2;
         filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
