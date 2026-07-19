@@ -1091,14 +1091,15 @@
       }
       .photo-frame {
         position: relative;
-        width: min(100%, 440px);
-        /* Updated aspect ratio to match 740x1384 */
-        aspect-ratio: 738 / 1386;
+        /* Remove width constraints and aspect-ratio */
+        display: inline-block;
+        /* This prevents the frame from collapsing */
       }
 
       .photo-frame::before {
         content: "";
         position: absolute;
+        /* Adjusting to expand slightly beyond the image */
         inset: -20px;
         background: radial-gradient(
           closest-side,
@@ -1154,15 +1155,13 @@
       }
 
       .photo-frame img {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        /* Changed to 100% so it fits perfectly inside the new ratio. 
-          Change back to 108% if you want the head to pop out over the top border. */
-        height: 100%;
-        width: auto;
+        /* Remove absolute positioning so the image pushes the container size */
+        display: block;
+        position: relative;
         z-index: 2;
+        /* Optional: Ensure the image doesn't overflow its parent if it's too large */
+        max-width: 100%;
+        height: auto;
         filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.6));
       }
       .float-card {
