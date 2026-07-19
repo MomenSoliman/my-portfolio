@@ -6,13 +6,8 @@
     "lastName": "Soliman",
     "greeting": "Hi, I'm",
     "titlesHtml": "<strong>Data Analyst</strong> @ Green Delta Home <span class=\"pipe\">/</span> Computer Science Student @ Cairo University",
-    "heroTools": [
-      "Excel",
-      "Power BI",
-      "SQL",
-      "Python"
-    ],
-    "photo": "assets/profile.webp",
+    "heroTools": ["Excel", "Power BI", "SQL", "Python"],
+    "photo": "assets/profile.png",
     "logo": "assets/logo.png",
     "resumeUrl": "https://drive.google.com/file/d/1EhawEJEflpy9yOZlkDSkga6LI3gFTuAH/view?usp=sharing",
     "email": "moamensoliman1304@gmail.com",
@@ -115,9 +110,7 @@
         ],
         "activity": "Interviews Day",
         "logo": "assets/volunteering/star-union/logo.ico",
-        "media": [
-          "assets/volunteering/star-union/interview-day-01.jpg"
-        ]
+        "media": ["assets/volunteering/star-union/interview-day-01.jpg"]
       },
       {
         "id": "vol-2",
@@ -134,9 +127,7 @@
         ],
         "activity": "First Step Event",
         "logo": "assets/volunteering/minders/logo.png",
-        "media": [
-          "assets/volunteering/minders/first-step-01.jpg"
-        ]
+        "media": ["assets/volunteering/minders/first-step-01.jpg"]
       }
     ]
   },
@@ -160,9 +151,7 @@
         ],
         "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Sales-Dashboard_Excel",
         "visualMode": "single-landscape",
-        "media": [
-          "assets/projects/sales/sales-full.png"
-        ],
+        "media": ["assets/projects/sales/sales-full.png"],
         "stats": [
           {
             "value": "$6.1M+",
@@ -402,16 +391,10 @@
         "tech": "Excel + Python",
         "title": "Mexico Toys Shop Sales",
         "descriptionHtml": "Excel + Python data analysis project exploring sales, profit margins, inventory health, and regional performance across <strong>50 toy stores in Mexico</strong>. Includes dashboard, pivot tables, and a full business report. Built on the Maven Analytics dataset.",
-        "techPills": [
-          "Excel",
-          "Power Query",
-          "Inventory Analysis"
-        ],
+        "techPills": ["Excel", "Power Query", "Inventory Analysis"],
         "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Mexico-Toyes-Shop-Sales-Dashboard",
         "visualMode": "single-landscape",
-        "media": [
-          "assets/projects/mexico-report/slide-01.png"
-        ],
+        "media": ["assets/projects/mexico-report/slide-01.png"],
         "stats": [
           {
             "value": "50",
@@ -770,44 +753,28 @@
         "icon": "svcInsights",
         "title": "Data Analysis & Insights",
         "desc": "Deep-dive analysis of your sales, operations, or customer data to surface trends, opportunities, and root causes — delivered as clear, decision-ready findings.",
-        "tags": [
-          "Excel",
-          "Python",
-          "Statistics"
-        ]
+        "tags": ["Excel", "Python", "Statistics"]
       },
       {
         "id": "svc-2",
         "icon": "svcDashboard",
         "title": "Dashboard Development",
         "desc": "Interactive Power BI and Excel dashboards that track your KPIs in real time and make performance visible at a glance.",
-        "tags": [
-          "Power BI",
-          "DAX",
-          "Power Query"
-        ]
+        "tags": ["Power BI", "DAX", "Power Query"]
       },
       {
         "id": "svc-3",
         "icon": "svcClean",
         "title": "Data Cleaning & Preparation",
         "desc": "Duplicates, broken formats, missing values — I turn unreliable spreadsheets into clean, structured, analysis-ready datasets.",
-        "tags": [
-          "SQL",
-          "Python",
-          "ETL"
-        ]
+        "tags": ["SQL", "Python", "ETL"]
       },
       {
         "id": "svc-4",
         "icon": "svcReport",
         "title": "Business Reporting",
         "desc": "Professional reports and presentations that translate the numbers into a story your stakeholders can act on.",
-        "tags": [
-          "PowerPoint",
-          "KPI Design",
-          "Storytelling"
-        ]
+        "tags": ["PowerPoint", "KPI Design", "Storytelling"]
       }
     ],
     "cta": {
