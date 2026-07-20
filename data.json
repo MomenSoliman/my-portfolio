@@ -6,7 +6,7 @@
     "lastName": "Soliman",
     "greeting": "Hi, I'm",
     "titlesHtml": "<strong>Data Analyst</strong> @ Green Delta Home <span class=\"pipe\">/</span> Computer Science Student @ Cairo University <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL",
-    "photo": "assets/profile.png",
+    "photo": "assets/profile.webp",
     "logo": "assets/logo.png",
     "resumeUrl": "https://drive.google.com/file/d/1EhawEJEflpy9yOZlkDSkga6LI3gFTuAH/view?usp=sharing",
     "email": "moamensoliman1304@gmail.com",
@@ -14,42 +14,7 @@
       "github": "https://github.com/MomenSoliman",
       "linkedin": "https://www.linkedin.com/in/moamen-soliman-17826323b/",
       "facebook": "#"
-    },
-    "floatingCards": [
-      {
-        "id": "fc-1",
-        "value": "SQL",
-        "labelTop": "Cleaning",
-        "labelBottom": "Layoffs ETL",
-        "position": {
-          "top": "7%",
-          "left": "-6%"
-        },
-        "delay": "0.5s"
-      },
-      {
-        "id": "fc-2",
-        "value": "Power BI",
-        "labelTop": "Visualizing",
-        "labelBottom": "Data Sets",
-        "position": {
-          "bottom": "18%",
-          "right": "-10%"
-        },
-        "delay": "1.5s"
-      },
-      {
-        "id": "fc-3",
-        "value": "100%",
-        "labelTop": "ETL Accuracy",
-        "labelBottom": "Make + Claude",
-        "position": {
-          "bottom": "0",
-          "left": "0"
-        },
-        "delay": "1s"
-      }
-    ]
+    }
   },
   "about": {
     "eyebrow": "About",
@@ -144,7 +109,9 @@
         ],
         "activity": "Interviews Day",
         "logo": "assets/volunteering/star-union/logo.ico",
-        "media": ["assets/volunteering/star-union/interview-day-01.jpg"]
+        "media": [
+          "assets/volunteering/star-union/interview-day-01.jpg"
+        ]
       },
       {
         "id": "vol-2",
@@ -161,7 +128,9 @@
         ],
         "activity": "First Step Event",
         "logo": "assets/volunteering/minders/logo.png",
-        "media": ["assets/volunteering/minders/first-step-01.jpg"]
+        "media": [
+          "assets/volunteering/minders/first-step-01.jpg"
+        ]
       }
     ]
   },
@@ -185,7 +154,9 @@
         ],
         "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Sales-Dashboard_Excel",
         "visualMode": "single-landscape",
-        "media": ["assets/projects/sales/sales-full.png"],
+        "media": [
+          "assets/projects/sales/sales-full.png"
+        ],
         "stats": [
           {
             "value": "$6.1M+",
@@ -425,10 +396,16 @@
         "tech": "Excel + Python",
         "title": "Mexico Toys Shop Sales",
         "descriptionHtml": "Excel + Python data analysis project exploring sales, profit margins, inventory health, and regional performance across <strong>50 toy stores in Mexico</strong>. Includes dashboard, pivot tables, and a full business report. Built on the Maven Analytics dataset.",
-        "techPills": ["Excel", "Power Query", "Inventory Analysis"],
+        "techPills": [
+          "Excel",
+          "Power Query",
+          "Inventory Analysis"
+        ],
         "githubUrl": "https://github.com/MomenSoliman/Data-Analysis-Mexico-Toyes-Shop-Sales-Dashboard",
         "visualMode": "single-landscape",
-        "media": ["assets/projects/mexico-report/slide-01.png"],
+        "media": [
+          "assets/projects/mexico-report/slide-01.png"
+        ],
         "stats": [
           {
             "value": "50",
@@ -622,6 +599,222 @@
             "Expand Airport stores — the highest revenue-per-store format in the portfolio."
           ]
         }
+      },
+      {
+        "id": "proj-4",
+        "number": "04",
+        "tech": "Power BI",
+        "title": "HR Salary & Workforce Analytics",
+        "descriptionHtml": "My first <strong>Power BI</strong> project — a two-page executive analytics solution for a construction/industrial group of <strong>~2,000 employees</strong>. Built an interactive data model with custom DAX measures, then designed a <strong>Salary &amp; Cost Analysis</strong> dashboard and an <strong>Executive Scorecard</strong> that track payroll, headcount, attrition, and compensation structure across branches, nationalities, and job titles — all filterable in real time.",
+        "techPills": [
+          "Power BI",
+          "DAX",
+          "Power Query"
+        ],
+        "githubUrl": "",
+        "visualMode": "carousel-landscape",
+        "media": [
+          "assets/projects/hr-scorecard/salary-cost-dashboard.png",
+          "assets/projects/hr-scorecard/executive-scorecard.png"
+        ],
+        "stats": [
+          {
+            "value": "11.6M",
+            "label": "Total Payroll Cost"
+          },
+          {
+            "value": "~2K",
+            "label": "Employees Analyzed"
+          },
+          {
+            "value": "8.58%",
+            "label": "Attrition Rate"
+          }
+        ],
+        "tools": [
+          {
+            "name": "Power BI",
+            "iconUrl": "https://api.iconify.design/simple-icons:powerbi.svg?color=%2300d4ff",
+            "usage": "Primary environment — built the full data model, both dashboard pages, and every visual from the raw HR dataset."
+          },
+          {
+            "name": "Power Query",
+            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff",
+            "usage": "ETL layer — imported, cleaned, and shaped the employee data; standardized dates, branches, and nationality fields before modeling."
+          },
+          {
+            "name": "DAX",
+            "iconUrl": "https://api.iconify.design/mdi:function-variant.svg?color=%2300d4ff",
+            "usage": "Wrote the custom measures — Headcount, Attrition Rate %, Total Salary Package, Average Cost per Employee, and Department Median Salary."
+          },
+          {
+            "name": "Data Modeling",
+            "iconUrl": "https://api.iconify.design/mdi:graph-outline.svg?color=%2300d4ff",
+            "usage": "Structured the model with a dedicated measures table and a date table to enable year-over-year headcount and cost trends."
+          },
+          {
+            "name": "Slicers & Filters",
+            "iconUrl": "https://api.iconify.design/mdi:filter-variant.svg?color=%2300d4ff",
+            "usage": "Added synced Nationality, Branch, and Job Title slicers so leadership can drill into any segment across both dashboard pages."
+          }
+        ],
+        "process": [
+          {
+            "step": "Import & Clean",
+            "description": "Loaded the raw employee dataset into Power Query — removed duplicates, fixed date formats, and standardized branch and nationality names."
+          },
+          {
+            "step": "Data Modeling",
+            "description": "Built a star-style model with a dedicated measures table and a date table to power time-based trend analysis."
+          },
+          {
+            "step": "DAX Measures",
+            "description": "Created measures for headcount, attrition %, total and average salary package, total cost, and department median salary."
+          },
+          {
+            "step": "Dashboard Design",
+            "description": "Designed two focused pages — a Salary & Cost view and an Executive Scorecard — with a consistent layout, KPI cards, and clear chart hierarchy."
+          },
+          {
+            "step": "Interactivity",
+            "description": "Wired synced slicers for Nationality, Branch, and Job Title so every visual responds together across both pages."
+          }
+        ],
+        "sourceUrl": "",
+        "embedUrl": "",
+        "reportInsights": {
+          "metaLine": "HR Salary & Workforce Analytics · ~2,000 employees · 7 branches · Power BI",
+          "kpis": [
+            {
+              "value": "11.6M",
+              "label": "Total Payroll Cost",
+              "sub": "across all branches"
+            },
+            {
+              "value": "1,891",
+              "label": "Total Headcount",
+              "sub": "18 nationalities"
+            },
+            {
+              "value": "8.58%",
+              "label": "Attrition Rate",
+              "sub": "178 employees left"
+            },
+            {
+              "value": "5.59K",
+              "label": "Avg Cost / Employee",
+              "sub": "total cost basis"
+            },
+            {
+              "value": "63.6%",
+              "label": "Basic Salary Share",
+              "sub": "of total package"
+            }
+          ],
+          "insights": [
+            {
+              "num": "01",
+              "color": "#00d4ff",
+              "title": "Pay Level Drives Retention",
+              "text": "The lowest-paid branch (Fleet / Warehouse, ~2.5K avg) has the highest attrition at 16.67%, while the highest-paid (Alumco Projects, ~9.7K avg) sits near the bottom at 3.13%. Compensation and retention are clearly linked across branches."
+            },
+            {
+              "num": "02",
+              "color": "#4d8fff",
+              "title": "Workforce Concentrated in Two Nationalities",
+              "text": "India (607) and Pakistan (602) make up 64% of the entire workforce; the top three nationalities reach 77%. This concentration is a workforce-planning and continuity risk if hiring pipelines from those regions tighten."
+            },
+            {
+              "num": "03",
+              "color": "#8b5cf6",
+              "title": "Basic Salary Dominates Cost Structure",
+              "text": "Basic Salary is 63.57% of the total package, with Other Earnings (12.39%) and Housing (10.95%) next. Allowances like Medical (0.49%) and Travel are marginal — the cost base is driven almost entirely by base pay."
+            },
+            {
+              "num": "04",
+              "color": "#d946ef",
+              "title": "Project Branches Carry the Attrition",
+              "text": "Fleet/Warehouse, Civil, and Marine Projects post the highest attrition (16.67%, 9.93%, 7.93%), all above the 8.58% average. Stable branches like Nitaqat (1.42%) and Alumco (3.13%) pull the company average down."
+            },
+            {
+              "num": "05",
+              "color": "#2ee6a8",
+              "title": "Costs Scaled Sharply After 2013",
+              "text": "Total salary package and headcount stayed low through the 1990s and 2000s, then climbed steeply — peaking around 2021 (~1.85M). The company's growth phase is recent and accelerating, which raises the stakes on cost control."
+            },
+            {
+              "num": "06",
+              "color": "#ffc14d",
+              "title": "Median vs Average Reveals Pay Skew",
+              "text": "Alumco's average package (9.7K) sits well above its median (5.6K), and the same gap appears across branches. A few senior, high-package roles pull the averages up — median is the fairer benchmark for typical pay."
+            }
+          ],
+          "rootCause": {
+            "headline": "Fleet / Warehouse  →  16.67% Attrition",
+            "drop": "2× the company average of 8.58%",
+            "driver": "Primary driver: lowest average package of all branches (~2.5K vs 9.7K at the top)",
+            "categoryDrops": [
+              {
+                "name": "Fleet / Warehouse",
+                "pct": 16.67
+              },
+              {
+                "name": "Civil Projects",
+                "pct": 9.93
+              },
+              {
+                "name": "Marine Projects",
+                "pct": 7.93
+              },
+              {
+                "name": "Office",
+                "pct": 6.67
+              },
+              {
+                "name": "Sister Co.",
+                "pct": 3.33
+              }
+            ],
+            "conclusion": "The branches with the lowest average packages consistently show the highest attrition. Fleet/Warehouse combines the lowest pay with the highest turnover — the clearest signal that compensation is the lever for retention here."
+          },
+          "recommendations": [
+            {
+              "priority": "HIGH",
+              "title": "Close the Fleet / Warehouse Pay Gap",
+              "text": "Review compensation for the lowest-paid branch, where 16.67% attrition is nearly double the company average. Even a modest package adjustment targets the single biggest retention risk.",
+              "impact": "Directly addresses the branch driving the most turnover — retention gains compound as rehiring and onboarding costs fall."
+            },
+            {
+              "priority": "HIGH",
+              "title": "Diversify the Hiring Pipeline",
+              "text": "With 64% of staff from just two nationalities, build recruitment channels in under-represented regions to reduce dependency and protect against pipeline disruptions.",
+              "impact": "Lowers continuity risk for a workforce of ~2,000 concentrated in two source countries."
+            },
+            {
+              "priority": "MEDIUM",
+              "title": "Standardize Packages by Role & Branch",
+              "text": "The average-vs-median gap shows uneven pay within branches. Define salary bands per job title and branch to make compensation consistent and defensible.",
+              "impact": "Reduces pay inequity and makes budgeting and offers more predictable."
+            },
+            {
+              "priority": "MEDIUM",
+              "title": "Set Branch-Level Attrition Targets",
+              "text": "Track attrition against the 8.58% baseline per branch and flag any that exceed it, so HR can intervene before turnover spikes.",
+              "impact": "Turns the scorecard into an early-warning system instead of a rear-view report."
+            },
+            {
+              "priority": "LOW",
+              "title": "Review the Allowance Mix",
+              "text": "With Medical at 0.49% and Travel marginal, assess whether the benefits structure is competitive enough to support retention alongside base pay.",
+              "impact": "Small structural tweaks to benefits can improve perceived value at low cost."
+            }
+          ],
+          "bottomLine": [
+            "Pay level is the clearest predictor of attrition — the lowest-paid branch loses staff twice as fast as the company average.",
+            "Fixing Fleet/Warehouse compensation and diversifying the hiring pipeline are the two highest-leverage moves.",
+            "My first Power BI build: full data model, custom DAX, and two decision-ready executive dashboards."
+          ]
+        }
       }
     ]
   },
@@ -787,28 +980,44 @@
         "icon": "svcInsights",
         "title": "Data Analysis & Insights",
         "desc": "Deep-dive analysis of your sales, operations, or customer data to surface trends, opportunities, and root causes — delivered as clear, decision-ready findings.",
-        "tags": ["Excel", "Python", "Statistics"]
+        "tags": [
+          "Excel",
+          "Python",
+          "Statistics"
+        ]
       },
       {
         "id": "svc-2",
         "icon": "svcDashboard",
         "title": "Dashboard Development",
         "desc": "Interactive Power BI and Excel dashboards that track your KPIs in real time and make performance visible at a glance.",
-        "tags": ["Power BI", "DAX", "Power Query"]
+        "tags": [
+          "Power BI",
+          "DAX",
+          "Power Query"
+        ]
       },
       {
         "id": "svc-3",
         "icon": "svcClean",
         "title": "Data Cleaning & Preparation",
         "desc": "Duplicates, broken formats, missing values — I turn unreliable spreadsheets into clean, structured, analysis-ready datasets.",
-        "tags": ["SQL", "Python", "ETL"]
+        "tags": [
+          "SQL",
+          "Python",
+          "ETL"
+        ]
       },
       {
         "id": "svc-4",
         "icon": "svcReport",
         "title": "Business Reporting",
         "desc": "Professional reports and presentations that translate the numbers into a story your stakeholders can act on.",
-        "tags": ["PowerPoint", "KPI Design", "Storytelling"]
+        "tags": [
+          "PowerPoint",
+          "KPI Design",
+          "Storytelling"
+        ]
       }
     ],
     "cta": {
@@ -824,21 +1033,7 @@
         "firstName": "مؤمن",
         "lastName": "سليمان",
         "greeting": "مرحبًا، أنا",
-        "titlesHtml": "<strong>محلّل بيانات</strong> @ Green Delta Home <span class=\"pipe\">/</span> طالب علوم حاسب @ جامعة القاهرة <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL",
-        "floatingCards": [
-          {
-            "labelTop": "تنظيف",
-            "labelBottom": "بيانات التسريحات"
-          },
-          {
-            "labelTop": "تصوّر",
-            "labelBottom": "مجموعات البيانات"
-          },
-          {
-            "labelTop": "دقة ETL",
-            "labelBottom": "Make + Claude"
-          }
-        ]
+        "titlesHtml": "<strong>محلّل بيانات</strong> @ Green Delta Home <span class=\"pipe\">/</span> طالب علوم حاسب @ جامعة القاهرة <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL"
       },
       "about": {
         "eyebrow": "نبذة عني",
@@ -1209,6 +1404,165 @@
                 "عالج فجوة مخزون أغسطس قبل أن تكلف 167 ألف دولار أخرى في 2024.",
                 "ضاعف الاستثمار في الإلكترونيات — هامش 44.6% مقابل 21.2% للُعب.",
                 "توسّع في متاجر المطارات — أعلى إيراد لكل متجر في المحفظة."
+              ]
+            }
+          },
+          {
+            "title": "تحليلات الرواتب والقوى العاملة",
+            "descriptionHtml": "أول مشروع لي في <strong>Power BI</strong> — حل تحليلي تنفيذي من صفحتين لمجموعة إنشائية/صناعية تضم <strong>نحو 2000 موظف</strong>. بنيتُ نموذج بيانات تفاعليًا بمقاييس DAX مخصّصة، ثم صمّمتُ لوحة <strong>تحليل الرواتب والتكاليف</strong> ولوحة <strong>بطاقة الأداء التنفيذية</strong> لتتبّع الرواتب وعدد الموظفين ومعدّل ترك العمل وبنية التعويضات عبر الفروع والجنسيات والمسميات الوظيفية — كلها قابلة للتصفية آنيًا.",
+            "stats": [
+              {
+                "label": "إجمالي تكلفة الرواتب"
+              },
+              {
+                "label": "موظف تم تحليلهم"
+              },
+              {
+                "label": "معدّل ترك العمل"
+              }
+            ],
+            "tools": [
+              {
+                "usage": "البيئة الرئيسية — بُني هنا نموذج البيانات بالكامل، وصفحتا اللوحة، وكل الرسوم من بيانات الموارد البشرية الخام."
+              },
+              {
+                "usage": "طبقة ETL — استيراد بيانات الموظفين وتنظيفها وتشكيلها، وتوحيد التواريخ والفروع وحقول الجنسية قبل النمذجة."
+              },
+              {
+                "usage": "كتابة المقاييس المخصّصة — عدد الموظفين، معدّل ترك العمل %، إجمالي حزمة الراتب، متوسط التكلفة لكل موظف، ووسيط راتب القسم."
+              },
+              {
+                "usage": "هيكلة النموذج بجدول مقاييس مخصّص وجدول تواريخ لتمكين تحليل اتجاهات عدد الموظفين والتكاليف عبر السنوات."
+              },
+              {
+                "usage": "إضافة مصفّيات متزامنة للجنسية والفرع والمسمى الوظيفي لتتيح للإدارة التعمّق في أي شريحة عبر صفحتي اللوحة."
+              }
+            ],
+            "process": [
+              {
+                "step": "الاستيراد والتنظيف",
+                "description": "تحميل بيانات الموظفين الخام إلى Power Query — إزالة التكرارات وتصحيح صيغ التواريخ وتوحيد أسماء الفروع والجنسيات."
+              },
+              {
+                "step": "نمذجة البيانات",
+                "description": "بناء نموذج نجمي بجدول مقاييس مخصّص وجدول تواريخ لتشغيل التحليل الزمني."
+              },
+              {
+                "step": "مقاييس DAX",
+                "description": "إنشاء مقاييس لعدد الموظفين ومعدّل ترك العمل % وإجمالي ومتوسط حزمة الراتب والتكلفة الإجمالية ووسيط راتب القسم."
+              },
+              {
+                "step": "تصميم اللوحة",
+                "description": "تصميم صفحتين مركّزتين — عرض الرواتب والتكاليف، وبطاقة الأداء التنفيذية — بتخطيط متسق وبطاقات مؤشرات وتسلسل واضح للرسوم."
+              },
+              {
+                "step": "التفاعلية",
+                "description": "ربط مصفّيات متزامنة للجنسية والفرع والمسمى الوظيفي بحيث تستجيب كل الرسوم معًا عبر الصفحتين."
+              }
+            ],
+            "reportInsights": {
+              "metaLine": "تحليلات الرواتب والقوى العاملة · نحو 2000 موظف · 7 فروع · Power BI",
+              "kpis": [
+                {
+                  "label": "إجمالي تكلفة الرواتب",
+                  "sub": "عبر جميع الفروع"
+                },
+                {
+                  "label": "إجمالي عدد الموظفين",
+                  "sub": "18 جنسية"
+                },
+                {
+                  "label": "معدّل ترك العمل",
+                  "sub": "178 موظفًا غادروا"
+                },
+                {
+                  "label": "متوسط التكلفة/موظف",
+                  "sub": "على أساس التكلفة الإجمالية"
+                },
+                {
+                  "label": "حصة الراتب الأساسي",
+                  "sub": "من إجمالي الحزمة"
+                }
+              ],
+              "insights": [
+                {
+                  "title": "مستوى الأجر يقود الاستبقاء",
+                  "text": "الفرع الأقل أجرًا (الأسطول/المستودعات، نحو 2.5 ألف متوسط) لديه أعلى معدّل ترك عند 16.67%، بينما الأعلى أجرًا (مشاريع ألومكو، نحو 9.7 ألف) قرب الأدنى عند 3.13%. الأجر والاستبقاء مرتبطان بوضوح عبر الفروع."
+                },
+                {
+                  "title": "القوى العاملة مركّزة في جنسيتين",
+                  "text": "تشكّل الهند (607) وباكستان (602) نسبة 64% من إجمالي القوى العاملة؛ وتبلغ أعلى ثلاث جنسيات 77%. هذا التركّز مخاطرة على تخطيط القوى العاملة والاستمرارية إذا تعثّرت قنوات التوظيف من تلك المناطق."
+                },
+                {
+                  "title": "الراتب الأساسي يهيمن على بنية التكلفة",
+                  "text": "يمثّل الراتب الأساسي 63.57% من إجمالي الحزمة، يليه الأرباح الأخرى (12.39%) والسكن (10.95%). بدلات مثل الطبية (0.49%) والسفر هامشية — قاعدة التكلفة مدفوعة بالأجر الأساسي بالكامل تقريبًا."
+                },
+                {
+                  "title": "فروع المشاريع تحمل عبء ترك العمل",
+                  "text": "تسجّل فروع الأسطول/المستودعات والمشاريع المدنية والبحرية أعلى معدّلات ترك (16.67% و9.93% و7.93%)، جميعها فوق المتوسط 8.58%. فروع مستقرة مثل نطاقات (1.42%) وألومكو (3.13%) تخفض متوسط الشركة."
+                },
+                {
+                  "title": "تصاعد التكاليف بحدّة بعد 2013",
+                  "text": "ظلّت حزمة الرواتب وعدد الموظفين منخفضين طوال التسعينيات والعقد الأول، ثم ارتفعا بحدّة — بذروة قرب 2021 (نحو 1.85 مليون). مرحلة نمو الشركة حديثة ومتسارعة، ما يرفع أهمية ضبط التكاليف."
+                },
+                {
+                  "title": "الوسيط مقابل المتوسط يكشف انحياز الأجور",
+                  "text": "متوسط حزمة ألومكو (9.7 ألف) أعلى بكثير من وسيطها (5.6 ألف)، وتظهر الفجوة نفسها عبر الفروع. عدد قليل من الأدوار العليا ذات الحزم المرتفعة يرفع المتوسطات — الوسيط هو المعيار الأعدل للأجر النموذجي."
+                }
+              ],
+              "rootCause": {
+                "headline": "الأسطول/المستودعات  →  16.67% ترك عمل",
+                "driver": "المحرّك الأساسي: أدنى متوسط حزمة بين كل الفروع (نحو 2.5 ألف مقابل 9.7 ألف في الأعلى)",
+                "categoryDrops": [
+                  {
+                    "name": "الأسطول/المستودعات"
+                  },
+                  {
+                    "name": "المشاريع المدنية"
+                  },
+                  {
+                    "name": "المشاريع البحرية"
+                  },
+                  {
+                    "name": "المكتب"
+                  },
+                  {
+                    "name": "الشركة الشقيقة"
+                  }
+                ],
+                "conclusion": "الفروع ذات أدنى متوسط حزم تُظهر باستمرار أعلى معدّلات ترك. الأسطول/المستودعات يجمع بين أدنى أجر وأعلى دوران — أوضح إشارة إلى أن التعويض هو رافعة الاستبقاء هنا."
+              },
+              "recommendations": [
+                {
+                  "title": "سدّ فجوة أجور الأسطول/المستودعات",
+                  "text": "مراجعة تعويضات الفرع الأقل أجرًا، حيث يقارب معدّل الترك 16.67% ضعف متوسط الشركة. حتى تعديل متواضع للحزمة يعالج أكبر مخاطر الاستبقاء.",
+                  "impact": "يعالج مباشرةً الفرع الذي يقود أكبر قدر من الدوران — ومكاسب الاستبقاء تتراكم مع انخفاض تكاليف إعادة التوظيف والتأهيل."
+                },
+                {
+                  "title": "تنويع قنوات التوظيف",
+                  "text": "مع كون 64% من الموظفين من جنسيتين فقط، ابنِ قنوات توظيف في مناطق أقل تمثيلًا لتقليل الاعتماد والحماية من انقطاع القنوات.",
+                  "impact": "يخفض مخاطر الاستمرارية لقوى عاملة قوامها نحو 2000 مركّزة في بلدين مصدرين."
+                },
+                {
+                  "title": "توحيد الحزم حسب الدور والفرع",
+                  "text": "تكشف فجوة المتوسط مقابل الوسيط تفاوتًا في الأجور داخل الفروع. حدّد نطاقات رواتب لكل مسمّى وظيفي وفرع لجعل التعويض متسقًا ومبرَّرًا.",
+                  "impact": "يقلّل عدم المساواة في الأجور ويجعل الميزنة والعروض أكثر قابلية للتنبؤ."
+                },
+                {
+                  "title": "وضع أهداف ترك عمل على مستوى الفرع",
+                  "text": "تتبّع معدّل الترك مقابل خط الأساس 8.58% لكل فرع، وضع إشارة على أي فرع يتجاوزه، ليتمكّن قسم الموارد البشرية من التدخّل قبل ارتفاع الدوران.",
+                  "impact": "يحوّل بطاقة الأداء إلى نظام إنذار مبكر بدلًا من تقرير للماضي."
+                },
+                {
+                  "title": "مراجعة مزيج البدلات",
+                  "text": "مع كون البدل الطبي 0.49% والسفر هامشيًا، قيّم ما إذا كانت بنية المزايا تنافسية بما يكفي لدعم الاستبقاء إلى جانب الأجر الأساسي.",
+                  "impact": "تعديلات هيكلية صغيرة للمزايا قد ترفع القيمة المُدرَكة بتكلفة منخفضة."
+                }
+              ],
+              "bottomLine": [
+                "مستوى الأجر هو أوضح مؤشّر على ترك العمل — الفرع الأقل أجرًا يفقد موظفيه بضعف سرعة متوسط الشركة.",
+                "إصلاح تعويضات الأسطول/المستودعات وتنويع قنوات التوظيف هما أعلى خطوتين تأثيرًا.",
+                "أول مشروع لي في Power BI: نموذج بيانات كامل، ومقاييس DAX مخصّصة، ولوحتان تنفيذيتان جاهزتان للقرار."
               ]
             }
           }
