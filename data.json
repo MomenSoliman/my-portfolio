@@ -238,16 +238,7 @@
         ],
         "githubUrl": "https://github.com/MomenSoliman/SQL-Data-Cleaning-Layoffs",
         "visualMode": "walkthrough",
-        "media": [
-          "assets/projects/sql-cleaning/slide-1.png",
-          "assets/projects/sql-cleaning/slide-2.png",
-          "assets/projects/sql-cleaning/slide-3.png",
-          "assets/projects/sql-cleaning/slide-4.png",
-          "assets/projects/sql-cleaning/slide-5.png",
-          "assets/projects/sql-cleaning/slide-6.png",
-          "assets/projects/sql-cleaning/slide-7.png",
-          "assets/projects/sql-cleaning/slide-8.png"
-        ],
+        "media": [],
         "stats": [
           {
             "value": "2,361",
