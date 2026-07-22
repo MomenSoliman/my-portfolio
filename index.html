@@ -1702,6 +1702,33 @@
         filter: saturate(1) brightness(0.94);
         transform: scale(1.05);
       }
+      /* Projects with no screenshot get a designed backdrop instead of an empty
+         tile: soft brand glow plus the site's faint graph-paper grid, masked so
+         it fades out at the edges. */
+      .pcard.no-media .pcard-media {
+        background:
+          radial-gradient(115% 85% at 80% 14%, rgba(0, 212, 255, 0.12), transparent 58%),
+          radial-gradient(100% 80% at 10% 92%, rgba(77, 143, 255, 0.1), transparent 62%),
+          linear-gradient(158deg, #151d42 0%, #0d1330 55%, #080d24 100%);
+        transition: filter 0.5s ease;
+      }
+      .pcard.no-media .pcard-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(160, 200, 255, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(160, 200, 255, 0.07) 1px, transparent 1px);
+        background-size: 46px 46px;
+        -webkit-mask-image: radial-gradient(circle at 50% 38%, #000 18%, transparent 76%);
+        mask-image: radial-gradient(circle at 50% 38%, #000 18%, transparent 76%);
+      }
+      .pcard.no-media.is-active .pcard-media {
+        filter: brightness(1.16) saturate(1.08);
+      }
+      .pgrid.is-hovering .pcard.no-media:not(.is-active) .pcard-media {
+        filter: brightness(0.6) saturate(0.5);
+      }
       .pcard-shade {
         position: absolute;
         inset: 0;
@@ -1713,6 +1740,14 @@
           rgba(4, 7, 26, 0.12) 100%
         );
         transition: opacity 0.45s ease;
+      }
+      .pcard.no-media .pcard-shade {
+        background: linear-gradient(
+          to top,
+          rgba(4, 7, 26, 0.9) 0%,
+          rgba(4, 7, 26, 0.5) 42%,
+          rgba(4, 7, 26, 0) 80%
+        );
       }
       .pcard-body {
         position: relative;
@@ -4577,7 +4612,7 @@
                 .join("")}</div>`
             : "";
         return `
-      <article class="pcard reveal" data-tags="${esc(projectTags(p).join(" "))}" style="--rd:${i * 70}ms">
+      <article class="pcard reveal${media ? "" : " no-media"}" data-tags="${esc(projectTags(p).join(" "))}" style="--rd:${i * 70}ms">
         <a class="pcard-link" href="#/project/${esc(p.id || "")}" aria-label="${title}">
           <div class="pcard-media">${media ? `<img src="${esc(media)}" alt="${title}" loading="lazy">` : ""}</div>
           <div class="pcard-shade"></div>
@@ -5236,9 +5271,10 @@
           ? p.githubUrl.replace(/\/$/, "") + "/archive/refs/heads/main.zip"
           : "";
 
-        const mediaSection = isWalkthrough
-          ? ""
-          : `<div class="proj-page-media">${buildMediaHtml(p)}</div>`;
+        const mediaSection =
+          isWalkthrough || !(p.media || []).length
+            ? ""
+            : `<div class="proj-page-media">${buildMediaHtml(p)}</div>`;
 
         wrap.innerHTML = `
           <a href="#projects" class="proj-back">
