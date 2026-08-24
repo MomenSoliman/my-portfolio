@@ -927,7 +927,17 @@
       }
       .socials {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.7rem;
+      }
+      @media (max-width: 420px) {
+        .socials {
+          gap: 0.5rem;
+        }
+        .socials a {
+          width: 40px;
+          height: 40px;
+        }
       }
       .socials a {
         width: 46px;
@@ -1591,6 +1601,163 @@
         font-family: var(--mono);
         color: var(--text-3);
         font-size: 0.78rem;
+      }
+
+      /* ---------- Content hub: social platforms ---------- */
+      .plat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.15rem;
+      }
+      .plat-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1.7rem 1.4rem 1.5rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surf);
+        text-decoration: none;
+        color: inherit;
+        overflow: hidden;
+        transition:
+          transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+      .plat-card::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        inset-inline-end: -30%;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: radial-gradient(
+          closest-side,
+          rgba(var(--pc-rgb), 0.22),
+          transparent 72%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+      .plat-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(var(--pc-rgb), 0.45);
+        box-shadow: 0 20px 45px -22px rgba(var(--pc-rgb), 0.5);
+      }
+      .plat-card:hover::before {
+        opacity: 1;
+      }
+      .plat-icon {
+        position: relative;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(var(--pc-rgb), 0.12);
+        border: 1px solid rgba(var(--pc-rgb), 0.22);
+        color: var(--pc);
+        transition:
+          transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+          background 0.35s ease;
+      }
+      .plat-card:hover .plat-icon {
+        transform: scale(1.08);
+        background: rgba(var(--pc-rgb), 0.2);
+      }
+      .plat-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .plat-name {
+        position: relative;
+        font-family: var(--display);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.2;
+      }
+      .plat-handle {
+        position: relative;
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        color: var(--text-3);
+        margin-top: -0.35rem;
+        direction: ltr;
+        unicode-bidi: embed;
+      }
+      [dir="rtl"] .plat-handle {
+        text-align: right;
+      }
+      .plat-blurb {
+        position: relative;
+        font-size: 0.86rem;
+        line-height: 1.65;
+        color: var(--text-2);
+        margin: 0.15rem 0 0;
+      }
+      .plat-cta {
+        position: relative;
+        margin-top: auto;
+        padding-top: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--cyan);
+      }
+      .plat-cta svg {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.3s ease;
+      }
+      [dir="rtl"] .plat-cta svg {
+        transform: scaleX(-1);
+      }
+      .plat-card:hover .plat-cta svg {
+        transform: translateX(4px);
+      }
+      [dir="rtl"] .plat-card:hover .plat-cta svg {
+        transform: scaleX(-1) translateX(4px);
+      }
+      /* courses teaser */
+      .courses-teaser {
+        margin-top: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 1rem 1.3rem;
+        border: 1px dashed var(--line-strong);
+        border-radius: var(--radius);
+        background: rgba(0, 212, 255, 0.04);
+        font-size: 0.9rem;
+        color: var(--text-2);
+        text-align: center;
+      }
+      .courses-teaser .ct-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--cyan);
+        flex-shrink: 0;
+        animation: svcPulse 2s infinite;
+      }
+      @media (max-width: 980px) {
+        .plat-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.9rem;
+        }
+      }
+      @media (max-width: 560px) {
+        .plat-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       /* ---------- Projects: filter chips ---------- */
@@ -3430,6 +3597,23 @@
       .mobile-nav {
         display: none;
       }
+      /* The floating nav grows with the site (Content now, Courses later), so it
+         caps to the viewport and scrolls sideways rather than pushing the page. */
+      @media (max-width: 980px) {
+        nav.mobile-nav {
+          max-width: calc(100vw - 1.5rem);
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        nav.mobile-nav::-webkit-scrollbar {
+          display: none;
+        }
+        .mobile-nav .mobile-nav-item {
+          flex: 0 0 auto;
+        }
+      }
 
       @media (max-width: 980px) {
         .hero {
@@ -3932,6 +4116,7 @@
     <main>
       <section id="home" class="hero"></section>
       <section id="about"></section>
+      <section id="content"></section>
       <section id="experience"></section>
       <section id="projects"></section>
       <section id="volunteering"></section>
@@ -3955,6 +4140,10 @@
         facebook: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073"/></svg>`,
         email: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>`,
         resume: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6M9 9h1"/></svg>`,
+        youtube: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.13C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.52A3 3 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3 3 0 0 0 2.12 2.13c1.88.52 9.38.52 9.38.52s7.5 0 9.38-.52a3 3 0 0 0 2.12-2.13C24 15.92 24 12 24 12s0-3.92-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>`,
+        tiktok: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .77-5.06V9.7a5.68 5.68 0 0 0-.77-.05 5.65 5.65 0 1 0 5.65 5.65V9.01a7.35 7.35 0 0 0 4.29 1.38V7.3a4.29 4.29 0 0 1-3.2-1.48Z"/></svg>`,
+        instagram: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91a5.9 5.9 0 0 0 1.38 2.13 5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Z"/><path d="M12 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>`,
+        navPlay: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>`,
         arrow: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14M13 5l7 7-7 7"/></svg>`,
         arrowOut: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17 17 7M8 7h9v9"/></svg>`,
         menu: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="24" height="24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>`,
@@ -4036,13 +4225,15 @@
       // ── i18n: UI strings + language state (applies site-wide, incl. project pages) ──
       const UI = {
         en: {
-          nav: { home: "Home", about: "About", experience: "Experience", projects: "Projects", services: "Services", volunteering: "Volunteering", skills: "Skills", contact: "Contact" },
+          nav: { home: "Home", about: "About", content: "Content", experience: "Experience", projects: "Projects", services: "Services", volunteering: "Volunteering", skills: "Skills", contact: "Contact" },
           resume: "Resume",
           viewResume: "View Resume",
           seeProjects: "See projects",
           viewDetails: "View Details",
           filterAll: "All",
           filterLabel: "Filter projects by tool",
+          followMe: "Follow",
+          coursesSoon: "Courses coming soon",
           viewGithub: "View on GitHub",
           current: "Current",
           scroll: "Scroll",
@@ -4072,13 +4263,15 @@
           priority: { HIGH: "HIGH", MEDIUM: "MEDIUM", LOW: "LOW" },
         },
         ar: {
-          nav: { home: "الرئيسية", about: "نبذة عني", experience: "الخبرة", projects: "المشاريع", services: "الخدمات", volunteering: "التطوع", skills: "المهارات", contact: "تواصل" },
+          nav: { home: "الرئيسية", about: "نبذة عني", content: "المحتوى", experience: "الخبرة", projects: "المشاريع", services: "الخدمات", volunteering: "التطوع", skills: "المهارات", contact: "تواصل" },
           resume: "السيرة الذاتية",
           viewResume: "عرض السيرة الذاتية",
           seeProjects: "استعرض المشاريع",
           viewDetails: "عرض التفاصيل",
           filterAll: "الكل",
           filterLabel: "تصفية المشاريع حسب الأداة",
+          followMe: "تابعني",
+          coursesSoon: "كورسات قريبًا",
           viewGithub: "عرض على GitHub",
           current: "حاليًا",
           scroll: "مرّر",
@@ -4166,6 +4359,7 @@
         const sections = [
           { id: "home", label: nl.home, icon: ICONS.navHome },
           { id: "about", label: nl.about, icon: ICONS.navUser },
+          { id: "content", label: nl.content, icon: ICONS.navPlay },
           { id: "experience", label: nl.experience, icon: ICONS.navBriefcase },
           { id: "projects", label: nl.projects, icon: ICONS.navCode },
           { id: "volunteering", label: nl.volunteering, icon: ICONS.navUsers },
@@ -4228,6 +4422,9 @@
             ${social.github ? `<a href="${esc(social.github)}" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">${ICONS.github}</a>` : ""}
             ${social.linkedin ? `<a href="${esc(social.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">${ICONS.linkedin}</a>` : ""}
             ${social.facebook ? `<a href="${esc(social.facebook)}" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">${ICONS.facebook}</a>` : ""}
+            ${social.youtube ? `<a href="${esc(social.youtube)}" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">${ICONS.youtube}</a>` : ""}
+            ${social.tiktok ? `<a href="${esc(social.tiktok)}" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">${ICONS.tiktok}</a>` : ""}
+            ${social.instagram ? `<a href="${esc(social.instagram)}" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">${ICONS.instagram}</a>` : ""}
           </div>
         </div>
       </div>
@@ -4271,6 +4468,58 @@
       </div>
     </div>
   `;
+      }
+
+      const PLATFORM_STYLE = {
+        youtube: { icon: "youtube", color: "#ff0033", rgb: "255, 0, 51" },
+        tiktok: { icon: "tiktok", color: "#25f4ee", rgb: "37, 244, 238" },
+        instagram: { icon: "instagram", color: "#e1306c", rgb: "225, 48, 108" },
+        facebook: { icon: "facebook", color: "#1877f2", rgb: "24, 119, 242" },
+      };
+
+      function renderContent(d) {
+        const el = document.getElementById("content");
+        const c = d.content || {};
+        const items = (c.platforms || []).filter((p) => p.url && p.url !== "#");
+        if (!items.length) {
+          el.innerHTML = "";
+          return;
+        }
+        el.innerHTML = `
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">${esc(c.eyebrow || "Content")}</span>
+        <h2 class="section-title">${processInline(c.headlineHtml || "")}</h2>
+        ${c.subtitle ? `<p class="section-sub">${esc(c.subtitle)}</p>` : ""}
+      </div>
+      <div class="plat-grid">
+        ${items.map((p, i) => renderPlatformCard(p, i)).join("")}
+      </div>
+      ${
+        c.coursesNote
+          ? `<div class="courses-teaser reveal"><span class="ct-dot"></span><span>${esc(c.coursesNote)}</span></div>`
+          : ""
+      }
+    </div>
+  `;
+      }
+
+      function renderPlatformCard(p, i) {
+        const s = PLATFORM_STYLE[p.id] || {
+          icon: "navPlay",
+          color: "#00d4ff",
+          rgb: "0, 212, 255",
+        };
+        return `
+      <a class="plat-card reveal" href="${esc(p.url)}" target="_blank" rel="noopener"
+         style="--pc:${s.color};--pc-rgb:${s.rgb};--rd:${i * 70}ms"
+         aria-label="${esc(p.name || p.id)}">
+        <span class="plat-icon">${ICONS[s.icon] || ICONS.navPlay}</span>
+        <span class="plat-name">${esc(p.name || "")}</span>
+        ${p.handle ? `<span class="plat-handle">${esc(p.handle)}</span>` : ""}
+        ${p.blurb ? `<p class="plat-blurb">${esc(p.blurb)}</p>` : ""}
+        <span class="plat-cta">${esc(t("followMe"))} ${ICONS.arrow}</span>
+      </a>`;
       }
 
       function renderExperience(d) {
@@ -4933,6 +5182,9 @@
         ${social.github ? `<a href="${esc(social.github)}" target="_blank" rel="noopener" aria-label="GitHub">${ICONS.github}</a>` : ""}
         ${social.linkedin ? `<a href="${esc(social.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn">${ICONS.linkedin}</a>` : ""}
         ${social.facebook ? `<a href="${esc(social.facebook)}" target="_blank" rel="noopener" aria-label="Facebook">${ICONS.facebook}</a>` : ""}
+        ${social.youtube ? `<a href="${esc(social.youtube)}" target="_blank" rel="noopener" aria-label="YouTube">${ICONS.youtube}</a>` : ""}
+        ${social.tiktok ? `<a href="${esc(social.tiktok)}" target="_blank" rel="noopener" aria-label="TikTok">${ICONS.tiktok}</a>` : ""}
+        ${social.instagram ? `<a href="${esc(social.instagram)}" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.instagram}</a>` : ""}
         ${email ? `<a href="mailto:${esc(email)}" aria-label="Email">${ICONS.email}</a>` : ""}
       </div>
     </div>
@@ -5400,6 +5652,7 @@
         renderNav(d);
         renderHero(d);
         renderAbout(d);
+        renderContent(d);
         renderExperience(d);
         renderProjects(d);
         renderServices(d);
@@ -5508,6 +5761,7 @@
         const sectionIds = [
           "home",
           "about",
+          "content",
           "experience",
           "projects",
           "volunteering",

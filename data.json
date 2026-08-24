@@ -13,7 +13,10 @@
     "social": {
       "github": "https://github.com/MomenSoliman",
       "linkedin": "https://www.linkedin.com/in/moamen-soliman-17826323b/",
-      "facebook": "#"
+      "facebook": "https://www.facebook.com/profile.php?id=61591872028316",
+      "youtube": "https://www.youtube.com/channel/UCvhKjWtvWe3W2Q5PVrXa8YA",
+      "tiktok": "https://www.tiktok.com/@moamensoliman13",
+      "instagram": "https://www.instagram.com/moamen.soliman13/"
     }
   },
   "about": {
@@ -46,6 +49,42 @@
         "label": "ETL Accuracy"
       }
     ]
+  },
+  "content": {
+    "eyebrow": "Content",
+    "headlineHtml": "Data analysis, <accent>in plain Arabic</accent>.",
+    "subtitle": "I break down Excel, Power BI, SQL and Python for Arabic speakers — practical, step by step, no jargon.",
+    "platforms": [
+      {
+        "id": "youtube",
+        "name": "YouTube",
+        "handle": "Moamen Soliman",
+        "url": "https://www.youtube.com/channel/UCvhKjWtvWe3W2Q5PVrXa8YA",
+        "blurb": "Full walkthroughs — build a real dashboard or clean a real dataset from start to finish."
+      },
+      {
+        "id": "tiktok",
+        "name": "TikTok",
+        "handle": "@moamensoliman13",
+        "url": "https://www.tiktok.com/@moamensoliman13",
+        "blurb": "Short, fast tips — one trick, one shortcut, one fix at a time."
+      },
+      {
+        "id": "instagram",
+        "name": "Instagram",
+        "handle": "@moamen.soliman13",
+        "url": "https://www.instagram.com/moamen.soliman13/",
+        "blurb": "Visual breakdowns, chart tips, and a look behind the projects."
+      },
+      {
+        "id": "facebook",
+        "name": "Facebook",
+        "handle": "Moamen Soliman",
+        "url": "https://www.facebook.com/profile.php?id=61591872028316",
+        "blurb": "Longer posts, questions answered, and the community discussions."
+      }
+    ],
+    "coursesNote": "Free and paid courses are on the way — follow any channel to hear first."
   },
   "experience": {
     "eyebrow": "Experience",
@@ -1048,6 +1087,26 @@
             "label": "دقة خطوط ETL"
           }
         ]
+      },
+      "content": {
+        "eyebrow": "المحتوى",
+        "headlineHtml": "تحليل البيانات <accent>بلغة تفهمها</accent>.",
+        "subtitle": "بشرح Excel و Power BI و SQL و Python بالعربي — عملي، خطوة بخطوة، ومن غير تعقيد.",
+        "platforms": [
+          {
+            "blurb": "شروحات كاملة — تبني داشبورد حقيقي أو تنضّف داتا حقيقية من الأول للآخر."
+          },
+          {
+            "blurb": "نصايح سريعة — حيلة واحدة أو اختصار واحد في كل فيديو."
+          },
+          {
+            "blurb": "ملخصات بصرية، نصايح للرسوم البيانية، ونظرة من ورا الكواليس."
+          },
+          {
+            "blurb": "بوستات أطول، إجابات على أسئلتكم، ونقاشات المجتمع."
+          }
+        ],
+        "coursesNote": "كورسات مجانية ومدفوعة في الطريق — تابع أي قناة عشان تعرف أول واحد."
       },
       "experience": {
         "eyebrow": "الخبرة",
