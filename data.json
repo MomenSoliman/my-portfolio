@@ -50,6 +50,16 @@
       }
     ]
   },
+  "courses": {
+    "eyebrow": "Courses",
+    "headlineHtml": "Learn data analysis, <accent>in Arabic</accent>.",
+    "badge": "Coming soon",
+    "heading": "Free and paid courses — from your first formula to a shipped dashboard.",
+    "text": "Excel, Power BI, SQL and Python, taught step by step in plain Arabic.",
+    "cta": "Get notified",
+    "formUrl": "https://forms.gle/WBhgBgoJyUSAKLgL6",
+    "note": "Register once — you'll get one email the day the first course goes live."
+  },
   "content": {
     "eyebrow": "Content",
     "headlineHtml": "Data analysis, <accent>in plain Arabic</accent>.",
@@ -129,7 +139,7 @@
     }
   },
   "volunteering": {
-    "eyebrow": "Volunteering",
+    "eyebrow": "Community",
     "headlineHtml": "Leading and <accent>building</accent> with people.",
     "subtitle": "Roles where I've grown leadership, organized teams, and shipped events alongside motivated communities.",
     "items": [
@@ -213,27 +223,27 @@
         "tools": [
           {
             "name": "Excel",
-            "iconUrl": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%23008080",
             "usage": "Primary environment — built the complete B2B sales dashboard and all visualizations from raw transactional data."
           },
           {
             "name": "Power Query",
-            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%23008080",
             "usage": "ETL layer — loaded, cleaned, and reshaped the raw CSV files before they reached the analysis layer."
           },
           {
             "name": "Power Pivot",
-            "iconUrl": "https://api.iconify.design/mdi:graph-outline.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:graph-outline.svg?color=%23008080",
             "usage": "Underlying engine enabling DAX-based calculations and multi-column analysis within the Excel workbook."
           },
           {
             "name": "DAX",
-            "iconUrl": "https://api.iconify.design/mdi:function-variant.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:function-variant.svg?color=%23008080",
             "usage": "Written custom measures for revenue KPIs, profit margins, YoY growth, and regional ranking logic."
           },
           {
             "name": "Pivot Tables",
-            "iconUrl": "https://api.iconify.design/mdi:table-large.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:table-large.svg?color=%23008080",
             "usage": "Summarized multi-dimensional sales data into cross-tab reports that feed every chart in the dashboard."
           }
         ],
@@ -295,27 +305,27 @@
         "tools": [
           {
             "name": "MySQL",
-            "iconUrl": "https://cdn.simpleicons.org/mysql/00d4ff",
+            "iconUrl": "https://cdn.simpleicons.org/mysql/008080",
             "usage": "Primary database engine — all cleaning, deduplication, and transformation queries written and executed in MySQL Workbench."
           },
           {
             "name": "Window Functions",
-            "iconUrl": "https://api.iconify.design/mdi:layers-triple.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:layers-triple.svg?color=%23008080",
             "usage": "Used ROW_NUMBER() with PARTITION BY to detect and rank duplicate rows before removing them systematically."
           },
           {
             "name": "Self Join",
-            "iconUrl": "https://api.iconify.design/mdi:relation-many-to-many.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:relation-many-to-many.svg?color=%23008080",
             "usage": "Joined the layoffs table against itself to propagate non-null values into rows where the same company had missing fields."
           },
           {
             "name": "Data Cleaning",
-            "iconUrl": "https://api.iconify.design/mdi:broom.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:broom.svg?color=%23008080",
             "usage": "Applied standardization rules — trimmed whitespace, unified country names, and normalized date formats across all records."
           },
           {
             "name": "ETL",
-            "iconUrl": "https://api.iconify.design/mdi:transit-connection-variant.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:transit-connection-variant.svg?color=%23008080",
             "usage": "Structured the full pipeline as a repeatable ETL process: staged raw data → transformed → loaded into EDA-ready output table."
           }
         ],
@@ -353,9 +363,9 @@
         "embedUrl": "",
         "walkthrough": {
           "intro": {
-            "mysqlIconUrl": "https://cdn.simpleicons.org/mysql/00d4ff",
+            "mysqlIconUrl": "https://cdn.simpleicons.org/mysql/008080",
             "dbIconUrl": "https://api.iconify.design/mdi:database.svg?color=%23ffa502",
-            "cleanIconUrl": "https://api.iconify.design/mdi:database-check.svg?color=%2300d4ff",
+            "cleanIconUrl": "https://api.iconify.design/mdi:database-check.svg?color=%23008080",
             "subtitle": "A step-by-step MySQL project that transforms a raw, messy global layoffs dataset into a clean, analysis-ready table — removing duplicates, standardising values, fixing dates, and handling nulls."
           },
           "steps": [
@@ -379,7 +389,7 @@
             },
             {
               "num": "03",
-              "iconUrl": "https://api.iconify.design/mdi:format-letter-case.svg?color=%2300d4ff",
+              "iconUrl": "https://api.iconify.design/mdi:format-letter-case.svg?color=%23008080",
               "tag": "STEP 2",
               "title": "Data Standardization",
               "desc": "Raw data had extra whitespace, inconsistent industry labels, and a country name with a trailing period. TRIM() cleaned company names, a LIKE pattern unified 'Crypto%' variants into 'Crypto', and TRIM(TRAILING) removed the rogue period from 'United States.'.",
@@ -453,22 +463,22 @@
         "tools": [
           {
             "name": "Excel",
-            "iconUrl": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%23008080",
             "usage": "Main analysis environment — dashboard, all charts, and pivot-based summaries built and presented here."
           },
           {
             "name": "Power Query",
-            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%23008080",
             "usage": "Merged multiple CSV source files (sales, products, stores, calendar), standardized date formats and category labels."
           },
           {
             "name": "Pivot Tables",
-            "iconUrl": "https://api.iconify.design/mdi:table-large.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:table-large.svg?color=%23008080",
             "usage": "Aggregated sales and profit data across stores, regions, and product lines to surface top and bottom performers."
           },
           {
             "name": "Inventory Analysis",
-            "iconUrl": "https://api.iconify.design/mdi:clipboard-list-outline.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:clipboard-list-outline.svg?color=%23008080",
             "usage": "Modeled stock health metrics — days of supply, over/understocked flags — per product per store to guide reorder decisions."
           }
         ],
@@ -664,27 +674,27 @@
         "tools": [
           {
             "name": "Power BI",
-            "iconUrl": "https://api.iconify.design/simple-icons:powerbi.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/simple-icons:powerbi.svg?color=%23008080",
             "usage": "Primary environment — built the full data model, both dashboard pages, and every visual from the raw HR dataset."
           },
           {
             "name": "Power Query",
-            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:database-search.svg?color=%23008080",
             "usage": "ETL layer — imported, cleaned, and shaped the employee data; standardized dates, branches, and nationality fields before modeling."
           },
           {
             "name": "DAX",
-            "iconUrl": "https://api.iconify.design/mdi:function-variant.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:function-variant.svg?color=%23008080",
             "usage": "Wrote the custom measures — Headcount, Attrition Rate %, Total Salary Package, Average Cost per Employee, and Department Median Salary."
           },
           {
             "name": "Data Modeling",
-            "iconUrl": "https://api.iconify.design/mdi:graph-outline.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:graph-outline.svg?color=%23008080",
             "usage": "Structured the model with a dedicated measures table and a date table to enable year-over-year headcount and cost trends."
           },
           {
             "name": "Slicers & Filters",
-            "iconUrl": "https://api.iconify.design/mdi:filter-variant.svg?color=%2300d4ff",
+            "iconUrl": "https://api.iconify.design/mdi:filter-variant.svg?color=%23008080",
             "usage": "Added synced Nationality, Branch, and Job Title slicers so leadership can drill into any segment across both dashboard pages."
           }
         ],
@@ -861,25 +871,25 @@
             "id": "sk-excel",
             "name": "Power BI",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/simple-icons:powerbi.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/simple-icons:powerbi.svg?color=%23008080"
           },
           {
             "id": "sk-dax",
             "name": "DAX",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/mdi:function-variant.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/mdi:function-variant.svg?color=%23008080"
           },
           {
             "id": "sk-pq",
             "name": "Power Query",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/mdi:database-search.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/mdi:database-search.svg?color=%23008080"
           },
           {
             "id": "sk-pp",
             "name": "Power Pivot",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/mdi:graph-outline.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/mdi:graph-outline.svg?color=%23008080"
           }
         ]
       },
@@ -891,25 +901,25 @@
             "id": "sk-gemini",
             "name": "Gemini AI",
             "iconType": "url",
-            "iconValue": "https://cdn.simpleicons.org/googlegemini/00d4ff"
+            "iconValue": "https://cdn.simpleicons.org/googlegemini/008080"
           },
           {
             "id": "sk-db",
             "name": "Claude AI",
             "iconType": "url",
-            "iconValue": "https://cdn.simpleicons.org/claude/00d4ff"
+            "iconValue": "https://cdn.simpleicons.org/claude/008080"
           },
           {
             "id": "sk-make",
             "name": "Make.com",
             "iconType": "url",
-            "iconValue": "https://cdn.simpleicons.org/Make/00d4ff"
+            "iconValue": "https://cdn.simpleicons.org/Make/008080"
           },
           {
             "id": "sk-etl",
             "name": "ETL Pipelines",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/mdi:transit-connection-variant.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/mdi:transit-connection-variant.svg?color=%23008080"
           }
         ]
       },
@@ -921,19 +931,19 @@
             "id": "sk-python",
             "name": "Python",
             "iconType": "url",
-            "iconValue": "https://cdn.simpleicons.org/python/00d4ff"
+            "iconValue": "https://cdn.simpleicons.org/python/008080"
           },
           {
             "id": "sk-mysql",
             "name": "MySQL",
             "iconType": "url",
-            "iconValue": "https://cdn.simpleicons.org/mysql/00d4ff"
+            "iconValue": "https://cdn.simpleicons.org/mysql/008080"
           },
           {
             "id": "sk-cpp",
             "name": "C++",
             "iconType": "url",
-            "iconValue": "https://cdn.simpleicons.org/cplusplus/00d4ff"
+            "iconValue": "https://cdn.simpleicons.org/cplusplus/008080"
           }
         ]
       },
@@ -945,25 +955,25 @@
             "id": "sk-excel",
             "name": "Excel",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftexcel.svg?color=%23008080"
           },
           {
             "id": "sk-word",
             "name": "Word",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/simple-icons:microsoftword.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftword.svg?color=%23008080"
           },
           {
             "id": "sk-ppt",
             "name": "PowerPoint",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/simple-icons:microsoftpowerpoint.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftpowerpoint.svg?color=%23008080"
           },
           {
             "id": "sk-access",
             "name": "Access",
             "iconType": "url",
-            "iconValue": "https://api.iconify.design/simple-icons:microsoftaccess.svg?color=%2300d4ff"
+            "iconValue": "https://api.iconify.design/simple-icons:microsoftaccess.svg?color=%23008080"
           }
         ]
       }
@@ -1000,7 +1010,7 @@
     "tagline": "Built with care."
   },
   "services": {
-    "eyebrow": "Services",
+    "eyebrow": "Freelance",
     "headlineHtml": "Freelance <accent>services</accent>.",
     "subtitle": "I help businesses turn messy data into clear decisions. Available for freelance and contract work — remote, worldwide.",
     "availability": "Available for new projects",
@@ -1087,6 +1097,15 @@
             "label": "دقة خطوط ETL"
           }
         ]
+      },
+      "courses": {
+        "eyebrow": "الكورسات",
+        "headlineHtml": "اتعلّم تحليل البيانات <accent>بالعربي</accent>.",
+        "badge": "قريبًا",
+        "heading": "كورسات مجانية ومدفوعة — من أول معادلة لحد داشبورد كامل.",
+        "text": "Excel و Power BI و SQL و Python، خطوة بخطوة وبالعربي.",
+        "cta": "سجّل واستنى الإطلاق",
+        "note": "سجّل مرة واحدة — هيوصلك إيميل واحد يوم ما أول كورس ينزل."
       },
       "content": {
         "eyebrow": "المحتوى",
@@ -1647,7 +1666,7 @@
         }
       },
       "volunteering": {
-        "eyebrow": "التطوع",
+        "eyebrow": "المجتمع",
         "headlineHtml": "أقود وأبني <accent>مع الناس</accent>.",
         "subtitle": "أدوار نمّيت فيها مهارات القيادة، ونظّمت فرق عمل، وأطلقت فعاليات مع مجتمعات شغوفة.",
         "items": [
