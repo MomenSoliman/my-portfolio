@@ -9,7 +9,7 @@
 <link rel="alternate icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <script>
   /* language before paint — Arabic for Arabic browsers, else English.
      A saved choice always wins. */
@@ -27,6 +27,8 @@
     --teal-600:#00706f;
     --teal-tint:#e6f2f2;
     --teal-soft:#dbeeee;
+    --accent:#f4a72c;          /* monogram rule + the dot on the i */
+    --accent-deep:#d98c12;
     --ink:#2b2b2b;
     --ink-2:#575757;
     --ink-3:#7e7e7e;
@@ -108,34 +110,62 @@
   .reveal.in{opacity:1;transform:none}
 
   /* ── nav ── */
-  .topbar{
-    position:sticky;top:0;z-index:80;background:rgba(247,250,250,.86);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;
+  /* floating island: the bar detaches from the top edge and rides above content */
+  .topbar{position:sticky;top:0;z-index:80;background:transparent;padding:.85rem 0;pointer-events:none}
+  .topbar .container{pointer-events:none}
+  .nav{
+    pointer-events:auto;
+    display:flex;align-items:center;justify-content:space-between;gap:1.4rem;
+    padding:.5rem .5rem .5rem 1.15rem;
+    border-radius:999px;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(16px) saturate(165%);
+    -webkit-backdrop-filter:blur(16px) saturate(165%);
+    border:1px solid rgba(203,221,221,.6);
+    box-shadow:0 6px 26px rgba(10,60,60,.06), 0 1px 3px rgba(10,60,60,.04);
+    transition:box-shadow .34s ease, background .34s ease, border-radius .3s ease;
   }
-  .topbar.stuck{border-color:var(--line);box-shadow:0 6px 24px rgba(0,60,60,.05)}
-  .nav{padding:1.15rem 0;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-  /* wordmark: MS monogram + name, one teal, Sora for a modern signature */
+  .topbar.stuck .nav{
+    background:rgba(255,255,255,.86);
+    box-shadow:0 12px 36px rgba(10,60,60,.11), 0 2px 6px rgba(10,60,60,.05);
+  }
+  /* wordmark: two-tone MS monogram + name in Plus Jakarta Sans, tight tracking */
   .brand{
-    display:flex;align-items:center;gap:.62rem;text-decoration:none;flex-shrink:0;
-    font-family:'Sora',var(--display);font-weight:700;font-size:1.2rem;
-    letter-spacing:-.022em;line-height:1;color:var(--teal);white-space:nowrap;
+    display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0;
+    font-family:'Plus Jakarta Sans',var(--display);font-weight:800;font-size:1.16rem;
+    letter-spacing:-.035em;line-height:1;color:var(--teal);white-space:nowrap;
     transition:color .22s;
   }
-  html[lang="ar"] .brand{font-family:'Cairo',sans-serif;letter-spacing:normal}
-  .brand .mark{width:29px;height:37px;flex-shrink:0;display:grid;place-items:center}
-  .brand .mark svg{width:100%;height:100%;display:block}
+  html[lang="ar"] .brand{font-family:'Cairo',sans-serif;letter-spacing:normal;font-weight:700}
+  .brand .mark{width:27px;height:34px;flex-shrink:0;display:grid;place-items:center}
+  .brand .mark svg{width:100%;height:100%;display:block;overflow:visible}
+  .brand .ms-letters{fill:var(--teal);transition:fill .22s}
+  .brand .ms-rule{fill:var(--accent);transition:fill .22s}
   .brand:hover{color:var(--teal-600)}
+  .brand:hover .ms-letters{fill:var(--teal-600)}
+  .brand:hover .ms-rule{fill:var(--accent-deep)}
+  /* dotless i + a coloured dot, matching the monogram rule */
+  .brand .idot{position:relative}
+  .brand .idot i{
+    position:absolute;left:50%;top:.055em;transform:translateX(-50%);
+    width:.16em;height:.16em;border-radius:50%;background:var(--accent);
+    transition:background .22s;
+  }
+  .brand:hover .idot i{background:var(--accent-deep)}
   .nav-links{display:flex;align-items:center;gap:1.7rem;list-style:none}
   .nav-links > li > a,.more-btn{
-    font-family:var(--body);font-size:.93rem;font-weight:500;color:var(--ink-2);
-    text-decoration:none;background:none;border:0;cursor:pointer;padding:0 0 3px;
-    position:relative;transition:color .2s;display:inline-flex;align-items:center;gap:.3rem;
+    font-family:var(--body);font-size:.9rem;font-weight:500;color:var(--ink-2);
+    text-decoration:none;background:none;border:0;cursor:pointer;
+    padding:.42rem .85rem;border-radius:999px;
+    transition:color .22s, background .22s;
+    display:inline-flex;align-items:center;gap:.28rem;white-space:nowrap;
   }
-  .nav-links > li > a:hover,.more-btn:hover,.nav-links > li > a.active,.more.open .more-btn{color:var(--teal)}
-  .nav-links > li > a.active::after{content:"";position:absolute;inset-inline:0;bottom:0;height:2px;background:var(--teal);border-radius:2px}
+  .nav-links > li > a:hover,.more-btn:hover,.more.open .more-btn{color:var(--teal);background:rgba(0,128,128,.06)}
+  /* soft capsule instead of an underline */
+  .nav-links > li > a.active{background:var(--teal-tint);color:#0f6f6e;font-weight:600}
   .more{position:relative}
-  .more-btn svg{width:15px;height:15px;transition:transform .25s}
+  .more-btn svg{width:13px;height:13px;stroke-width:1.7;opacity:.75;transition:transform .25s,opacity .22s}
+  .more-btn:hover svg,.more.open .more-btn svg{opacity:1}
   .more.open .more-btn svg{transform:rotate(180deg)}
   .dropdown{
     position:absolute;inset-inline-start:-1rem;top:calc(100% + .8rem);min-width:190px;
@@ -151,10 +181,27 @@
   .dropdown a{display:block;padding:.6rem .85rem;border-radius:8px;font-size:.9rem;
     color:var(--ink-2);text-decoration:none;transition:.18s}
   .dropdown a:hover{background:var(--teal-tint);color:var(--teal)}
-  .nav-right{display:flex;align-items:center;gap:.8rem;flex-shrink:0}
-  .lang{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--white);
-    color:var(--ink-2);font-family:var(--body);font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s;flex-shrink:0}
-  .lang:hover{border-color:var(--teal);color:var(--teal)}
+  /* right-hand actions read as one set: same height, same rhythm */
+  .nav-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+  .lang{
+    width:40px;height:40px;border-radius:999px;border:1px solid rgba(203,221,221,.85);
+    background:rgba(255,255,255,.6);color:var(--ink-2);font-family:var(--body);
+    font-size:.85rem;font-weight:600;cursor:pointer;flex-shrink:0;
+    display:grid;place-items:center;line-height:1;
+    transition:color .22s,border-color .22s,background .22s,transform .22s;
+  }
+  .lang:hover{border-color:var(--teal);color:var(--teal);background:#fff;transform:translateY(-2px)}
+  .nav .btn{
+    height:40px;padding:0 1.25rem;font-size:.9rem;border-radius:999px;
+    box-shadow:0 4px 14px rgba(0,112,111,.22);
+  }
+  .nav .btn svg{width:14px;height:14px;transition:transform .28s}
+  .nav .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(0,112,111,.30);
+  }
+  .nav .btn:hover svg{transform:translateX(3px)}
+  [dir="rtl"] .nav .btn:hover svg{transform:scaleX(-1) translateX(3px)}
   .burger{display:none;flex-direction:column;gap:4px;background:none;border:0;cursor:pointer;padding:8px}
   .burger span{width:20px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
   .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
@@ -443,7 +490,10 @@
   }
   @media (max-width:940px){
     .burger{display:flex}
-    .nav{flex-wrap:wrap}
+    .nav{flex-wrap:wrap;padding:.5rem .5rem .5rem .95rem}
+    /* capsule relaxes into a rounded panel while the menu is open */
+    .nav.open{border-radius:26px;padding-bottom:.35rem}
+    .nav.open .nav-links{padding-top:.35rem}
     .nav-links{order:3;width:100%;flex-direction:column;align-items:stretch;gap:0;
       max-height:0;overflow:hidden;transition:max-height .34s ease}
     .nav.open .nav-links{max-height:640px}
@@ -557,7 +607,7 @@
 
   /* ── icons ── */
   var ICONS = {
-    logo:'<svg viewBox="0 0 180 228" role="img" aria-label="MS"><path fill="currentColor" d="M 0 44.8 A 3.2 3.2 0 0 1 3.2 41.6 L 13 41 L 38 41 A 3 3 0 0 1 41 44 L 41 52 L 71.75 113.5 L 108 41 L 118.5 41 L 71.23 135.54 A 4.45 4.45 0 0 1 63.27 135.54 L 26.5 62 L 26.5 136.5 C 26.5 139.2 28 141 30.5 141 L 37.8 141.4 A 3.2 3.2 0 0 1 41 144.6 L 41 148.2 A 3.2 3.2 0 0 1 37.8 151.4 L 13 152 L 3.2 151.4 A 3.2 3.2 0 0 1 0 148.2 L 0 144.6 A 3.2 3.2 0 0 1 3.2 141.4 L 11.5 141 C 13.4 141 14.5 139.4 14.5 136.5 L 14.5 56.5 C 14.5 53.6 13.4 52 11.5 52 L 3.2 51.6 A 3.2 3.2 0 0 1 0 48.4 Z M 109 41 L 126.5 41 L 126.5 64 C 126.5 73 133 80 145 80 C 160 80 172 83.5 174 95 L 174 110.5 C 174 114.5 172 116.5 168.8 116.5 C 165.6 116.5 164 114.5 164 111 C 164 102.5 160.5 95.5 150.5 92.5 L 131 92.5 C 127.5 92.5 126 94.5 126 98 C 126 108 119.5 112 119.5 122 C 128 124 166.3 135.8 174 147.5 A 35 35 0 0 1 145 201.5 C 135 201.5 118 199.5 106 194.5 C 99.5 191 97 188.5 97 183 L 97 172 L 103 158 C 105 167 108 176 114 182 C 120 188 133 189.9 141.5 189.9 A 20.4 20.4 0 0 0 161.7 167 C 160.8 160 142 149 124 145 C 116 141.5 109 132 109 118 L 109 41 Z M 152.82 4.28 A 8 8 0 0 1 167.58 10.48 L 78.08 223.7 A 8 8 0 0 1 63.32 217.5 Z"/></svg>',
+    logo:'<svg viewBox="0 0 180 228" role="img" aria-label="MS"><path class="ms-letters" d="M 0 44.8 A 3.2 3.2 0 0 1 3.2 41.6 L 13 41 L 38 41 A 3 3 0 0 1 41 44 L 41 52 L 71.75 113.5 L 108 41 L 118.5 41 L 71.23 135.54 A 4.45 4.45 0 0 1 63.27 135.54 L 26.5 62 L 26.5 136.5 C 26.5 139.2 28 141 30.5 141 L 37.8 141.4 A 3.2 3.2 0 0 1 41 144.6 L 41 148.2 A 3.2 3.2 0 0 1 37.8 151.4 L 13 152 L 3.2 151.4 A 3.2 3.2 0 0 1 0 148.2 L 0 144.6 A 3.2 3.2 0 0 1 3.2 141.4 L 11.5 141 C 13.4 141 14.5 139.4 14.5 136.5 L 14.5 56.5 C 14.5 53.6 13.4 52 11.5 52 L 3.2 51.6 A 3.2 3.2 0 0 1 0 48.4 Z M 109 41 L 126.5 41 L 126.5 64 C 126.5 73 133 80 145 80 C 160 80 172 83.5 174 95 L 174 110.5 C 174 114.5 172 116.5 168.8 116.5 C 165.6 116.5 164 114.5 164 111 C 164 102.5 160.5 95.5 150.5 92.5 L 131 92.5 C 127.5 92.5 126 94.5 126 98 C 126 108 119.5 112 119.5 122 C 128 124 166.3 135.8 174 147.5 A 35 35 0 0 1 145 201.5 C 135 201.5 118 199.5 106 194.5 C 99.5 191 97 188.5 97 183 L 97 172 L 103 158 C 105 167 108 176 114 182 C 120 188 133 189.9 141.5 189.9 A 20.4 20.4 0 0 0 161.7 167 C 160.8 160 142 149 124 145 C 116 141.5 109 132 109 118 L 109 41 Z"/><path class="ms-rule" d="M 152.82 4.28 A 8 8 0 0 1 167.58 10.48 L 78.08 223.7 A 8 8 0 0 1 63.32 217.5 Z"/></svg>',
     chevD:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
     arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>',
     out:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>',
@@ -618,6 +668,10 @@
     return String(s==null?"":s).toLowerCase()
       .replace(/(^|[\s\-'])([\S])/g, function(_,a,b){ return a + b.toUpperCase(); });
   }
+  /* renders the name with a dotless i so the dot can carry the accent colour */
+  function brandName(s){
+    return esc(titleCase(s)).replace(/i/g,'<span class="idot">\u0131<i></i></span>');
+  }
   function esc(s){ return String(s==null?"":s)
     .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function inline(h){ return h?String(h)
@@ -653,9 +707,9 @@
   function renderNav(d){
     var p=d.profile||{}, n=UI[LANG].nav;
     document.getElementById("nav").innerHTML =
-      '<a class="brand" href="#home">'+
+      '<a class="brand" href="#home" aria-label="'+esc(titleCase(p.firstName)+" "+titleCase(p.lastName))+'">'+
         '<span class="mark">'+ICONS.logo+'</span>'+
-        '<span>'+esc(titleCase(p.firstName))+' '+esc(titleCase(p.lastName))+'</span></a>'+
+        '<span aria-hidden="true">'+brandName(p.firstName)+' '+brandName(p.lastName)+'</span></a>'+
       '<ul class="nav-links" id="navLinks">'+
         PRIMARY.map(function(id){
           return '<li><a href="#'+id+'" data-sec="'+id+'">'+esc(n[id])+'</a></li>'; }).join("")+
@@ -670,7 +724,7 @@
       '</ul>'+
       '<div class="nav-right">'+
         '<button class="lang" id="langBtn" aria-label="language">'+(LANG==="ar"?"EN":"ع")+'</button>'+
-        '<a class="btn" href="#contact">'+esc(t("getInTouch"))+'</a>'+
+        '<a class="btn" href="#contact">'+esc(t("getInTouch"))+ICONS.arrow+'</a>'+
         '<button class="burger" id="burger" aria-label="menu" aria-expanded="false">'+
           '<span></span><span></span><span></span></button>'+
       '</div>';
@@ -907,9 +961,9 @@
   function renderFooter(d){
     var p=d.profile||{}, f=d.footer||{};
     document.getElementById("footer").innerHTML='<div class="container"><div class="foot">'+
-      '<a class="brand" href="#home">'+
+      '<a class="brand" href="#home" aria-label="'+esc(titleCase(p.firstName)+" "+titleCase(p.lastName))+'">'+
         '<span class="mark">'+ICONS.logo+'</span>'+
-        '<span>'+esc(titleCase(p.firstName))+' '+esc(titleCase(p.lastName))+'</span></a>'+
+        '<span aria-hidden="true">'+brandName(p.firstName)+' '+brandName(p.lastName)+'</span></a>'+
       '<p>© '+new Date().getFullYear()+' '+esc((p.firstName||"")+" "+(p.lastName||""))+' · '+esc(t("rights"))+'</p>'+
       '</div></div>';
   }
