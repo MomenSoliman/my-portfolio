@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Moamen Soliman — Data Analyst</title>
 <meta name="description" content="BI Analyst and data-analysis content creator. Dashboards, reporting and data cleaning — plus courses in Arabic.">
-<link rel="icon" type="image/svg+xml" href="assets/Logo.svg">
-<link rel="alternate icon" href="assets/logo.png">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-24 -14 228 256"><path fill="%23008080" d="M 0 44.8 A 3.2 3.2 0 0 1 3.2 41.6 L 13 41 L 38 41 A 3 3 0 0 1 41 44 L 41 52 L 71.75 113.5 L 108 41 L 118.5 41 L 71.23 135.54 A 4.45 4.45 0 0 1 63.27 135.54 L 26.5 62 L 26.5 136.5 C 26.5 139.2 28 141 30.5 141 L 37.8 141.4 A 3.2 3.2 0 0 1 41 144.6 L 41 148.2 A 3.2 3.2 0 0 1 37.8 151.4 L 13 152 L 3.2 151.4 A 3.2 3.2 0 0 1 0 148.2 L 0 144.6 A 3.2 3.2 0 0 1 3.2 141.4 L 11.5 141 C 13.4 141 14.5 139.4 14.5 136.5 L 14.5 56.5 C 14.5 53.6 13.4 52 11.5 52 L 3.2 51.6 A 3.2 3.2 0 0 1 0 48.4 Z M 109 41 L 126.5 41 L 126.5 64 C 126.5 73 133 80 145 80 C 160 80 172 83.5 174 95 L 174 110.5 C 174 114.5 172 116.5 168.8 116.5 C 165.6 116.5 164 114.5 164 111 C 164 102.5 160.5 95.5 150.5 92.5 L 131 92.5 C 127.5 92.5 126 94.5 126 98 C 126 108 119.5 112 119.5 122 C 128 124 166.3 135.8 174 147.5 A 35 35 0 0 1 145 201.5 C 135 201.5 118 199.5 106 194.5 C 99.5 191 97 188.5 97 183 L 97 172 L 103 158 C 105 167 108 176 114 182 C 120 188 133 189.9 141.5 189.9 A 20.4 20.4 0 0 0 161.7 167 C 160.8 160 142 149 124 145 C 116 141.5 109 132 109 118 L 109 41 Z"/><path fill="%23f4a72c" d="M 152.82 4.28 A 8 8 0 0 1 167.58 10.48 L 78.08 223.7 A 8 8 0 0 1 63.32 217.5 Z"/></svg>'>
+<link rel="alternate icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,6 +34,13 @@
     --ink-3:#7e7e7e;
     --ink-4:#a7a7a7;
     --page:#f7fafa;
+    /* alternating section bands — each differs from its neighbours */
+    --band:#ffffff;
+    --card-bg:#ffffff;
+    --chip-bg:#f2f7f7;
+    --band-tint:#eef5f6;
+    --card-on-tint:#ffffff;
+    --card-on-plain:#f7fbfb;
     --white:#fff;
     --line:#e4ecec;
     --line-2:#eef4f4;
@@ -86,7 +93,10 @@
   .eyebrow .rule{width:84px;height:1.5px;background:var(--teal);opacity:.45;flex-shrink:0}
 
   /* anchor jumps must clear the floating bar */
-  section[id]{scroll-margin-top:104px}
+  section[id]{scroll-margin-top:104px;background:var(--band);transition:background .3s}
+  /* bands alternate; cards invert so they always separate from their band */
+  .band-tint{--band:var(--band-tint);--card-bg:var(--card-on-tint);--chip-bg:#ffffff}
+  .band-plain{--band:#ffffff;--card-bg:var(--card-on-plain);--chip-bg:#eef5f6}
   .sec{padding:5rem 0}
   /* section head = the name only, at heading size, with the template's rule */
   .sec-head{margin-bottom:2.6rem;display:flex;align-items:center;gap:1.15rem}
@@ -105,7 +115,7 @@
   .hl{color:var(--teal);font-weight:600}
 
   .card{
-    background:var(--white);border:1px solid var(--line);
+    background:var(--card-bg);border:1px solid var(--line);
     border-radius:var(--r-sig) var(--r-tight) var(--r-sig) var(--r-tight);
     box-shadow:var(--sh-sm);transition:transform .3s,box-shadow .3s,border-color .3s;
   }
@@ -288,7 +298,7 @@
   }
   [dir="rtl"] .about-body p:last-child{border-radius:6px 0 0 6px}
   .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-  .stat{padding:1.5rem 1.3rem;background:var(--white);border:1px solid var(--line);
+  .stat{padding:1.5rem 1.3rem;background:var(--card-bg);border:1px solid var(--line);
     border-radius:18px 4px 18px 4px;transition:transform .3s,box-shadow .3s}
   [dir="rtl"] .stat{border-radius:4px 18px 4px 18px}
   .stat:hover{transform:translateY(-4px);box-shadow:var(--sh-sm)}
@@ -304,7 +314,7 @@
     padding:3rem;box-shadow:var(--sh-md);
     display:grid;grid-template-columns:1.3fr .7fr;gap:2.5rem;align-items:center;
   }
-  .soon-pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--white);
+  .soon-pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;
     border:1px solid var(--line);color:var(--teal);font-size:.74rem;font-weight:700;
     letter-spacing:.13em;text-transform:uppercase;padding:.45rem .9rem;border-radius:99px;margin-bottom:1.1rem}
   html[lang="ar"] .soon-pill{letter-spacing:normal;font-size:.84rem}
@@ -343,7 +353,7 @@
   [dir="rtl"] .plat:hover .plat-cta svg{transform:scaleX(-1) translateX(4px)}
 
   /* ── freelance ── */
-  .avail{display:inline-flex;align-items:center;gap:.55rem;background:var(--white);
+  .avail{display:inline-flex;align-items:center;gap:.55rem;background:var(--card-bg);
     border:1px solid var(--line);color:var(--teal);font-size:.82rem;font-weight:600;
     padding:.5rem 1rem;border-radius:99px;margin:-1rem 0 1.6rem}
   .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem}
@@ -403,13 +413,13 @@
     display:flex;align-items:center;gap:.6rem}
   .cat h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--teal);flex-shrink:0}
   .chips{display:flex;flex-wrap:wrap;gap:.6rem}
-  .chips a,.chips span{display:inline-flex;align-items:center;gap:.45rem;background:var(--page);
+  .chips a,.chips span{display:inline-flex;align-items:center;gap:.45rem;background:var(--chip-bg);
     border:1px solid var(--line);border-radius:99px;padding:.45rem .85rem;font-size:.84rem;
     color:var(--ink-2);text-decoration:none;transition:.2s}
   .chips a:hover,.chips span:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-tint)}
   .chips img{width:16px;height:16px;object-fit:contain}
   .certs{margin-top:1.3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-  .cert{padding:1.2rem 1.3rem;background:var(--white);border:1px solid var(--line);
+  .cert{padding:1.2rem 1.3rem;background:var(--card-bg);border:1px solid var(--line);
     border-radius:14px 4px 14px 4px;transition:transform .3s,box-shadow .3s}
   [dir="rtl"] .cert{border-radius:4px 14px 4px 14px}
   .cert:hover{transform:translateY(-4px);box-shadow:var(--sh-sm)}
@@ -419,7 +429,7 @@
 
   /* ── projects ── */
   .pfilters{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:2rem}
-  .pchip{font-family:var(--body);font-size:.82rem;font-weight:500;color:var(--ink-2);background:var(--white);
+  .pchip{font-family:var(--body);font-size:.82rem;font-weight:500;color:var(--ink-2);background:var(--card-bg);
     border:1px solid var(--line);border-radius:99px;padding:.45rem 1.05rem;cursor:pointer;transition:.25s}
   .pchip:hover{color:var(--teal);border-color:var(--teal)}
   .pchip.on{background:var(--teal);border-color:var(--teal);color:#fff}
@@ -478,13 +488,13 @@
   .contact-wrap .sec-name{margin-bottom:1.8rem;white-space:normal}
   .contact-actions{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
   .socials{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
-  .socials a{width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--line);
+  .socials a{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);
     display:grid;place-items:center;color:var(--ink-3);transition:.25s}
   .socials a:hover{color:var(--teal);border-color:var(--teal);transform:translateY(-3px)}
   .socials svg{width:19px;height:19px}
 
   /* ── footer ── */
-  footer{border-top:1px solid var(--line);padding:2.5rem 0;margin-top:2rem}
+  footer{border-top:1px solid var(--line);padding:2.5rem 0;background:#fff}
   .foot{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
   .foot p{font-size:.85rem;color:var(--ink-4)}
   .foot .brand{font-size:1rem}
@@ -1192,16 +1202,16 @@
 </div>
 
 <main id="mainView">
-  <section class="hero" id="home"></section>
-  <section class="sec" id="about"></section>
-  <section class="sec" id="courses"></section>
-  <section class="sec" id="content"></section>
-  <section class="sec" id="freelance"></section>
-  <section class="sec" id="experience"></section>
-  <section class="sec" id="skills"></section>
-  <section class="sec" id="projects"></section>
-  <section class="sec" id="community"></section>
-  <section class="sec" id="contact"></section>
+  <section class="hero band-plain" id="home"></section>
+  <section class="sec band-tint" id="about"></section>
+  <section class="sec band-plain" id="courses"></section>
+  <section class="sec band-tint" id="content"></section>
+  <section class="sec band-plain" id="freelance"></section>
+  <section class="sec band-tint" id="experience"></section>
+  <section class="sec band-plain" id="skills"></section>
+  <section class="sec band-tint" id="projects"></section>
+  <section class="sec band-plain" id="community"></section>
+  <section class="sec band-tint" id="contact"></section>
 </main>
 
 <div id="projectPage"></div>
