@@ -85,15 +85,23 @@
   html[lang="ar"] .eyebrow .tag{letter-spacing:normal;font-size:.84rem}
   .eyebrow .rule{width:84px;height:1.5px;background:var(--teal);opacity:.45;flex-shrink:0}
 
-  .sec{padding:5.5rem 0}
-  .sec-head{margin-bottom:3rem;max-width:44rem}
-  .sec h2{
-    font-family:var(--display);font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:600;
-    letter-spacing:-.02em;line-height:1.22;
+  /* anchor jumps must clear the floating bar */
+  section[id]{scroll-margin-top:104px}
+  .sec{padding:5rem 0}
+  /* section head = the name only, at heading size, with the template's rule */
+  .sec-head{margin-bottom:2.6rem;display:flex;align-items:center;gap:1.15rem}
+  .sec-name{
+    font-family:var(--display);font-size:clamp(1.65rem,2.9vw,2.25rem);font-weight:700;
+    letter-spacing:-.03em;line-height:1.15;color:var(--ink);white-space:nowrap;
   }
-  html[lang="ar"] .sec h2,html[lang="ar"] h1{line-height:1.4;letter-spacing:normal}
-  .sec h2 .accent,h1 .accent{color:var(--teal);font-style:normal}
-  .sec-sub{color:var(--ink-2);margin-top:.9rem;line-height:1.75}
+  html[lang="ar"] .sec-name{letter-spacing:normal;line-height:1.4;font-weight:700}
+  .sec-head .rule{
+    height:2px;flex:1;max-width:190px;border-radius:2px;opacity:.55;
+    background:linear-gradient(90deg,var(--teal),rgba(0,128,128,0));
+  }
+  [dir="rtl"] .sec-head .rule{background:linear-gradient(270deg,var(--teal),rgba(0,128,128,0))}
+  html[lang="ar"] h1{line-height:1.4;letter-spacing:normal}
+  h1 .accent{color:var(--teal);font-style:normal}
   .hl{color:var(--teal);font-weight:600}
 
   .card{
@@ -337,7 +345,7 @@
   /* ── freelance ── */
   .avail{display:inline-flex;align-items:center;gap:.55rem;background:var(--white);
     border:1px solid var(--line);color:var(--teal);font-size:.82rem;font-weight:600;
-    padding:.5rem 1rem;border-radius:99px;margin-bottom:1.2rem}
+    padding:.5rem 1rem;border-radius:99px;margin:-1rem 0 1.6rem}
   .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem}
   .svc{padding:2rem 1.8rem}
   .svc-ico{width:48px;height:48px;border-radius:14px 4px 14px 4px;background:var(--teal-tint);
@@ -467,9 +475,7 @@
     padding:3.2rem;text-align:center;box-shadow:var(--sh-md);
   }
   [dir="rtl"] .contact-wrap{border-radius:var(--r-tight) var(--r-sig) var(--r-tight) var(--r-sig)}
-  .contact-wrap .eyebrow{justify-content:center}
-  .contact-wrap h2{margin-bottom:.9rem}
-  .contact-wrap p{color:var(--ink-2);max-width:36rem;margin:0 auto 2rem;line-height:1.75}
+  .contact-wrap .sec-name{margin-bottom:1.8rem;white-space:normal}
   .contact-actions{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
   .socials{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
   .socials a{width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--line);
@@ -774,11 +780,10 @@
       '</div></div>';
   }
 
-  function head(o, extra){
+  function head(o){
     return '<div class="sec-head reveal">'+
-      '<div class="eyebrow"><span class="tag">'+esc(o.eyebrow||"")+'</span><span class="rule"></span></div>'+
-      '<h2>'+inline(o.headlineHtml||"")+'</h2>'+
-      (o.subtitle?'<p class="sec-sub">'+esc(o.subtitle)+'</p>':"")+(extra||"")+'</div>';
+      '<h2 class="sec-name">'+esc(o.eyebrow||"")+'</h2>'+
+      '<span class="rule"></span></div>';
   }
 
   /* ── about ── */
@@ -834,12 +839,9 @@
   /* ── freelance ── */
   function renderFreelance(d){
     var s=d.services||{};
-    var avail=s.availability?'<span class="avail"><span class="dot"></span>'+esc(s.availability)+'</span>':"";
     document.getElementById("freelance").innerHTML='<div class="container">'+
-      '<div class="sec-head reveal">'+
-        '<div class="eyebrow"><span class="tag">'+esc(s.eyebrow||"")+'</span><span class="rule"></span></div>'+
-        avail+'<h2>'+inline(s.headlineHtml||"")+'</h2>'+
-        (s.subtitle?'<p class="sec-sub">'+esc(s.subtitle)+'</p>':"")+'</div>'+
+      head(s)+
+      (s.availability?'<span class="avail reveal"><span class="dot"></span>'+esc(s.availability)+'</span>':"")+
       '<div class="svc-grid">'+(s.items||[]).map(function(it,i){
         return '<div class="card svc reveal" style="--rd:'+(i*80)+'ms">'+
           '<div class="svc-ico">'+(ICONS[it.icon]||ICONS.svcInsights)+'</div>'+
@@ -943,9 +945,7 @@
                ["tiktok","tiktok"],["instagram","instagram"],["facebook","facebook"]];
     document.getElementById("contact").innerHTML='<div class="container">'+
       '<div class="contact-wrap reveal">'+
-        '<div class="eyebrow"><span class="tag">'+esc(c.eyebrow||"")+'</span><span class="rule"></span></div>'+
-        '<h2>'+inline(c.headlineHtml||"")+'</h2>'+
-        '<p>'+esc(c.description||"")+'</p>'+
+        '<h2 class="sec-name">'+esc(c.eyebrow||"")+'</h2>'+
         '<div class="contact-actions">'+
           (p.email?'<a class="btn" href="mailto:'+esc(p.email)+'">'+ICONS.mail+esc(t("emailMe"))+'</a>':"")+
           (p.resumeUrl?'<a class="btn btn-ghost" href="'+esc(p.resumeUrl)+'" target="_blank" rel="noopener">'+
