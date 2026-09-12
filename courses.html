@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courses — Moamen Soliman</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/auth.css">
+<script>
+  (function(){var s=null;try{s=localStorage.getItem("mz-lang")}catch(e){}
+   var l=s||((navigator.language||"en").toLowerCase().indexOf("ar")===0?"ar":"en");
+   document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";})();
+</script>
+</head>
+<body>
+
+<!-- gate: nothing renders until auth state is known -->
+<div class="gate" id="gate">
+  <span class="spin"></span>
+  <p data-en="Checking your session…" data-ar="بنتحقّق من جلستك…">Checking your session…</p>
+</div>
+
+<header class="app-bar" id="appBar" style="display:none">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <span class="mark"><svg viewBox="0 0 180 228" role="img" aria-label="MS"><path class="ms-letters" d="M 0 44.8 A 3.2 3.2 0 0 1 3.2 41.6 L 13 41 L 38 41 A 3 3 0 0 1 41 44 L 41 52 L 71.75 113.5 L 108 41 L 118.5 41 L 71.23 135.54 A 4.45 4.45 0 0 1 63.27 135.54 L 26.5 62 L 26.5 136.5 C 26.5 139.2 28 141 30.5 141 L 37.8 141.4 A 3.2 3.2 0 0 1 41 144.6 L 41 148.2 A 3.2 3.2 0 0 1 37.8 151.4 L 13 152 L 3.2 151.4 A 3.2 3.2 0 0 1 0 148.2 L 0 144.6 A 3.2 3.2 0 0 1 3.2 141.4 L 11.5 141 C 13.4 141 14.5 139.4 14.5 136.5 L 14.5 56.5 C 14.5 53.6 13.4 52 11.5 52 L 3.2 51.6 A 3.2 3.2 0 0 1 0 48.4 Z M 109 41 L 126.5 41 L 126.5 64 C 126.5 73 133 80 145 80 C 160 80 172 83.5 174 95 L 174 110.5 C 174 114.5 172 116.5 168.8 116.5 C 165.6 116.5 164 114.5 164 111 C 164 102.5 160.5 95.5 150.5 92.5 L 131 92.5 C 127.5 92.5 126 94.5 126 98 C 126 108 119.5 112 119.5 122 C 128 124 166.3 135.8 174 147.5 A 35 35 0 0 1 145 201.5 C 135 201.5 118 199.5 106 194.5 C 99.5 191 97 188.5 97 183 L 97 172 L 103 158 C 105 167 108 176 114 182 C 120 188 133 189.9 141.5 189.9 A 20.4 20.4 0 0 0 161.7 167 C 160.8 160 142 149 124 145 C 116 141.5 109 132 109 118 L 109 41 Z"/><path class="ms-rule" d="M 152.82 4.28 A 8 8 0 0 1 167.58 10.48 L 78.08 223.7 A 8 8 0 0 1 63.32 217.5 Z"/></svg></span>
+      <span aria-hidden="true">Moamen Sol<span class="idot">&#305;<i></i></span>man</span>
+    </a>
+    <div class="app-actions">
+      <button class="lang-btn" id="langBtn" aria-label="language">ع</button>
+      <button class="btn btn-ghost" id="logoutBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        <span data-en="Log out" data-ar="خروج">Log out</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="shell" id="shell">
+  <section class="welcome">
+    <div class="eyebrow" data-en="Your library" data-ar="مكتبتك">Your library</div>
+    <h1 id="greeting">&nbsp;</h1>
+    <p data-en="Everything you have access to lives here. New lessons appear automatically."
+       data-ar="كل اللي عندك صلاحية ليه موجود هنا. الدروس الجديدة هتظهر تلقائيًا.">Everything you have access to lives here. New lessons appear automatically.</p>
+  </section>
+
+  <div class="sec-head">
+    <h2 class="sec-name" data-en="Courses" data-ar="الكورسات">Courses</h2>
+    <span class="rule"></span>
+  </div>
+
+  <div class="course-grid" id="grid"></div>
+
+  <p class="empty-note" id="note"
+     data-en="More lessons are on the way — you'll see them here as soon as they're published."
+     data-ar="في دروس جديدة جاية — هتلاقيها هنا أول ما تتنشر.">More lessons are on the way — you'll see them here as soon as they're published.</p>
+</main>
+
+<script type="module">
+import { auth, db, errorMessage } from "./assets/firebase-init.js";
+import { onAuthStateChanged, signOut }
+  from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { doc, getDoc }
+  from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { initShell, paintLang } from "./assets/ui.js";
+
+/* ── your course list — add a YouTube video ID to publish a lesson ──
+   videoId: the part after v= in the URL, e.g. "dQw4w9WgXcQ".
+   Leave it empty ("") and the card shows a "coming soon" state.        */
+const COURSES = [
+  { videoId: "", tag: {en:"Excel", ar:"إكسل"},
+    title: {en:"Excel from scratch", ar:"إكسل من الصفر"},
+    desc:  {en:"Clean data, build pivot tables and write the formulas that actually get used at work.",
+            ar:"نظّف البيانات، اعمل Pivot Tables، واكتب المعادلات اللي بتتستخدم فعلًا في الشغل."},
+    length:{en:"Coming soon", ar:"قريبًا"}, level:{en:"Beginner", ar:"مبتدئ"} },
+  { videoId: "", tag: {en:"Power BI", ar:"باور بي آي"},
+    title: {en:"Build your first dashboard", ar:"ابنِ أول داشبورد ليك"},
+    desc:  {en:"Model your data, write DAX measures and ship a dashboard a manager can act on.",
+            ar:"اعمل موديل لبياناتك، اكتب مقاييس DAX، وسلّم داشبورد المدير يقدر يتحرك بيه."},
+    length:{en:"Coming soon", ar:"قريبًا"}, level:{en:"Intermediate", ar:"متوسط"} },
+  { videoId: "", tag: {en:"SQL", ar:"إس كيو إل"},
+    title: {en:"SQL for analysts", ar:"SQL للمحللين"},
+    desc:  {en:"Query, join and clean real datasets — the exact SQL an analyst uses day to day.",
+            ar:"استعلم، اعمل Joins، ونضّف بيانات حقيقية — نفس SQL اللي المحلل بيستخدمه يوميًا."},
+    length:{en:"Coming soon", ar:"قريبًا"}, level:{en:"Beginner", ar:"مبتدئ"} },
+];
+
+const esc = (s) => String(s == null ? "" : s)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+const ICONS = { play: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></svg>`,
+                clock:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
+                level:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"/></svg>` };
+
+function L(){ return document.documentElement.lang === "ar" ? "ar" : "en"; }
+
+function renderCourses() {
+  const lang = L();
+  document.getElementById("grid").innerHTML = COURSES.map((c) => {
+    const media = c.videoId
+      ? `<iframe src="https://www.youtube-nocookie.com/embed/${esc(c.videoId)}?rel=0"
+           title="${esc(c.title[lang])}" loading="lazy" allowfullscreen
+           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`
+      : `<div class="soon">${ICONS.play}<span>${lang==="ar"?"الفيديو قريبًا":"Video coming soon"}</span></div>`;
+    return `<article class="course">
+      <div class="video">${media}</div>
+      <div class="course-body">
+        <span class="course-tag">${esc(c.tag[lang])}</span>
+        <h3>${esc(c.title[lang])}</h3>
+        <p>${esc(c.desc[lang])}</p>
+        <div class="course-meta">
+          <span>${ICONS.clock}${esc(c.length[lang])}</span>
+          <span>${ICONS.level}${esc(c.level[lang])}</span>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+let CURRENT_NAME = "";
+function paintGreeting() {
+  const lang = L();
+  const el = document.getElementById("greeting");
+  const name = CURRENT_NAME || (lang === "ar" ? "بك" : "there");
+  el.textContent = lang === "ar" ? `أهلًا ${name} 👋` : `Welcome, ${name} 👋`;
+}
+
+initShell();
+document.getElementById("langBtn").addEventListener("click", () => {
+  setTimeout(() => { paintGreeting(); renderCourses(); }, 0);
+});
+
+/* ── page protection ── */
+onAuthStateChanged(auth, async (user) => {
+  if (!user) { location.replace("login.html"); return; }
+
+  CURRENT_NAME = user.displayName || "";
+  try {
+    const snap = await getDoc(doc(db, "users", user.uid));
+    if (snap.exists() && snap.data().fullName) CURRENT_NAME = snap.data().fullName;
+  } catch (err) {
+    console.warn("Could not read profile:", err);   // name falls back to the auth profile
+  }
+
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("appBar").style.display = "";
+  document.getElementById("shell").classList.add("ready");
+  paintLang(L());
+  paintGreeting();
+  renderCourses();
+});
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  try { await signOut(auth); } catch (e) { console.error(e); }
+  location.replace("login.html");
+});
+</script>
+</body>
+</html>
