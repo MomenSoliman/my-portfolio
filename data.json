@@ -56,9 +56,11 @@
     "badge": "Coming soon",
     "heading": "Free and paid courses — from your first formula to a shipped dashboard.",
     "text": "Excel, Power BI, SQL and Python, taught step by step in plain Arabic.",
-    "cta": "Get notified",
-    "formUrl": "https://forms.gle/WBhgBgoJyUSAKLgL6",
-    "note": "Register once — you'll get one email the day the first course goes live."
+    "cta": "Open the courses",
+    "note": "Sign in to open your library. New lessons appear there automatically.",
+    "url": "courses.html",
+    "ctaAlt": "New here? Create a free account",
+    "altUrl": "signup.html"
   },
   "content": {
     "eyebrow": "Content",
@@ -1004,7 +1006,11 @@
   "contact": {
     "eyebrow": "Contact",
     "headlineHtml": "Let's turn data into <accent>decisions</accent>.",
-    "description": "Open to BI Analyst roles, freelance dashboard work, and data-cleaning collaborations. If you have a dataset that needs answers — let's talk."
+    "description": "Open to BI Analyst roles, freelance dashboard work, and data-cleaning collaborations. If you have a dataset that needs answers — let's talk.",
+    "membersTitle": "Get new lessons first",
+    "membersNote": "Create a free account and you'll be emailed whenever a new course or lesson goes live.",
+    "membersCta": "Create free account",
+    "membersAlt": "I already have an account"
   },
   "footer": {
     "tagline": "Built with care."
@@ -1104,8 +1110,9 @@
         "badge": "قريبًا",
         "heading": "كورسات مجانية ومدفوعة — من أول معادلة لحد داشبورد كامل.",
         "text": "Excel و Power BI و SQL و Python، خطوة بخطوة وبالعربي.",
-        "cta": "سجّل واستنى الإطلاق",
-        "note": "سجّل مرة واحدة — هيوصلك إيميل واحد يوم ما أول كورس ينزل."
+        "cta": "افتح الكورسات",
+        "note": "سجّل دخولك عشان تفتح مكتبتك. الدروس الجديدة هتظهر فيها تلقائيًا.",
+        "ctaAlt": "أول مرة؟ أنشئ حسابًا مجانيًا"
       },
       "content": {
         "eyebrow": "المحتوى",
@@ -1718,7 +1725,11 @@
       "contact": {
         "eyebrow": "تواصل",
         "headlineHtml": "لنحوّل البيانات إلى <accent>قرارات</accent>.",
-        "description": "متاح لأدوار محلّل ذكاء الأعمال، وأعمال لوحات المعلومات الحرة، وتعاونات تنظيف البيانات. إن كانت لديك بيانات تحتاج إلى إجابات — لنتحدث."
+        "description": "متاح لأدوار محلّل ذكاء الأعمال، وأعمال لوحات المعلومات الحرة، وتعاونات تنظيف البيانات. إن كانت لديك بيانات تحتاج إلى إجابات — لنتحدث.",
+        "membersTitle": "استلم الدروس الجديدة أول واحد",
+        "membersNote": "أنشئ حسابًا مجانيًا وهيوصلك إيميل أول ما ينزل كورس أو درس جديد.",
+        "membersCta": "أنشئ حسابًا مجانيًا",
+        "membersAlt": "عندي حساب بالفعل"
       },
       "footer": {
         "tagline": "صُنع بعناية."

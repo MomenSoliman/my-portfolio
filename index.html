@@ -499,6 +499,36 @@
   .foot p{font-size:.85rem;color:var(--ink-4)}
   .foot .brand{font-size:1rem}
 
+  /* secondary text link under a primary CTA */
+  .alt-link{
+    display:inline-block;margin-top:.85rem;font-size:.86rem;font-weight:600;
+    color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,128,128,.28);
+    padding-bottom:1px;transition:color .2s,border-color .2s;
+  }
+  .alt-link:hover{color:var(--teal-600);border-color:var(--teal-600)}
+  .soon .alt-link{display:block;width:fit-content;margin-top:1rem}
+
+  /* contact → members / updates */
+  .members{
+    margin-top:2.2rem;padding-top:1.9rem;border-top:1px solid var(--line);
+    display:flex;align-items:center;gap:1.2rem;text-align:start;
+  }
+  .members-ico{
+    flex-shrink:0;width:48px;height:48px;border-radius:14px 4px 14px 4px;
+    background:var(--teal-tint);color:var(--teal);display:grid;place-items:center;
+  }
+  [dir="rtl"] .members-ico{border-radius:4px 14px 4px 14px}
+  .members-ico svg{width:23px;height:23px}
+  .members-txt{flex:1;min-width:0}
+  .members-txt h3{
+    font-family:var(--display);font-size:1.05rem;font-weight:700;
+    letter-spacing:-.02em;margin-bottom:.25rem;
+  }
+  html[lang="ar"] .members-txt h3{letter-spacing:normal}
+  .members-txt p{font-size:.88rem;color:var(--ink-2);line-height:1.65;margin:0;max-width:34rem}
+  .members-act{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:.1rem}
+  .members-act .alt-link{margin-top:.5rem;font-size:.8rem}
+
   /* ── mobile-only components: hidden by default, activated ≤768px ── */
   .tabbar,.pills{display:none}
   /* accordions are plain, fully-open cards above 768px */
@@ -787,6 +817,12 @@
 
     /* ── contact ── */
     .contact-wrap{padding:1.9rem 1.15rem;border-radius:var(--r-sig) 4px var(--r-sig) 4px}
+    .members{flex-direction:column;text-align:center;gap:.9rem;margin-top:1.8rem;padding-top:1.5rem}
+    .members-txt h3{font-size:1rem}
+    .members-txt p{font-size:.85rem}
+    .members-act{width:100%}
+    .members-act .btn{width:100%;min-height:var(--tap);justify-content:center;border-radius:14px}
+    .soon .alt-link,.members .alt-link{display:block;text-align:center}
     .contact-actions{flex-direction:column;gap:.6rem}
     .contact-actions .btn{width:100%;min-height:var(--tap);justify-content:center;border-radius:14px}
     .socials{gap:.55rem;margin-top:1.5rem}
@@ -911,6 +947,7 @@
     arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>',
     out:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>',
     back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>',
+    bell:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>',
     mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>',
     doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
     cap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>',
@@ -1100,8 +1137,8 @@
           '<span class="soon-pill"><span class="dot"></span> '+esc(c.badge||"")+'</span>'+
           '<h3>'+esc(c.heading||"")+'</h3>'+
           '<p>'+esc(c.text||"")+'</p>'+
-          (c.formUrl?'<a class="btn" href="'+esc(c.formUrl)+'" target="_blank" rel="noopener">'+
-            esc(c.cta||"")+ICONS.arrow+'</a>':"")+
+          (c.url?'<a class="btn" href="'+esc(c.url)+'">'+esc(c.cta||"")+ICONS.arrow+'</a>':"")+
+          (c.altUrl?'<a class="alt-link" href="'+esc(c.altUrl)+'">'+esc(c.ctaAlt||"")+'</a>':"")+
           (c.note?'<p class="note">'+esc(c.note)+'</p>':"")+
         '</div>'+
         '<div class="soon-viz" aria-hidden="true">'+
@@ -1255,6 +1292,18 @@
         '<div class="socials">'+links.filter(function(l){return s[l[0]];}).map(function(l){
           return '<a href="'+esc(s[l[0]])+'" target="_blank" rel="noopener" aria-label="'+l[0]+'">'+ICONS[l[1]]+'</a>';
         }).join("")+'</div>'+
+        (c.membersCta?
+          '<div class="members">'+
+            '<div class="members-ico">'+ICONS.bell+'</div>'+
+            '<div class="members-txt">'+
+              '<h3>'+esc(c.membersTitle||"")+'</h3>'+
+              '<p>'+esc(c.membersNote||"")+'</p>'+
+            '</div>'+
+            '<div class="members-act">'+
+              '<a class="btn" href="signup.html">'+esc(c.membersCta)+ICONS.arrow+'</a>'+
+              '<a class="alt-link" href="login.html">'+esc(c.membersAlt||"")+'</a>'+
+            '</div>'+
+          '</div>':"")+
       '</div></div>';
   }
 
