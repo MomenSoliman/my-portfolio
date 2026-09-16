@@ -8,7 +8,7 @@
     "titlesHtml": "<strong>Data Analyst</strong> @ Green Delta Home <span class=\"pipe\">/</span> Computer Science Student @ Cairo University <span class=\"pipe\">/</span> Excel <span class=\"pipe\">·</span> Power BI <span class=\"pipe\">·</span> Make.com <span class=\"pipe\">·</span> SQL",
     "photo": "assets/profile.webp",
     "logo": "assets/Logo.svg",
-    "resumeUrl": "https://drive.google.com/file/d/1EhawEJEflpy9yOZlkDSkga6LI3gFTuAH/view?usp=sharing",
+    "resumeUrl": "assets/Resume.pdf",
     "email": "moamensoliman1304@gmail.com",
     "social": {
       "github": "https://github.com/MomenSoliman",
@@ -17,7 +17,8 @@
       "youtube": "https://www.youtube.com/channel/UCvhKjWtvWe3W2Q5PVrXa8YA",
       "tiktok": "https://www.tiktok.com/@moamensoliman13",
       "instagram": "https://www.instagram.com/moamen.soliman13/"
-    }
+    },
+    "resumeFile": "Moamen-Soliman-CV.pdf"
   },
   "about": {
     "eyebrow": "About",
